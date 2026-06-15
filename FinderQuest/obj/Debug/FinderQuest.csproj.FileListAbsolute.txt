@@ -1,0 +1,11 @@
+C:\Users\4d05\Desktop\goof juice\FinderQuest\FinderQuest\bin\Debug\FinderQuest.exe.config
+C:\Users\4d05\Desktop\goof juice\FinderQuest\FinderQuest\bin\Debug\FinderQuest.exe
+C:\Users\4d05\Desktop\goof juice\FinderQuest\FinderQuest\bin\Debug\FinderQuest.pdb
+C:\Users\4d05\Desktop\goof juice\FinderQuest\FinderQuest\obj\Debug\FinderQuest.csprojAssemblyReference.cache
+C:\Users\4d05\Desktop\goof juice\FinderQuest\FinderQuest\obj\Debug\FinderQuest.FormGame.resources
+C:\Users\4d05\Desktop\goof juice\FinderQuest\FinderQuest\obj\Debug\FinderQuest.FormQuestion.resources
+C:\Users\4d05\Desktop\goof juice\FinderQuest\FinderQuest\obj\Debug\FinderQuest.Properties.Resources.resources
+C:\Users\4d05\Desktop\goof juice\FinderQuest\FinderQuest\obj\Debug\FinderQuest.csproj.GenerateResource.cache
+C:\Users\4d05\Desktop\goof juice\FinderQuest\FinderQuest\obj\Debug\FinderQuest.csproj.CoreCompileInputs.cache
+C:\Users\4d05\Desktop\goof juice\FinderQuest\FinderQuest\obj\Debug\FinderQuest.exe
+C:\Users\4d05\Desktop\goof juice\FinderQuest\FinderQuest\obj\Debug\FinderQuest.pdb
