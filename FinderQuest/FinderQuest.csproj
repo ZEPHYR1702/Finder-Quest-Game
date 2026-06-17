@@ -46,8 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\Areas.cs" />
+    <Compile Include="Class\Persons.cs" />
     <Compile Include="Class\Player.cs" />
+    <Compile Include="Class\Questions.cs" />
+    <Compile Include="Class\TalkAreas.cs" />
     <Compile Include="Class\Time.cs" />
+    <Compile Include="Class\WalkAreas.cs" />
     <Compile Include="FormGame.cs">
       <SubType>Form</SubType>
     </Compile>

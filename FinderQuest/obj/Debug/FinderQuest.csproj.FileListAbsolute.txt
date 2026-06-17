@@ -9,3 +9,14 @@ C:\Users\4d05\Desktop\goof juice\FinderQuest\FinderQuest\obj\Debug\FinderQuest.c
 C:\Users\4d05\Desktop\goof juice\FinderQuest\FinderQuest\obj\Debug\FinderQuest.csproj.CoreCompileInputs.cache
 C:\Users\4d05\Desktop\goof juice\FinderQuest\FinderQuest\obj\Debug\FinderQuest.exe
 C:\Users\4d05\Desktop\goof juice\FinderQuest\FinderQuest\obj\Debug\FinderQuest.pdb
+C:\Users\Keffka\source\repos\ZEPHYR1702\Finder-Quest-Game\FinderQuest\bin\Debug\FinderQuest.exe.config
+C:\Users\Keffka\source\repos\ZEPHYR1702\Finder-Quest-Game\FinderQuest\bin\Debug\FinderQuest.exe
+C:\Users\Keffka\source\repos\ZEPHYR1702\Finder-Quest-Game\FinderQuest\bin\Debug\FinderQuest.pdb
+C:\Users\Keffka\source\repos\ZEPHYR1702\Finder-Quest-Game\FinderQuest\obj\Debug\FinderQuest.csproj.AssemblyReference.cache
+C:\Users\Keffka\source\repos\ZEPHYR1702\Finder-Quest-Game\FinderQuest\obj\Debug\FinderQuest.FormGame.resources
+C:\Users\Keffka\source\repos\ZEPHYR1702\Finder-Quest-Game\FinderQuest\obj\Debug\FinderQuest.FormQuestion.resources
+C:\Users\Keffka\source\repos\ZEPHYR1702\Finder-Quest-Game\FinderQuest\obj\Debug\FinderQuest.Properties.Resources.resources
+C:\Users\Keffka\source\repos\ZEPHYR1702\Finder-Quest-Game\FinderQuest\obj\Debug\FinderQuest.csproj.GenerateResource.cache
+C:\Users\Keffka\source\repos\ZEPHYR1702\Finder-Quest-Game\FinderQuest\obj\Debug\FinderQuest.csproj.CoreCompileInputs.cache
+C:\Users\Keffka\source\repos\ZEPHYR1702\Finder-Quest-Game\FinderQuest\obj\Debug\FinderQuest.exe
+C:\Users\Keffka\source\repos\ZEPHYR1702\Finder-Quest-Game\FinderQuest\obj\Debug\FinderQuest.pdb

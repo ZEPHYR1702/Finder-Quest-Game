@@ -12,9 +12,32 @@ namespace FinderQuest
 {
     public partial class FormQuestion : Form
     {
+        FormGame formGame;
         public FormQuestion()
         {
             InitializeComponent();
+        }
+
+        private void FormQuestion_Load(object sender, EventArgs e)
+        {
+            formGame = (FormGame)this.Owner;
+            labelQuestion.Text = formGame.activePerson.PersonQuestion.Question;
+        }
+
+        private void buttonSubmit_Click(object sender, EventArgs e)
+        {
+            //if(formGame.activePerson.checkanswer(textBoxAnswer.Text, out int score) == true)
+            //{
+            //    MessageBox.Show("jawaban anda benar");
+            //    formGame.player.AddScore(score);
+            //    formGame.labelPlayer.Text = formGame.player.DisplayData();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("salah");
+            //}
+            //this.Close();
+            //formGame.ExitTalkArea();
         }
     }
 }

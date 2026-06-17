@@ -59,6 +59,7 @@
             this.buttonSubmit.TabIndex = 3;
             this.buttonSubmit.Text = "SUBMIT";
             this.buttonSubmit.UseVisualStyleBackColor = true;
+            this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
             // 
             // labelQuestion
             // 
@@ -83,6 +84,7 @@
             this.DoubleBuffered = true;
             this.Name = "FormQuestion";
             this.Text = "FormQuestion";
+            this.Load += new System.EventHandler(this.FormQuestion_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

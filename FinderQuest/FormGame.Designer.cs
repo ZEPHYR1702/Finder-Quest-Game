@@ -69,7 +69,7 @@
             // startNewGameToolStripMenuItem
             // 
             this.startNewGameToolStripMenuItem.Name = "startNewGameToolStripMenuItem";
-            this.startNewGameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.startNewGameToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.startNewGameToolStripMenuItem.Text = "Start New Game";
             this.startNewGameToolStripMenuItem.Click += new System.EventHandler(this.StartNewGameToolStripMenuItem_Click);
             // 
@@ -177,11 +177,11 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.Panel panelGame;
-        private System.Windows.Forms.Label labelPlayer;
         private System.Windows.Forms.Label labelTime;
         private System.Windows.Forms.Label labelArea;
         private System.Windows.Forms.Panel panelTalkArea;
         private System.Windows.Forms.Timer timerTime;
+        public System.Windows.Forms.Label labelPlayer;
     }
 }
 

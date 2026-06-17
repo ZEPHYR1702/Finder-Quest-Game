@@ -14,7 +14,16 @@ namespace FinderQuest
     public partial class FormGame : Form
     {
         Time time;
-        Player player;
+        public Player player;
+
+        int numOfWalkArea = 3;
+        WalkAreas currentWalkArea = null;
+        TalkAreas currentTalkArea = null;
+
+        public Persons activePerson;
+        Point activePersonLastLocation;
+
+        bool enterTalkArea = false;
         public FormGame()
         {
             InitializeComponent();
@@ -69,6 +78,13 @@ namespace FinderQuest
             time = new Time(0, 1, 0);
             timerTime.Start();
 
+            if (currentWalkArea != null)
+            {
+                currentWalkArea.RemoveAllPerson();
+            }
+            currentWalkArea = null;
+            GenerateWalkArea();
+
             player = new Player("Goof Juice", Properties.Resources.player_right, new Size(50, 50), new Point(10, 370), time);
 
             labelPlayer.Text = player.DisplayData();
@@ -101,14 +117,20 @@ namespace FinderQuest
             }
             else if (e.KeyCode == Keys.Enter)
             {
-
+                if (currentWalkArea.CheckTouchPerson(player, out Persons touchPerson) == true)
+                {
+                    enterTalkArea = true;
+                    activePerson = touchPerson;
+                    activePersonLastLocation = activePerson.Picture.Location;
+                    EnterTalkArea();
+                }
             }
             else if (e.KeyCode == Keys.Escape)
             {
-
+                ExitTalkArea();
             }
 
-            else if (e.KeyCode == Keys.Y)
+            else if (e.KeyCode == Keys.Y && activePerson.SolvedStatus == false)
             {
                 FormQuestion form = new FormQuestion();
                 form.Owner = this;
@@ -120,6 +142,112 @@ namespace FinderQuest
         private void StartNewGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             StartGame();
+        }
+
+        private void GenerateWalkArea()
+        {
+            if (currentWalkArea == null)
+            {
+                currentWalkArea = new WalkAreas("Barn", Properties.Resources.walkArea1, 1);
+
+                currentWalkArea.AddPerson(1, "Steven", Properties.Resources.person1, new Size(60, 90), new Point(150, 350), "i hate you so much");
+                currentWalkArea.AddPerson(2, "Ferry", Properties.Resources.person1, new Size(60, 90), new Point(420, 350), "i hate you so much");
+                currentWalkArea.AddPerson(3, "Adi", Properties.Resources.person1, new Size(60, 90), new Point(600, 360), "i hate you so much");
+            }
+            else if(currentWalkArea.NoArea == 2)
+            {
+                currentWalkArea.RemoveAllPerson();
+
+                currentWalkArea = new WalkAreas("Field", Properties.Resources.walkArea2, 2);
+
+                currentWalkArea.AddPerson(4, "Margaret", Properties.Resources.person4, new Size(60, 90), new Point(100, 300), "i love you so much");
+                currentWalkArea.AddPerson(4, "Margaret", Properties.Resources.person4, new Size(60, 90), new Point(450, 350), "you are gay");
+            }
+            else if (currentWalkArea.NoArea == 3)
+            {
+                currentWalkArea.RemoveAllPerson();
+
+                currentWalkArea = new WalkAreas("Farm", Properties.Resources.walkArea3, 3);
+
+                currentWalkArea.AddPerson(4, "EKA GANTENG", Properties.Resources.person5, new Size(60, 90), new Point(120, 300), "i am ganteng");
+                currentWalkArea.AddPerson(4, "Miracle", Properties.Resources.person6, new Size(60, 90), new Point(470, 350), "hellooooowwwwww");
+            }
+
+            currentWalkArea.DisplayPicture(this);
+            currentWalkArea.DisplayPersons(this);
+            labelArea.Text = currentWalkArea.DisplayData();
+
+            if (player != null)
+            {
+                player.Picture.Location = new Point(0, player.Picture.Location.Y);
+            }
+        }
+
+        private void GenerateTalkArea()
+        {
+            if (activePerson.NoPerson == 1)
+            {
+                currentTalkArea = new TalkAreas("kamar", Properties.Resources.talkArea1, activePerson);
+                //activeperson.addquestions()
+            }
+            else if (activePerson.NoPerson ==  2)
+            {
+                currentTalkArea = new TalkAreas("dapur", Properties.Resources.talkArea2, activePerson);
+                //activeperson.addquestions()
+            }
+            else if(activePerson.NoPerson == 3)
+            {
+
+            }
+            else if (activePerson.NoPerson == 4)
+            {
+
+            }
+            else if (activePerson.NoPerson == 5)
+            {
+
+            }
+            else if (activePerson.NoPerson == 6)
+            {
+
+            }
+            else if (activePerson.NoPerson == 7)
+            {
+
+            }
+        }
+
+        public void EnterTalkArea()
+        {
+            GenerateTalkArea();
+
+            player.Picture.Visible = false;
+
+            panelTalkArea.BackgroundImage = currentTalkArea.Background;
+            panelTalkArea.Visible = true;
+            panelTalkArea.BringToFront();
+
+            activePerson.Picture.Size = new Size(200, 300);
+            activePerson.Picture.Location = new Point(300, 100);
+            //activePerson.Display();
+
+            if (activePerson.SolvedStatus == true)
+            {
+                activePerson.Dialog = "selamat, anda menang";
+            }
+
+            //activePerson.displaydialog()
+        }
+
+        public void ExitTalkArea()
+        {
+            player.Picture.Visible = true;
+            enterTalkArea = false;
+
+            panelTalkArea.Visible = false;
+            activePerson.Picture.Size = new Size(60, 90);
+            activePerson.Picture.Location = activePersonLastLocation;
+            //activePerson.displaypicture()
         }
     }
 }
