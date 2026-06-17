@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FinderQuest.Class;
+using WMPLib;
 
 namespace FinderQuest
 {
@@ -24,6 +26,11 @@ namespace FinderQuest
         Point activePersonLastLocation;
 
         bool enterTalkArea = false;
+
+        WindowsMediaPlayer backSoundPlayer = new WindowsMediaPlayer();
+        WindowsMediaPlayer otherSoundPlayer;
+
+        bool paused = false;
         public FormGame()
         {
             InitializeComponent();
@@ -62,7 +69,12 @@ namespace FinderQuest
             if (time.Hour == 0 && time.Minute == 0 && time.Second == 0)
             {
                 timerTime.Stop();
+
+                backSoundPlayer.controls.stop();
+                PlaySound("lose game");
+
                 MessageBox.Show("Timer is up");
+                GameOver();
             }
         }
 
@@ -89,6 +101,11 @@ namespace FinderQuest
 
             labelPlayer.Text = player.DisplayData();
             player.DisplayPicture(this);
+
+            PlaySound("walk area");
+
+            paused = false;
+            playPauseToolStripMenuItem.Text = "Pause Game";
         }
 
         private void GameOver()
@@ -107,6 +124,25 @@ namespace FinderQuest
             if(e.KeyCode == Keys.Right)
             {
                 player.MoveRight(distance);
+
+                if(player.Picture.Location.X + player.Picture.Width >= this.Width - 20)
+                {
+                    if (currentWalkArea.CheckFinishAllQuestions() == true)
+                    {
+                        if (currentWalkArea.NoArea < numOfWalkArea)
+                        {
+                            currentWalkArea.NoArea += 1;
+                            GenerateWalkArea();
+                        }
+                        else
+                        {
+                            backSoundPlayer.controls.stop();
+                            PlaySound("win game");
+                            MessageBox.Show("you win, i got OCD");
+                            GameOver();
+                        }
+                    }
+                }
             }
             else if (e.KeyCode == Keys.Left)
             {
@@ -237,6 +273,8 @@ namespace FinderQuest
             }
 
             //activePerson.displaydialog()
+
+            PlaySound("talk area");
         }
 
         public void ExitTalkArea()
@@ -248,6 +286,51 @@ namespace FinderQuest
             activePerson.Picture.Size = new Size(60, 90);
             activePerson.Picture.Location = activePersonLastLocation;
             //activePerson.displaypicture()
+
+            PlaySound("walk area");
+        }
+
+        private void PlaySound(string type)
+        {
+            otherSoundPlayer = new WindowsMediaPlayer();
+
+            if (type == "walk area")
+            {
+                backSoundPlayer.URL = Application.StartupPath + "\\sound\\BacksoundWalkArea.mp3";
+                backSoundPlayer.settings.setMode("loop", true);
+            }
+            else if (type == "talk area")
+            {
+                backSoundPlayer.URL = Application.StartupPath + "\\sound\\BacksoundTalkArea.mp3";
+                backSoundPlayer.settings.setMode("loop", true);
+            }
+            else if (type == "lose game")
+            {
+                backSoundPlayer.URL = Application.StartupPath + "\\sound\\LoseGame.mp3";
+            }
+            else if (type == "win game")
+            {
+                backSoundPlayer.URL = Application.StartupPath + "\\sound\\WinGame.mp3";
+            }
+            otherSoundPlayer.controls.play();
+        }
+
+        private void playPauseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(playPauseToolStripMenuItem.Text == "Pause Game")
+            {
+                paused = true;
+                timerTime.Stop();
+                playPauseToolStripMenuItem.Text = "Play Game";
+                backSoundPlayer.controls.pause();
+            }
+            else
+            {
+                paused = false;
+                timerTime.Start();
+                playPauseToolStripMenuItem.Text = "Pause Game";
+                backSoundPlayer.controls.play();
+            }
         }
     }
 }

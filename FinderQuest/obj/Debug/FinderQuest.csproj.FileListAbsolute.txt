@@ -20,3 +20,5 @@ C:\Users\Keffka\source\repos\ZEPHYR1702\Finder-Quest-Game\FinderQuest\obj\Debug\
 C:\Users\Keffka\source\repos\ZEPHYR1702\Finder-Quest-Game\FinderQuest\obj\Debug\FinderQuest.csproj.CoreCompileInputs.cache
 C:\Users\Keffka\source\repos\ZEPHYR1702\Finder-Quest-Game\FinderQuest\obj\Debug\FinderQuest.exe
 C:\Users\Keffka\source\repos\ZEPHYR1702\Finder-Quest-Game\FinderQuest\obj\Debug\FinderQuest.pdb
+C:\Users\Keffka\source\repos\ZEPHYR1702\Finder-Quest-Game\FinderQuest\obj\Debug\Interop.WMPLib.dll
+C:\Users\Keffka\source\repos\ZEPHYR1702\Finder-Quest-Game\FinderQuest\obj\Debug\FinderQuest.csproj.ResolveComReference.cache
