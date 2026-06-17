@@ -197,7 +197,7 @@ namespace FinderQuest
                 currentWalkArea = new WalkAreas("Field", Properties.Resources.walkArea2, 2);
 
                 currentWalkArea.AddPerson(4, "Margaret", Properties.Resources.person4, new Size(60, 90), new Point(100, 300), "i love you so much");
-                currentWalkArea.AddPerson(4, "Margaret", Properties.Resources.person4, new Size(60, 90), new Point(450, 350), "you are gay");
+                currentWalkArea.AddPerson(5, "Nicho", Properties.Resources.person4, new Size(60, 90), new Point(450, 350), "you are gay");
             }
             else if (currentWalkArea.NoArea == 3)
             {
@@ -205,8 +205,8 @@ namespace FinderQuest
 
                 currentWalkArea = new WalkAreas("Farm", Properties.Resources.walkArea3, 3);
 
-                currentWalkArea.AddPerson(4, "EKA GANTENG", Properties.Resources.person5, new Size(60, 90), new Point(120, 300), "i am ganteng");
-                currentWalkArea.AddPerson(4, "Miracle", Properties.Resources.person6, new Size(60, 90), new Point(470, 350), "hellooooowwwwww");
+                currentWalkArea.AddPerson(6, "EKA GANTENG", Properties.Resources.person5, new Size(60, 90), new Point(120, 300), "i am ganteng");
+                currentWalkArea.AddPerson(7, "Miracle", Properties.Resources.person6, new Size(60, 90), new Point(470, 350), "hellooooowwwwww");
             }
 
             currentWalkArea.DisplayPicture(this);
@@ -224,7 +224,7 @@ namespace FinderQuest
             if (activePerson.NoPerson == 1)
             {
                 currentTalkArea = new TalkAreas("kamar", Properties.Resources.talkArea1, activePerson);
-                activePerson.AddQuestions();
+                activePerson.AddQuestions("1 + 1 =", 2.ToString(), 100);
             }
             else if (activePerson.NoPerson ==  2)
             {
@@ -272,7 +272,7 @@ namespace FinderQuest
                 activePerson.Dialog = "selamat, anda menang";
             }
 
-            activePerson.DisplayDialog();
+            activePerson.DisplayDialog(panelTalkArea);
 
             PlaySound("talk area");
         }
@@ -285,7 +285,7 @@ namespace FinderQuest
             panelTalkArea.Visible = false;
             activePerson.Picture.Size = new Size(60, 90);
             activePerson.Picture.Location = activePersonLastLocation;
-            //activePerson.displaypicture()
+            activePerson.DisplayPicture(this);
 
             PlaySound("walk area");
         }

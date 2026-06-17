@@ -62,27 +62,48 @@ namespace FinderQuest.Class
         }
         public PictureBox Picture { get => picture; set => picture = value; }
         public string Dialog { get => dialog; set => dialog = value; }
-        public Questions PersonQuestion { get => personQuestion; set => personQuestion = value; }
+        public Questions Question { get => personQuestion; set => personQuestion = value; }
         public bool SolvedStatus { get => solvedStatus; set => solvedStatus = value; }
 
-        public void AddQuestions()
+        public void AddQuestions(string text, string answer, int score)
         {
-
+            this.Question = new Questions(text, answer, score);
         }
 
-        public void CheckAnswer()
+        public bool CheckAnswer(string answer, out int score)
         {
-
+            if(answer.ToLower() == this.Question.Answer.ToLower())
+            {
+                this.SolvedStatus = true;
+                score = this.Question.Score;
+                return true;
+            }
+            else
+            {
+                score = 0;
+                return false;
+            }
         }
 
-        public void DisplayData()
+        public string DisplayData()
         {
-
+            string data = "Hi... I'm " + this.Name + ".\n " + this.Dialog;
+            return data;
         }
 
-        public void DisplayDialog()
+        public void DisplayDialog(Control container)
         {
+            Label labelDialog = new Label();
+            labelDialog.Parent = container;
+            labelDialog.Text = this.DisplayData();
+            labelDialog.Font = new Font("Arial", 18);
+            labelDialog.TextAlign = ContentAlignment.TopCenter;
+            labelDialog.Size = new Size(500, 90);
 
+            labelDialog.Location = new Point(this.Picture.Location.X - 150, 10);
+            labelDialog.BackColor = Color.LightYellow;
+            labelDialog.BorderStyle = BorderStyle.FixedSingle;
+            labelDialog.BringToFront();
         }
 
         public void DisplayPicture(Control container)
