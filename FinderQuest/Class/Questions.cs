@@ -65,5 +65,10 @@ namespace FinderQuest.Class
                 }
             }
         }
+
+        public void Questionss()
+        {
+
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -29,9 +30,9 @@ namespace FinderQuest.Class
             this.SolvedStatus = false;
         }
 
-        public int NoPerson 
-        { 
-            get => noPerson; 
+        public int NoPerson
+        {
+            get => noPerson;
             set
             {
                 if (value > 0)
@@ -44,8 +45,8 @@ namespace FinderQuest.Class
                 }
             }
         }
-        public string Name 
-        { 
+        public string Name
+        {
             get => name;
             set
             {
@@ -63,5 +64,38 @@ namespace FinderQuest.Class
         public string Dialog { get => dialog; set => dialog = value; }
         public Questions PersonQuestion { get => personQuestion; set => personQuestion = value; }
         public bool SolvedStatus { get => solvedStatus; set => solvedStatus = value; }
+
+        public void AddQuestions()
+        {
+
+        }
+
+        public void CheckAnswer()
+        {
+
+        }
+
+        public void DisplayData()
+        {
+
+        }
+
+        public void DisplayDialog()
+        {
+
+        }
+
+        public void DisplayPicture(Control container)
+        {
+            this.Picture.Parent = container;
+            this.Picture.SizeMode = PictureBoxSizeMode.StretchImage;
+            this.Picture.BackColor = Color.Transparent;
+            this.Picture.BringToFront();
+        }
+
+        public void Person()
+        {
+
+        }
     }
 }

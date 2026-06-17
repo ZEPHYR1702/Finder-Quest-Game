@@ -224,7 +224,7 @@ namespace FinderQuest
             if (activePerson.NoPerson == 1)
             {
                 currentTalkArea = new TalkAreas("kamar", Properties.Resources.talkArea1, activePerson);
-                //activeperson.addquestions()
+                activePerson.AddQuestions();
             }
             else if (activePerson.NoPerson ==  2)
             {
@@ -265,14 +265,14 @@ namespace FinderQuest
 
             activePerson.Picture.Size = new Size(200, 300);
             activePerson.Picture.Location = new Point(300, 100);
-            //activePerson.Display();
+            activePerson.DisplayPicture(panelTalkArea);
 
             if (activePerson.SolvedStatus == true)
             {
                 activePerson.Dialog = "selamat, anda menang";
             }
 
-            //activePerson.displaydialog()
+            activePerson.DisplayDialog();
 
             PlaySound("talk area");
         }

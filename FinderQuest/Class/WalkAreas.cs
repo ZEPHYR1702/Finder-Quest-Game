@@ -37,7 +37,7 @@ namespace FinderQuest.Class
         {
             foreach(Persons person in this.ListPersons)
             {
-                
+                person.DisplayPicture(container);
             }
         }
 
@@ -45,7 +45,7 @@ namespace FinderQuest.Class
         {
             foreach (Persons person in this.ListPersons)
             {
-
+                person.Picture.Dispose();
             }
             this.ListPersons.Clear();
         }
