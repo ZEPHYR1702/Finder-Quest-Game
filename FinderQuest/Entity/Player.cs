@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FinderQuest.States;
+using FinderQuest.States.PlayerState;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -15,6 +17,8 @@ namespace FinderQuest.Class
         private int score;
         private Time playTime;
 
+        private StateMachine<Player> stateMachine;
+
         public Player(string name, Image image, Size size, Point location, Time playTime)
         {
             this.Name = name;
@@ -24,6 +28,9 @@ namespace FinderQuest.Class
             this.Picture.Image = image;
             this.Picture.Size = size;
             this.Picture.Location = location;
+
+            this.StateMachine = new StateMachine<Player>(this);
+            this.StateMachine.Initialize(new IdleState());
         }
 
         public string Name
@@ -58,6 +65,7 @@ namespace FinderQuest.Class
             }
         }
         public Time PlayTime { get => playTime; set => playTime = value; }
+        public StateMachine<Player> StateMachine { get => stateMachine; private set => stateMachine = value; }
 
         public string DisplayData()
         {
@@ -76,21 +84,14 @@ namespace FinderQuest.Class
             this.Picture.BringToFront();
         }
 
-        public void MoveRight(int distance)
-        {
-            this.Picture.Location = new Point(this.Picture.Location.X + distance, this.Picture.Location.Y);
-            this.Picture.Image = Properties.Resources.player_right;
-        }
-
-        public void MoveLeft(int distance)
-        {
-            this.Picture.Location = new Point(this.Picture.Location.X - distance, this.Picture.Location.Y);
-            this.Picture.Image = Properties.Resources.player_left;
-        }
-
         public void AddScore(int score)
         {
             this.Score += score;
+        }
+
+        public void Tick()
+        {
+            this.StateMachine.Update();
         }
     }
 }
