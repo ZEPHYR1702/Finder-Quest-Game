@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FinderQuest.Class;
+using FinderQuest.States.PlayerState;
 using WMPLib;
 
 namespace FinderQuest
@@ -25,7 +26,7 @@ namespace FinderQuest
         public Persons activePerson;
         Point activePersonLastLocation;
 
-        bool enterTalkArea = false;
+        public static bool enterTalkArea = false;
 
         WindowsMediaPlayer backSoundPlayer = new WindowsMediaPlayer();
         WindowsMediaPlayer otherSoundPlayer;
@@ -35,17 +36,6 @@ namespace FinderQuest
         {
             InitializeComponent();
         }
-
-        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void HelpToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Press arrow key to move the player. \n\nPress Enter to talk with the person. " + "\n\nPress y key to answer the question. \n\nPress Esc to exit the talk area.", "How to Play");
-        }
-
         private void FormGame_Load(object sender, EventArgs e)
         {
             panelGame.Visible = false;
@@ -60,6 +50,75 @@ namespace FinderQuest
             panelTalkArea.Visible = false;
         }
 
+        private void FormGame_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Right)
+            {
+                player.StateMachine.TransitionTo(new MoveRightState());
+                player.Tick();
+                HandleAreaEdgeReached();
+            }
+            else if (e.KeyCode == Keys.Left)
+            {
+                player.StateMachine.TransitionTo(new MoveLeftState());
+                player.Tick();
+                HandleAreaEdgeReached();
+            }
+            else if (e.KeyCode == Keys.Enter)
+            {
+                if (currentWalkArea.CheckTouchPerson(player, out Persons touchPerson) == true)
+                {
+                    enterTalkArea = true;
+                    activePerson = touchPerson;
+                    activePersonLastLocation = activePerson.Picture.Location;
+                    EnterTalkArea();
+                }
+            }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                ExitTalkArea();
+            }
+
+            else if (e.KeyCode == Keys.Y && activePerson.SolvedStatus == false)
+            {
+                FormQuestion form = new FormQuestion();
+                form.Owner = this;
+                form.ShowDialog();
+            }
+            player.DisplayPicture(this);
+        }
+
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void HelpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Press arrow key to move the player. \n\nPress Enter to talk with the person. " + "\n\nPress y key to answer the question. \n\nPress Esc to exit the talk area.", "How to Play");
+        }
+
+        private void StartNewGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StartGame();
+        }
+        private void playPauseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(playPauseToolStripMenuItem.Text == "Pause Game")
+            {
+                paused = true;
+                timerTime.Stop();
+                playPauseToolStripMenuItem.Text = "Play Game";
+                backSoundPlayer.controls.pause();
+            }
+            else
+            {
+                paused = false;
+                timerTime.Start();
+                playPauseToolStripMenuItem.Text = "Pause Game";
+                backSoundPlayer.controls.play();
+            }
+        }
         private void TimerTime_Tick(object sender, EventArgs e)
         {
             time.AddWithSecond(-1);
@@ -116,70 +175,6 @@ namespace FinderQuest
             labelTime.Visible = false;
             startNewGameToolStripMenuItem.Enabled = true;
         }
-
-        private void FormGame_KeyDown(object sender, KeyEventArgs e)
-        {
-            int distance = 30;
-
-            if(e.KeyCode == Keys.Right)
-            {
-                player.MoveRight(distance);
-
-                if(player.Picture.Location.X + player.Picture.Width >= this.Width - 20)
-                {
-                    if (currentWalkArea.CheckFinishAllQuestions() == true)
-                    {
-                        if (currentWalkArea.NoArea < numOfWalkArea)
-                        {
-                            currentWalkArea.NoArea += 1;
-                            GenerateWalkArea();
-                        }
-                        else
-                        {
-                            backSoundPlayer.controls.stop();
-                            PlaySound("win game");
-                            MessageBox.Show("you win, i got OCD");
-                            GameOver();
-                        }
-                    }
-                }
-            }
-            else if (e.KeyCode == Keys.Left)
-            {
-                if (player.Picture.Location.X >= 10)
-                {
-                    player.MoveLeft(distance);
-                }
-            }
-            else if (e.KeyCode == Keys.Enter)
-            {
-                if (currentWalkArea.CheckTouchPerson(player, out Persons touchPerson) == true)
-                {
-                    enterTalkArea = true;
-                    activePerson = touchPerson;
-                    activePersonLastLocation = activePerson.Picture.Location;
-                    EnterTalkArea();
-                }
-            }
-            else if (e.KeyCode == Keys.Escape)
-            {
-                ExitTalkArea();
-            }
-
-            else if (e.KeyCode == Keys.Y && activePerson.SolvedStatus == false)
-            {
-                FormQuestion form = new FormQuestion();
-                form.Owner = this;
-                form.ShowDialog();
-            }
-            player.DisplayPicture(this);
-        }
-
-        private void StartNewGameToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            StartGame();
-        }
-
         private void GenerateWalkArea()
         {
             if (currentWalkArea == null)
@@ -315,21 +310,27 @@ namespace FinderQuest
             otherSoundPlayer.controls.play();
         }
 
-        private void playPauseToolStripMenuItem_Click(object sender, EventArgs e)
+        
+
+        public void HandleAreaEdgeReached()
         {
-            if(playPauseToolStripMenuItem.Text == "Pause Game")
+            if (player.Picture.Location.X + player.Picture.Width >= this.Width - 20)
             {
-                paused = true;
-                timerTime.Stop();
-                playPauseToolStripMenuItem.Text = "Play Game";
-                backSoundPlayer.controls.pause();
-            }
-            else
-            {
-                paused = false;
-                timerTime.Start();
-                playPauseToolStripMenuItem.Text = "Pause Game";
-                backSoundPlayer.controls.play();
+                if (currentWalkArea.CheckFinishAllQuestions() == true)
+                {
+                    if (currentWalkArea.NoArea < numOfWalkArea)
+                    {
+                        currentWalkArea.NoArea += 1;
+                        GenerateWalkArea();
+                    }
+                    else
+                    {
+                        backSoundPlayer.controls.stop();
+                        PlaySound("win game");
+                        MessageBox.Show("you win, i got OCD");
+                        GameOver();
+                    }
+                }
             }
         }
     }

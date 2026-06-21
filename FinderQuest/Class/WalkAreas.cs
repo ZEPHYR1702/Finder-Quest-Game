@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace FinderQuest.Class
 {
-    internal class WalkAreas : Areas
+    public class WalkAreas : Areas
     {
         private int noArea;
         private List<Persons> listPersons;
