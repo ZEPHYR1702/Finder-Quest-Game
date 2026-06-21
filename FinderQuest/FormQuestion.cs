@@ -12,6 +12,7 @@ namespace FinderQuest
 {
     public partial class FormQuestion : Form
     {
+        //Global Variable
         FormGame formGame;
         public FormQuestion()
         {
