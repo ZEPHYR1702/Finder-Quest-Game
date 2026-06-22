@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FinderQuest.Question;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -65,9 +66,9 @@ namespace FinderQuest.Class
         public Questions Question { get => personQuestion; set => personQuestion = value; }
         public bool SolvedStatus { get => solvedStatus; set => solvedStatus = value; }
 
-        public void AddQuestions(string text, string answer, int score)
+        public void AddQuestions()
         {
-            this.Question = new Questions(text, answer, score);
+            this.Question = QuestionsLibrary.GetRandomQuestion();
         }
 
         public bool CheckAnswer(string answer, out int score)

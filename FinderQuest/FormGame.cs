@@ -19,15 +19,17 @@ namespace FinderQuest
         Time time;
         public Player player;
 
+        //Areas
+        public static bool enterTalkArea = false;
         int numOfWalkArea = 3;
         WalkAreas currentWalkArea = null;
         TalkAreas currentTalkArea = null;
 
+        //Persons
         public Persons activePerson;
         Point activePersonLastLocation;
 
-        public static bool enterTalkArea = false;
-
+        //Audio
         WindowsMediaPlayer backSoundPlayer = new WindowsMediaPlayer();
         WindowsMediaPlayer otherSoundPlayer;
 
@@ -219,12 +221,12 @@ namespace FinderQuest
             if (activePerson.NoPerson == 1)
             {
                 currentTalkArea = new TalkAreas("kamar", Properties.Resources.talkArea1, activePerson);
-                activePerson.AddQuestions("1 + 1 =", 2.ToString(), 100);
+                activePerson.AddQuestions();
             }
             else if (activePerson.NoPerson ==  2)
             {
                 currentTalkArea = new TalkAreas("dapur", Properties.Resources.talkArea2, activePerson);
-                //activeperson.addquestions()
+                activePerson.AddQuestions();
             }
             else if(activePerson.NoPerson == 3)
             {

@@ -49,7 +49,7 @@
     <Compile Include="Class\Areas.cs" />
     <Compile Include="Entity\Persons.cs" />
     <Compile Include="Entity\Player.cs" />
-    <Compile Include="Class\Questions.cs" />
+    <Compile Include="Question\Questions.cs" />
     <Compile Include="Class\TalkAreas.cs" />
     <Compile Include="Class\Time.cs" />
     <Compile Include="Class\WalkAreas.cs" />
@@ -67,6 +67,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Question\QuestionsLibrary.cs" />
     <Compile Include="States\CoreStateMachine.cs" />
     <Compile Include="States\PlayerState\EnterTalkState.cs" />
     <Compile Include="States\PlayerState\IdleState.cs" />
