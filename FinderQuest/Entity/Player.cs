@@ -82,6 +82,7 @@ namespace FinderQuest.Class
             this.Picture.SizeMode = PictureBoxSizeMode.StretchImage;
             this.Picture.BackColor = Color.Transparent;
             this.Picture.BringToFront();
+            this.Picture.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
         }
 
         public void AddScore(int score)

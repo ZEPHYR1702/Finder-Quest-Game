@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FinderQuest.Class;
 using FinderQuest.States.PlayerState;
+using FinderQuest.WalkArea;
 using WMPLib;
 
 namespace FinderQuest
@@ -179,37 +180,25 @@ namespace FinderQuest
         }
         private void GenerateWalkArea()
         {
-            if (currentWalkArea == null)
+            int areaNumber;
+            if(currentTalkArea == null)
             {
-                currentWalkArea = new WalkAreas("Barn", Properties.Resources.walkArea1, 1);
-
-                currentWalkArea.AddPerson(1, "Steven", Properties.Resources.person1, new Size(60, 90), new Point(150, 350), "i hate you so much");
-                currentWalkArea.AddPerson(2, "Ferry", Properties.Resources.person1, new Size(60, 90), new Point(420, 350), "i hate you so much");
-                currentWalkArea.AddPerson(3, "Adi", Properties.Resources.person1, new Size(60, 90), new Point(600, 360), "i hate you so much");
+                areaNumber = 1;
             }
-            else if(currentWalkArea.NoArea == 2)
+            else
             {
-                currentWalkArea.RemoveAllPerson();
-
-                currentWalkArea = new WalkAreas("Field", Properties.Resources.walkArea2, 2);
-
-                currentWalkArea.AddPerson(4, "Margaret", Properties.Resources.person4, new Size(60, 90), new Point(100, 300), "i love you so much");
-                currentWalkArea.AddPerson(5, "Nicho", Properties.Resources.person4, new Size(60, 90), new Point(450, 350), "you are gay");
-            }
-            else if (currentWalkArea.NoArea == 3)
-            {
-                currentWalkArea.RemoveAllPerson();
-
-                currentWalkArea = new WalkAreas("Farm", Properties.Resources.walkArea3, 3);
-
-                currentWalkArea.AddPerson(6, "EKA GANTENG", Properties.Resources.person5, new Size(60, 90), new Point(120, 300), "i am ganteng");
-                currentWalkArea.AddPerson(7, "Miracle", Properties.Resources.person6, new Size(60, 90), new Point(470, 350), "hellooooowwwwww");
+                areaNumber = currentWalkArea.NoArea;
             }
 
-            currentWalkArea.DisplayPicture(this);
-            currentWalkArea.DisplayPersons(this);
-            labelArea.Text = currentWalkArea.DisplayData();
+            currentWalkArea?.RemoveAllPerson();
+            currentWalkArea = WalkAreasLibrary.CreateArea(areaNumber);
 
+            if (currentWalkArea != null) 
+            {
+                currentWalkArea.DisplayPicture(this);
+                currentWalkArea.DisplayPersons(this);
+                labelArea.Text = currentWalkArea.DisplayData();
+            }
             if (player != null)
             {
                 player.Picture.Location = new Point(0, player.Picture.Location.Y);
@@ -230,7 +219,8 @@ namespace FinderQuest
             }
             else if(activePerson.NoPerson == 3)
             {
-
+                currentTalkArea = new TalkAreas("Kamar mandi", Properties.Resources.talkArea3, activePerson);
+                activePerson.AddQuestions();
             }
             else if (activePerson.NoPerson == 4)
             {

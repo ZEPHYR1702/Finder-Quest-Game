@@ -52,7 +52,7 @@
     <Compile Include="Question\Questions.cs" />
     <Compile Include="Class\TalkAreas.cs" />
     <Compile Include="Class\Time.cs" />
-    <Compile Include="Class\WalkAreas.cs" />
+    <Compile Include="WalkArea\WalkAreas.cs" />
     <Compile Include="FormGame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +74,7 @@
     <Compile Include="States\PlayerState\MoveLeftState.cs" />
     <Compile Include="States\PlayerState\MoveRightState.cs" />
     <Compile Include="States\StateMachine.cs" />
+    <Compile Include="WalkArea\WalkAreasLibrary.cs" />
     <EmbeddedResource Include="FormGame.resx">
       <DependentUpon>FormGame.cs</DependentUpon>
     </EmbeddedResource>
