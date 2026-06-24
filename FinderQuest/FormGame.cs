@@ -220,38 +220,6 @@ namespace FinderQuest
                 currentTalkArea = new TalkAreas(data.Location, data.Resource, activePerson);
                 activePerson.AddQuestions();
             }
-
-            //if (activePerson.NoPerson == 1)
-            //{
-            //    currentTalkArea = new TalkAreas("kamar", Properties.Resources.talkArea1, activePerson);
-            //    activePerson.AddQuestions();
-            //}
-            //else if (activePerson.NoPerson ==  2)
-            //{
-            //    currentTalkArea = new TalkAreas("dapur", Properties.Resources.talkArea2, activePerson);
-            //    activePerson.AddQuestions();
-            //}
-            //else if(activePerson.NoPerson == 3)
-            //{
-            //    currentTalkArea = new TalkAreas("Kamar mandi", Properties.Resources.talkArea3, activePerson);
-            //    activePerson.AddQuestions();
-            //}
-            //else if (activePerson.NoPerson == 4)
-            //{
-
-            //}
-            //else if (activePerson.NoPerson == 5)
-            //{
-
-            //}
-            //else if (activePerson.NoPerson == 6)
-            //{
-
-            //}
-            //else if (activePerson.NoPerson == 7)
-            //{
-
-            //}
         }
 
         public void EnterTalkArea()
