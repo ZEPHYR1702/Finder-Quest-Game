@@ -22,7 +22,5 @@ namespace FinderQuest
         {
             formGame = (FormGame)this.Owner;
         }
-
-       
     }
 }
