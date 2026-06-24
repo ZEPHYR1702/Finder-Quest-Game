@@ -36,3 +36,4 @@ D:\Projects Coding\VSCommunity\FinderQuest\FinderQuest\obj\Debug\FinderQuest.csp
 D:\Projects Coding\VSCommunity\FinderQuest\FinderQuest\obj\Debug\FinderQuest.exe
 D:\Projects Coding\VSCommunity\FinderQuest\FinderQuest\obj\Debug\FinderQuest.pdb
 D:\Projects Coding\VSCommunity\FinderQuest\FinderQuest\obj\Debug\FinderQuest.FormLeaderboard.resources
+C:\Users\Keffka\source\repos\ZEPHYR1702\Finder-Quest-Game\FinderQuest\obj\Debug\FinderQuest.FormLeaderboard.resources
