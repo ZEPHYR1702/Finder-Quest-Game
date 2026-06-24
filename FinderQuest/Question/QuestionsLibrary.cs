@@ -13,7 +13,7 @@ namespace FinderQuest.Question
         {
             new Questions("1 + 1 =", 2.ToString(), 100),
             new Questions("Ibu kota Indonesia?", "jakarta", 50),
-            new Questions("Kapan Indonesia Merdeka?", "1945", 70)
+            new Questions("Kapan Indonesia Merdeka?", "1945", 70),
         };
 
         private static Random random = new Random();
