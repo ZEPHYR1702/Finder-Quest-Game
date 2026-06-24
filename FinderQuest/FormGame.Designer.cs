@@ -1,4 +1,6 @@
-﻿namespace FinderQuest
+﻿using System;
+
+namespace FinderQuest
 {
     partial class FormGame
     {
@@ -183,6 +185,11 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void leaderboardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
