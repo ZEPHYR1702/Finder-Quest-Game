@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FinderQuest.Class;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +22,16 @@ namespace FinderQuest
         private void FormLeaderboard_Load(object sender, EventArgs e)
         {
             formGame = (FormGame)this.Owner;
+            DisplayLeaderBoard();
+        }
+
+        private void DisplayLeaderBoard()
+        {
+            listBox1.Items.Clear();
+            foreach (string player in Leaderboard.listPlayer)
+            {
+                listBox1.Items.Add(player);
+            }
         }
     }
 }

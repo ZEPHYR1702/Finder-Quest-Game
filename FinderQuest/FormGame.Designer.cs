@@ -187,11 +187,6 @@ namespace FinderQuest
 
         }
 
-        private void leaderboardToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;

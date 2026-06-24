@@ -57,8 +57,10 @@
       <DependentUpon>FormLeaderboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Question\Questions.cs" />
-    <Compile Include="Class\TalkAreas.cs" />
+    <Compile Include="TalkArea\TalkAreas.cs" />
     <Compile Include="Class\Time.cs" />
+    <Compile Include="TalkArea\TalkAreasData.cs" />
+    <Compile Include="TalkArea\TalkAreasLibrary.cs" />
     <Compile Include="WalkArea\WalkAreas.cs" />
     <Compile Include="FormGame.cs">
       <SubType>Form</SubType>

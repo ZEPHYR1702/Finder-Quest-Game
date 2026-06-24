@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FinderQuest.Class;
 using FinderQuest.States.PlayerState;
+using FinderQuest.TalkArea;
 using FinderQuest.WalkArea;
 using WMPLib;
 
@@ -105,6 +106,11 @@ namespace FinderQuest
         private void StartNewGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             StartGame();
+        }
+        private void leaderboardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormLeaderboard form = new FormLeaderboard();
+            form.ShowDialog(this);
         }
         private void playPauseToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -209,37 +215,43 @@ namespace FinderQuest
 
         private void GenerateTalkArea()
         {
-            if (activePerson.NoPerson == 1)
+            if(TalkAreasLibrary.listTalkArea.TryGetValue(activePerson.NoPerson, out TalkAreasData data))
             {
-                currentTalkArea = new TalkAreas("kamar", Properties.Resources.talkArea1, activePerson);
+                currentTalkArea = new TalkAreas(data.Location, data.Resource, activePerson);
                 activePerson.AddQuestions();
             }
-            else if (activePerson.NoPerson ==  2)
-            {
-                currentTalkArea = new TalkAreas("dapur", Properties.Resources.talkArea2, activePerson);
-                activePerson.AddQuestions();
-            }
-            else if(activePerson.NoPerson == 3)
-            {
-                currentTalkArea = new TalkAreas("Kamar mandi", Properties.Resources.talkArea3, activePerson);
-                activePerson.AddQuestions();
-            }
-            else if (activePerson.NoPerson == 4)
-            {
 
-            }
-            else if (activePerson.NoPerson == 5)
-            {
+            //if (activePerson.NoPerson == 1)
+            //{
+            //    currentTalkArea = new TalkAreas("kamar", Properties.Resources.talkArea1, activePerson);
+            //    activePerson.AddQuestions();
+            //}
+            //else if (activePerson.NoPerson ==  2)
+            //{
+            //    currentTalkArea = new TalkAreas("dapur", Properties.Resources.talkArea2, activePerson);
+            //    activePerson.AddQuestions();
+            //}
+            //else if(activePerson.NoPerson == 3)
+            //{
+            //    currentTalkArea = new TalkAreas("Kamar mandi", Properties.Resources.talkArea3, activePerson);
+            //    activePerson.AddQuestions();
+            //}
+            //else if (activePerson.NoPerson == 4)
+            //{
 
-            }
-            else if (activePerson.NoPerson == 6)
-            {
+            //}
+            //else if (activePerson.NoPerson == 5)
+            //{
 
-            }
-            else if (activePerson.NoPerson == 7)
-            {
+            //}
+            //else if (activePerson.NoPerson == 6)
+            //{
 
-            }
+            //}
+            //else if (activePerson.NoPerson == 7)
+            //{
+
+            //}
         }
 
         public void EnterTalkArea()

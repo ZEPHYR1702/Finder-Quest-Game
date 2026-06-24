@@ -29,12 +29,7 @@
         private void InitializeComponent()
         {
             this.labelLeaderboard = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // labelLeaderboard
@@ -42,70 +37,35 @@
             this.labelLeaderboard.AutoSize = true;
             this.labelLeaderboard.Font = new System.Drawing.Font("Microsoft JhengHei UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLeaderboard.ForeColor = System.Drawing.Color.White;
-            this.labelLeaderboard.Location = new System.Drawing.Point(64, 45);
+            this.labelLeaderboard.Location = new System.Drawing.Point(48, 37);
+            this.labelLeaderboard.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelLeaderboard.Name = "labelLeaderboard";
-            this.labelLeaderboard.Size = new System.Drawing.Size(261, 42);
+            this.labelLeaderboard.Size = new System.Drawing.Size(214, 35);
             this.labelLeaderboard.TabIndex = 0;
             this.labelLeaderboard.Text = "LEADERBOARD";
             // 
-            // flowLayoutPanel1
+            // listBox1
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.flowLayoutPanel1.Controls.Add(this.panel1);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(36, 106);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(12, 20, 0, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(330, 280);
-            this.flowLayoutPanel1.TabIndex = 1;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.SlateGray;
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(15, 23);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(292, 42);
-            this.panel1.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(201, 15);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 16);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Score";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(31, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Name";
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(29, 75);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(249, 212);
+            this.listBox1.TabIndex = 1;
             // 
             // FormLeaderboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(402, 417);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.ClientSize = new System.Drawing.Size(302, 339);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.labelLeaderboard);
             this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormLeaderboard";
             this.Text = "Leaderboard";
             this.Load += new System.EventHandler(this.FormLeaderboard_Load);
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -114,9 +74,6 @@
         #endregion
 
         private System.Windows.Forms.Label labelLeaderboard;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
