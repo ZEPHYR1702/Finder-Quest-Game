@@ -19,6 +19,7 @@ namespace FinderQuest
     {
         Time time;
         public Player player;
+        
 
         //Areas
         public static bool enterTalkArea = false;
@@ -177,6 +178,7 @@ namespace FinderQuest
             panelGame.Visible = false;
             labelTime.Visible = false;
             startNewGameToolStripMenuItem.Enabled = true;
+            AddLeaderboardScore();
         }
         private void GenerateWalkArea()
         {
@@ -323,6 +325,15 @@ namespace FinderQuest
                         GameOver();
                     }
                 }
+            }
+        }
+
+        public void AddLeaderboardScore()
+        {
+            if(player != null)
+            {
+                Leaderboard.listPlayer.Add(player.Name);
+                Leaderboard.listScore.Add(player.Score);
             }
         }
     }

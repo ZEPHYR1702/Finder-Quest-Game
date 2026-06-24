@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\Areas.cs" />
+    <Compile Include="Class\Leaderboard.cs" />
     <Compile Include="Entity\Persons.cs" />
     <Compile Include="Entity\Player.cs" />
     <Compile Include="Question\Questions.cs" />
