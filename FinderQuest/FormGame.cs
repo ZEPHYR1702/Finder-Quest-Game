@@ -325,5 +325,12 @@ namespace FinderQuest
                 }
             }
         }
+
+        private void leaderboardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormLeaderboard form = new FormLeaderboard();
+            form.Owner = this;
+            form.ShowDialog();
+        }
     }
 }
