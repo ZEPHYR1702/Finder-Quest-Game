@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FinderQuest.Class;
 using FinderQuest.States.PlayerState;
+using FinderQuest.TalkArea;
 using FinderQuest.WalkArea;
 using WMPLib;
 
@@ -19,6 +20,7 @@ namespace FinderQuest
     {
         Time time;
         public Player player;
+        
 
         //Areas
         public static bool enterTalkArea = false;
@@ -105,6 +107,11 @@ namespace FinderQuest
         {
             StartGame();
         }
+        private void leaderboardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormLeaderboard form = new FormLeaderboard();
+            form.ShowDialog(this);
+        }
         private void playPauseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if(playPauseToolStripMenuItem.Text == "Pause Game")
@@ -177,6 +184,7 @@ namespace FinderQuest
             panelGame.Visible = false;
             labelTime.Visible = false;
             startNewGameToolStripMenuItem.Enabled = true;
+            AddLeaderboardScore();
         }
         private void GenerateWalkArea()
         {
@@ -207,36 +215,10 @@ namespace FinderQuest
 
         private void GenerateTalkArea()
         {
-            if (activePerson.NoPerson == 1)
+            if(TalkAreasLibrary.listTalkArea.TryGetValue(activePerson.NoPerson, out TalkAreasData data))
             {
-                currentTalkArea = new TalkAreas("kamar", Properties.Resources.talkArea1, activePerson);
+                currentTalkArea = new TalkAreas(data.Location, data.Resource, activePerson);
                 activePerson.AddQuestions();
-            }
-            else if (activePerson.NoPerson ==  2)
-            {
-                currentTalkArea = new TalkAreas("dapur", Properties.Resources.talkArea2, activePerson);
-                activePerson.AddQuestions();
-            }
-            else if(activePerson.NoPerson == 3)
-            {
-                currentTalkArea = new TalkAreas("Kamar mandi", Properties.Resources.talkArea3, activePerson);
-                activePerson.AddQuestions();
-            }
-            else if (activePerson.NoPerson == 4)
-            {
-
-            }
-            else if (activePerson.NoPerson == 5)
-            {
-
-            }
-            else if (activePerson.NoPerson == 6)
-            {
-
-            }
-            else if (activePerson.NoPerson == 7)
-            {
-
             }
         }
 
@@ -323,6 +305,15 @@ namespace FinderQuest
                         GameOver();
                     }
                 }
+            }
+        }
+
+        public void AddLeaderboardScore()
+        {
+            if(player != null)
+            {
+                Leaderboard.listPlayer.Add(player.Name);
+                Leaderboard.listScore.Add(player.Score);
             }
         }
     }

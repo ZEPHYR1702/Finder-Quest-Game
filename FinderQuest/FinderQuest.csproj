@@ -47,11 +47,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\Areas.cs" />
+    <Compile Include="Class\Leaderboard.cs" />
     <Compile Include="Entity\Persons.cs" />
     <Compile Include="Entity\Player.cs" />
+    <Compile Include="FormLeaderboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLeaderboard.Designer.cs">
+      <DependentUpon>FormLeaderboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Question\Questions.cs" />
-    <Compile Include="Class\TalkAreas.cs" />
+    <Compile Include="TalkArea\TalkAreas.cs" />
     <Compile Include="Class\Time.cs" />
+    <Compile Include="TalkArea\TalkAreasData.cs" />
+    <Compile Include="TalkArea\TalkAreasLibrary.cs" />
     <Compile Include="WalkArea\WalkAreas.cs" />
     <Compile Include="FormGame.cs">
       <SubType>Form</SubType>
@@ -77,6 +86,9 @@
     <Compile Include="WalkArea\WalkAreasLibrary.cs" />
     <EmbeddedResource Include="FormGame.resx">
       <DependentUpon>FormGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLeaderboard.resx">
+      <DependentUpon>FormLeaderboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormQuestion.resx">
       <DependentUpon>FormQuestion.cs</DependentUpon>

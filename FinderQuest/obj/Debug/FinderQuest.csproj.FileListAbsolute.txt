@@ -22,3 +22,18 @@ C:\Users\Keffka\source\repos\ZEPHYR1702\Finder-Quest-Game\FinderQuest\obj\Debug\
 C:\Users\Keffka\source\repos\ZEPHYR1702\Finder-Quest-Game\FinderQuest\obj\Debug\FinderQuest.pdb
 C:\Users\Keffka\source\repos\ZEPHYR1702\Finder-Quest-Game\FinderQuest\obj\Debug\Interop.WMPLib.dll
 C:\Users\Keffka\source\repos\ZEPHYR1702\Finder-Quest-Game\FinderQuest\obj\Debug\FinderQuest.csproj.ResolveComReference.cache
+D:\Projects Coding\VSCommunity\FinderQuest\FinderQuest\bin\Debug\FinderQuest.exe.config
+D:\Projects Coding\VSCommunity\FinderQuest\FinderQuest\bin\Debug\FinderQuest.exe
+D:\Projects Coding\VSCommunity\FinderQuest\FinderQuest\bin\Debug\FinderQuest.pdb
+D:\Projects Coding\VSCommunity\FinderQuest\FinderQuest\obj\Debug\FinderQuest.csproj.AssemblyReference.cache
+D:\Projects Coding\VSCommunity\FinderQuest\FinderQuest\obj\Debug\Interop.WMPLib.dll
+D:\Projects Coding\VSCommunity\FinderQuest\FinderQuest\obj\Debug\FinderQuest.csproj.ResolveComReference.cache
+D:\Projects Coding\VSCommunity\FinderQuest\FinderQuest\obj\Debug\FinderQuest.FormGame.resources
+D:\Projects Coding\VSCommunity\FinderQuest\FinderQuest\obj\Debug\FinderQuest.FormQuestion.resources
+D:\Projects Coding\VSCommunity\FinderQuest\FinderQuest\obj\Debug\FinderQuest.Properties.Resources.resources
+D:\Projects Coding\VSCommunity\FinderQuest\FinderQuest\obj\Debug\FinderQuest.csproj.GenerateResource.cache
+D:\Projects Coding\VSCommunity\FinderQuest\FinderQuest\obj\Debug\FinderQuest.csproj.CoreCompileInputs.cache
+D:\Projects Coding\VSCommunity\FinderQuest\FinderQuest\obj\Debug\FinderQuest.exe
+D:\Projects Coding\VSCommunity\FinderQuest\FinderQuest\obj\Debug\FinderQuest.pdb
+D:\Projects Coding\VSCommunity\FinderQuest\FinderQuest\obj\Debug\FinderQuest.FormLeaderboard.resources
+C:\Users\Keffka\source\repos\ZEPHYR1702\Finder-Quest-Game\FinderQuest\obj\Debug\FinderQuest.FormLeaderboard.resources

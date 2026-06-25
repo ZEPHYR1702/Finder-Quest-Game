@@ -1,0 +1,37 @@
+﻿using FinderQuest.Class;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace FinderQuest
+{
+    public partial class FormLeaderboard : Form
+    {
+        FormGame formGame;
+        public FormLeaderboard()
+        {
+            InitializeComponent();
+        }
+
+        private void FormLeaderboard_Load(object sender, EventArgs e)
+        {
+            formGame = (FormGame)this.Owner;
+            DisplayLeaderBoard();
+        }
+
+        private void DisplayLeaderBoard()
+        {
+            listBox1.Items.Clear();
+            foreach (string player in Leaderboard.listPlayer)
+            {
+                listBox1.Items.Add(player);
+            }
+        }
+    }
+}
