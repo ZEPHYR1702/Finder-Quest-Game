@@ -20,8 +20,14 @@ namespace FinderQuest
     {
         Time time;
         public Player player;
-        
 
+        //Default Keybinds
+        private Dictionary<string, Keys> listKeyBinds = new Dictionary<string, Keys>()
+        {
+            {"Move Right", Keys.D },
+            {"Move Left", Keys.A }
+        };
+        
         //Areas
         public static bool enterTalkArea = false;
         int numOfWalkArea = 3;
@@ -57,13 +63,13 @@ namespace FinderQuest
 
         private void FormGame_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Right)
+            if(e.KeyCode == listKeyBinds["Move Right"])
             {
                 player.StateMachine.TransitionTo(new MoveRightState());
                 player.Tick();
                 HandleAreaEdgeReached();
             }
-            else if (e.KeyCode == Keys.Left)
+            else if (e.KeyCode == listKeyBinds["Move Left"])
             {
                 player.StateMachine.TransitionTo(new MoveLeftState());
                 player.Tick();
@@ -111,6 +117,17 @@ namespace FinderQuest
         {
             FormLeaderboard form = new FormLeaderboard();
             form.ShowDialog(this);
+        }
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (FormSettings form = new FormSettings(listKeyBinds))
+            {
+                if (form.ShowDialog(this) == DialogResult.OK)
+                {
+                    this.listKeyBinds = form.UpdateKeys;
+                    MessageBox.Show("Keybinds updated successfully");
+                }
+            }
         }
         private void playPauseToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -261,27 +278,27 @@ namespace FinderQuest
 
         private void PlaySound(string type)
         {
-            otherSoundPlayer = new WindowsMediaPlayer();
+            //otherSoundPlayer = new WindowsMediaPlayer();
 
-            if (type == "walk area")
-            {
-                backSoundPlayer.URL = Application.StartupPath + "\\sound\\BacksoundWalkArea.mp3";
-                backSoundPlayer.settings.setMode("loop", true);
-            }
-            else if (type == "talk area")
-            {
-                backSoundPlayer.URL = Application.StartupPath + "\\sound\\BacksoundTalkArea.mp3";
-                backSoundPlayer.settings.setMode("loop", true);
-            }
-            else if (type == "lose game")
-            {
-                backSoundPlayer.URL = Application.StartupPath + "\\sound\\LoseGame.mp3";
-            }
-            else if (type == "win game")
-            {
-                backSoundPlayer.URL = Application.StartupPath + "\\sound\\WinGame.mp3";
-            }
-            otherSoundPlayer.controls.play();
+            //if (type == "walk area")
+            //{
+            //    backSoundPlayer.URL = Application.StartupPath + "\\sound\\BacksoundWalkArea.mp3";
+            //    backSoundPlayer.settings.setMode("loop", true);
+            //}
+            //else if (type == "talk area")
+            //{
+            //    backSoundPlayer.URL = Application.StartupPath + "\\sound\\BacksoundTalkArea.mp3";
+            //    backSoundPlayer.settings.setMode("loop", true);
+            //}
+            //else if (type == "lose game")
+            //{
+            //    backSoundPlayer.URL = Application.StartupPath + "\\sound\\LoseGame.mp3";
+            //}
+            //else if (type == "win game")
+            //{
+            //    backSoundPlayer.URL = Application.StartupPath + "\\sound\\WinGame.mp3";
+            //}
+            //otherSoundPlayer.controls.play();
         }
 
         
@@ -316,5 +333,7 @@ namespace FinderQuest
                 Leaderboard.listScore.Add(player.Score);
             }
         }
+
+       
     }
 }
