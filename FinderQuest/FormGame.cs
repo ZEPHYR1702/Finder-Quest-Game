@@ -120,7 +120,7 @@ namespace FinderQuest
         }
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (FormSettings form = new FormSettings(listKeyBinds))
+            using (FormSettings form = new FormSettings(listKeyBinds, backSoundPlayer))
             {
                 if (form.ShowDialog(this) == DialogResult.OK)
                 {
@@ -278,27 +278,27 @@ namespace FinderQuest
 
         private void PlaySound(string type)
         {
-            //otherSoundPlayer = new WindowsMediaPlayer();
+            otherSoundPlayer = new WindowsMediaPlayer();
 
-            //if (type == "walk area")
-            //{
-            //    backSoundPlayer.URL = Application.StartupPath + "\\sound\\BacksoundWalkArea.mp3";
-            //    backSoundPlayer.settings.setMode("loop", true);
-            //}
-            //else if (type == "talk area")
-            //{
-            //    backSoundPlayer.URL = Application.StartupPath + "\\sound\\BacksoundTalkArea.mp3";
-            //    backSoundPlayer.settings.setMode("loop", true);
-            //}
-            //else if (type == "lose game")
-            //{
-            //    backSoundPlayer.URL = Application.StartupPath + "\\sound\\LoseGame.mp3";
-            //}
-            //else if (type == "win game")
-            //{
-            //    backSoundPlayer.URL = Application.StartupPath + "\\sound\\WinGame.mp3";
-            //}
-            //otherSoundPlayer.controls.play();
+            if (type == "walk area")
+            {
+                backSoundPlayer.URL = Application.StartupPath + "\\sound\\BacksoundWalkArea.mp3";
+                backSoundPlayer.settings.setMode("loop", true);
+            }
+            else if (type == "talk area")
+            {
+                backSoundPlayer.URL = Application.StartupPath + "\\sound\\BacksoundTalkArea.mp3";
+                backSoundPlayer.settings.setMode("loop", true);
+            }
+            else if (type == "lose game")
+            {
+                backSoundPlayer.URL = Application.StartupPath + "\\sound\\LoseGame.mp3";
+            }
+            else if (type == "win game")
+            {
+                backSoundPlayer.URL = Application.StartupPath + "\\sound\\WinGame.mp3";
+            }
+            otherSoundPlayer.controls.play();
         }
 
         

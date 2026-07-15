@@ -7,30 +7,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WMPLib;
 
 namespace FinderQuest
 {
     public partial class FormSettings : Form
     {
         private Dictionary<string, Keys> updateKeys;
+        private WindowsMediaPlayer updateVolume;
 
         private string currentMap = "";
 
-        public FormSettings(Dictionary<string, Keys> currentKeyBinds)
+        FormGame form;
+
+        public FormSettings(Dictionary<string, Keys> currentKeyBinds, WindowsMediaPlayer currentVolume)
         {
             InitializeComponent();
             this.KeyPreview = true;
 
             this.UpdateKeys = new Dictionary<string, Keys>(currentKeyBinds);
+            this.updateVolume = currentVolume;
+
+            trackBarMasterVolume.Value = currentVolume.settings.volume;
+            labelMasterVolume.Text = $"Master Volume: {currentVolume.settings.volume}%";
 
             buttonMoveLeft.Text = UpdateKeys["Move Left"].ToString();
             buttonMoveRight.Text = UpdateKeys["Move Right"].ToString();
         }
         public Dictionary<string, Keys> UpdateKeys { get => updateKeys; private set => updateKeys = value; }
+        public WindowsMediaPlayer UpdateVolume { get => updateVolume; set => updateVolume = value; }
 
         private void FormSettings_Load(object sender, EventArgs e)
         {
-
+            form = (FormGame)this.Owner;
         }
         
         private void buttonMoveLeft_Click(object sender, EventArgs e)
@@ -56,6 +65,12 @@ namespace FinderQuest
         {
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void trackBarMasterVolume_Scroll(object sender, EventArgs e)
+        {
+            this.UpdateVolume.settings.volume = trackBarMasterVolume.Value;
+            labelMasterVolume.Text = $"Master Volume: {this.UpdateVolume.settings.volume}%";
         }
     }
 }
