@@ -31,90 +31,21 @@ namespace FinderQuest
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.gameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.startNewGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.playPauseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.leaderboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panelGame = new System.Windows.Forms.Panel();
             this.labelPlayer = new System.Windows.Forms.Label();
             this.labelTime = new System.Windows.Forms.Label();
             this.labelArea = new System.Windows.Forms.Label();
             this.panelTalkArea = new System.Windows.Forms.Panel();
             this.timerTime = new System.Windows.Forms.Timer(this.components);
-            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
+            this.panelEsc = new System.Windows.Forms.Panel();
+            this.buttonSetting = new System.Windows.Forms.Button();
+            this.buttonHelp = new System.Windows.Forms.Button();
+            this.buttonExit = new System.Windows.Forms.Button();
+            this.buttonBacktoMenu = new System.Windows.Forms.Button();
+            this.buttonContinue = new System.Windows.Forms.Button();
             this.panelGame.SuspendLayout();
+            this.panelEsc.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gameToolStripMenuItem,
-            this.exitToolStripMenuItem,
-            this.helpToolStripMenuItem,
-            this.toolStripMenuItem1,
-            this.settingsToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(902, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // gameToolStripMenuItem
-            // 
-            this.gameToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.startNewGameToolStripMenuItem,
-            this.playPauseToolStripMenuItem,
-            this.leaderboardToolStripMenuItem});
-            this.gameToolStripMenuItem.Name = "gameToolStripMenuItem";
-            this.gameToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.gameToolStripMenuItem.Text = "Game";
-            // 
-            // startNewGameToolStripMenuItem
-            // 
-            this.startNewGameToolStripMenuItem.Name = "startNewGameToolStripMenuItem";
-            this.startNewGameToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.startNewGameToolStripMenuItem.Text = "Start New Game";
-            this.startNewGameToolStripMenuItem.Click += new System.EventHandler(this.StartNewGameToolStripMenuItem_Click);
-            // 
-            // playPauseToolStripMenuItem
-            // 
-            this.playPauseToolStripMenuItem.Name = "playPauseToolStripMenuItem";
-            this.playPauseToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.playPauseToolStripMenuItem.Text = "Play/Pause";
-            this.playPauseToolStripMenuItem.Click += new System.EventHandler(this.playPauseToolStripMenuItem_Click);
-            // 
-            // leaderboardToolStripMenuItem
-            // 
-            this.leaderboardToolStripMenuItem.Name = "leaderboardToolStripMenuItem";
-            this.leaderboardToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.leaderboardToolStripMenuItem.Text = "Leaderboard";
-            this.leaderboardToolStripMenuItem.Click += new System.EventHandler(this.leaderboardToolStripMenuItem_Click);
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
-            // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
-            this.helpToolStripMenuItem.Click += new System.EventHandler(this.HelpToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(12, 20);
             // 
             // panelGame
             // 
@@ -122,99 +53,174 @@ namespace FinderQuest
             this.panelGame.Controls.Add(this.labelPlayer);
             this.panelGame.Controls.Add(this.labelTime);
             this.panelGame.Controls.Add(this.labelArea);
-            this.panelGame.Location = new System.Drawing.Point(0, 27);
+            this.panelGame.Location = new System.Drawing.Point(0, 3);
+            this.panelGame.Margin = new System.Windows.Forms.Padding(4);
             this.panelGame.Name = "panelGame";
-            this.panelGame.Size = new System.Drawing.Size(902, 100);
+            this.panelGame.Size = new System.Drawing.Size(993, 123);
             this.panelGame.TabIndex = 1;
+            this.panelGame.Paint += new System.Windows.Forms.PaintEventHandler(this.panelGame_Paint);
             // 
             // labelPlayer
             // 
             this.labelPlayer.AutoSize = true;
-            this.labelPlayer.Location = new System.Drawing.Point(773, 23);
+            this.labelPlayer.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPlayer.Location = new System.Drawing.Point(48, 47);
+            this.labelPlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPlayer.Name = "labelPlayer";
-            this.labelPlayer.Size = new System.Drawing.Size(65, 13);
+            this.labelPlayer.Size = new System.Drawing.Size(140, 26);
             this.labelPlayer.TabIndex = 2;
             this.labelPlayer.Text = "Label Player";
             // 
             // labelTime
             // 
             this.labelTime.AutoSize = true;
-            this.labelTime.Location = new System.Drawing.Point(395, 23);
+            this.labelTime.Font = new System.Drawing.Font("MV Boli", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTime.ForeColor = System.Drawing.Color.Red;
+            this.labelTime.Location = new System.Drawing.Point(404, 29);
+            this.labelTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTime.Name = "labelTime";
-            this.labelTime.Size = new System.Drawing.Size(49, 13);
+            this.labelTime.Size = new System.Drawing.Size(236, 55);
             this.labelTime.TabIndex = 1;
             this.labelTime.Text = "00:00:00";
             // 
             // labelArea
             // 
             this.labelArea.AutoSize = true;
-            this.labelArea.Location = new System.Drawing.Point(3, 23);
+            this.labelArea.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelArea.Location = new System.Drawing.Point(810, 52);
+            this.labelArea.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelArea.Name = "labelArea";
-            this.labelArea.Size = new System.Drawing.Size(58, 13);
+            this.labelArea.Size = new System.Drawing.Size(123, 26);
             this.labelArea.TabIndex = 0;
             this.labelArea.Text = "Label Area";
             // 
             // panelTalkArea
             // 
             this.panelTalkArea.BackColor = System.Drawing.Color.Transparent;
-            this.panelTalkArea.Location = new System.Drawing.Point(0, 133);
+            this.panelTalkArea.Location = new System.Drawing.Point(0, 231);
+            this.panelTalkArea.Margin = new System.Windows.Forms.Padding(4);
             this.panelTalkArea.Name = "panelTalkArea";
-            this.panelTalkArea.Size = new System.Drawing.Size(902, 354);
+            this.panelTalkArea.Size = new System.Drawing.Size(993, 473);
             this.panelTalkArea.TabIndex = 2;
             // 
             // timerTime
             // 
             this.timerTime.Tick += new System.EventHandler(this.TimerTime_Tick);
             // 
-            // settingsToolStripMenuItem
+            // panelEsc
             // 
-            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.settingsToolStripMenuItem.Text = "Settings";
-            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
+            this.panelEsc.BackColor = System.Drawing.Color.Transparent;
+            this.panelEsc.Controls.Add(this.buttonSetting);
+            this.panelEsc.Controls.Add(this.buttonHelp);
+            this.panelEsc.Controls.Add(this.buttonExit);
+            this.panelEsc.Controls.Add(this.buttonBacktoMenu);
+            this.panelEsc.Controls.Add(this.buttonContinue);
+            this.panelEsc.Location = new System.Drawing.Point(364, 163);
+            this.panelEsc.Name = "panelEsc";
+            this.panelEsc.Size = new System.Drawing.Size(319, 363);
+            this.panelEsc.TabIndex = 6;
+            // 
+            // buttonSetting
+            // 
+            this.buttonSetting.BackColor = System.Drawing.Color.SaddleBrown;
+            this.buttonSetting.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSetting.ForeColor = System.Drawing.Color.Gold;
+            this.buttonSetting.Location = new System.Drawing.Point(22, 90);
+            this.buttonSetting.Name = "buttonSetting";
+            this.buttonSetting.Size = new System.Drawing.Size(284, 48);
+            this.buttonSetting.TabIndex = 4;
+            this.buttonSetting.Text = "Settings";
+            this.buttonSetting.UseVisualStyleBackColor = false;
+            this.buttonSetting.Click += new System.EventHandler(this.buttonSetting_Click);
+            // 
+            // buttonHelp
+            // 
+            this.buttonHelp.BackColor = System.Drawing.Color.SaddleBrown;
+            this.buttonHelp.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonHelp.ForeColor = System.Drawing.Color.Gold;
+            this.buttonHelp.Location = new System.Drawing.Point(22, 287);
+            this.buttonHelp.Name = "buttonHelp";
+            this.buttonHelp.Size = new System.Drawing.Size(284, 48);
+            this.buttonHelp.TabIndex = 3;
+            this.buttonHelp.Text = "Help";
+            this.buttonHelp.UseVisualStyleBackColor = false;
+            this.buttonHelp.Click += new System.EventHandler(this.buttonHelp_Click);
+            // 
+            // buttonExit
+            // 
+            this.buttonExit.BackColor = System.Drawing.Color.SaddleBrown;
+            this.buttonExit.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonExit.ForeColor = System.Drawing.Color.Gold;
+            this.buttonExit.Location = new System.Drawing.Point(22, 221);
+            this.buttonExit.Name = "buttonExit";
+            this.buttonExit.Size = new System.Drawing.Size(284, 48);
+            this.buttonExit.TabIndex = 2;
+            this.buttonExit.Text = "Exit Game";
+            this.buttonExit.UseVisualStyleBackColor = false;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
+            // 
+            // buttonBacktoMenu
+            // 
+            this.buttonBacktoMenu.BackColor = System.Drawing.Color.SaddleBrown;
+            this.buttonBacktoMenu.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBacktoMenu.ForeColor = System.Drawing.Color.Gold;
+            this.buttonBacktoMenu.Location = new System.Drawing.Point(22, 155);
+            this.buttonBacktoMenu.Name = "buttonBacktoMenu";
+            this.buttonBacktoMenu.Size = new System.Drawing.Size(284, 48);
+            this.buttonBacktoMenu.TabIndex = 1;
+            this.buttonBacktoMenu.Text = "Back to Menu";
+            this.buttonBacktoMenu.UseVisualStyleBackColor = false;
+            this.buttonBacktoMenu.Click += new System.EventHandler(this.buttonBacktoMenu_Click);
+            // 
+            // buttonContinue
+            // 
+            this.buttonContinue.BackColor = System.Drawing.Color.SaddleBrown;
+            this.buttonContinue.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonContinue.ForeColor = System.Drawing.Color.Gold;
+            this.buttonContinue.Location = new System.Drawing.Point(22, 22);
+            this.buttonContinue.Name = "buttonContinue";
+            this.buttonContinue.Size = new System.Drawing.Size(284, 48);
+            this.buttonContinue.TabIndex = 0;
+            this.buttonContinue.Text = "Continue";
+            this.buttonContinue.UseVisualStyleBackColor = false;
+            this.buttonContinue.Click += new System.EventHandler(this.buttonContinue_Click);
             // 
             // FormGame
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::FinderQuest.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(902, 486);
+            this.ClientSize = new System.Drawing.Size(993, 548);
+            this.Controls.Add(this.panelEsc);
             this.Controls.Add(this.panelTalkArea);
             this.Controls.Add(this.panelGame);
-            this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
-            this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormGame";
-            this.Text = "Form1";
+            this.Text = "FormGame";
             this.Load += new System.EventHandler(this.FormGame_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormGame_KeyDown);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.panelGame.ResumeLayout(false);
             this.panelGame.PerformLayout();
+            this.panelEsc.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem gameToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem startNewGameToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem playPauseToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.Panel panelGame;
         private System.Windows.Forms.Label labelTime;
         private System.Windows.Forms.Label labelArea;
         private System.Windows.Forms.Panel panelTalkArea;
         private System.Windows.Forms.Timer timerTime;
         public System.Windows.Forms.Label labelPlayer;
-        private System.Windows.Forms.ToolStripMenuItem leaderboardToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.Panel panelEsc;
+        private System.Windows.Forms.Button buttonHelp;
+        private System.Windows.Forms.Button buttonExit;
+        private System.Windows.Forms.Button buttonBacktoMenu;
+        private System.Windows.Forms.Button buttonContinue;
+        private System.Windows.Forms.Button buttonSetting;
     }
 }
 

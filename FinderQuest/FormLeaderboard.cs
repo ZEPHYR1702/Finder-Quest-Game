@@ -13,7 +13,7 @@ namespace FinderQuest
 {
     public partial class FormLeaderboard : Form
     {
-        FormGame formGame;
+        FormMenu formMenu;
         public FormLeaderboard()
         {
             InitializeComponent();
@@ -21,7 +21,7 @@ namespace FinderQuest
 
         private void FormLeaderboard_Load(object sender, EventArgs e)
         {
-            formGame = (FormGame)this.Owner;
+            formMenu = (FormMenu)this.Owner;
             DisplayLeaderBoard();
         }
 

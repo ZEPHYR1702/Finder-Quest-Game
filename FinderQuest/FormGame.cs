@@ -18,6 +18,8 @@ namespace FinderQuest
 {
     public partial class FormGame : Form
     {
+        FormMenu frmMenu;
+
         Time time;
         public Player player;
 
@@ -42,23 +44,55 @@ namespace FinderQuest
         WindowsMediaPlayer backSoundPlayer = new WindowsMediaPlayer();
         WindowsMediaPlayer otherSoundPlayer;
 
-        bool paused = false;
         public FormGame()
         {
             InitializeComponent();
         }
         private void FormGame_Load(object sender, EventArgs e)
         {
-            panelGame.Visible = false;
-            labelTime.Visible = false;
+            try
+            {
+                frmMenu = (FormMenu)this.Owner;
+                timerTime.Interval = 1000;
 
-            playPauseToolStripMenuItem.Enabled = false;
-            timerTime.Interval = 1000;
+                this.KeyPreview = true;
+                this.DoubleBuffered = true;
 
-            this.KeyPreview = true;
-            this.DoubleBuffered = true;
+                panelEsc.Visible = false;
 
-            panelTalkArea.Visible = false;
+                if(frmMenu.difficulty == "easy")
+                {
+                    time = new Time(0, 10, 0);
+                }
+                else if(frmMenu.difficulty == "medium")
+                {
+                    time = new Time(0, 5, 0);
+                }
+                else if (frmMenu.difficulty == "hard")
+                {
+                    time = new Time(0, 2, 0);
+                }
+                timerTime.Start();
+
+                if (currentWalkArea != null)
+                {
+                    currentWalkArea.RemoveAllPerson();
+                }
+                currentWalkArea = null;
+                GenerateWalkArea();
+
+                string name = frmMenu.listUsername[frmMenu.listUsername.Count - 1];
+                player = new Player(name, Properties.Resources.player_right, new Size(50, 50), new Point(10, 370), time);
+
+                labelPlayer.Text = player.DisplayData();
+                player.DisplayPicture(this);
+
+                PlaySound("walk area");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void FormGame_KeyDown(object sender, KeyEventArgs e)
@@ -87,7 +121,16 @@ namespace FinderQuest
             }
             else if (e.KeyCode == Keys.Escape)
             {
-                ExitTalkArea();
+                if (enterTalkArea)
+                {
+                    ExitTalkArea();
+                }
+                else
+                {
+                    panelEsc.Visible = true;
+                    panelEsc.BringToFront();
+                    timerTime.Stop();
+                }
             }
 
             else if (e.KeyCode == Keys.Y && activePerson.SolvedStatus == false)
@@ -108,11 +151,6 @@ namespace FinderQuest
         {
             MessageBox.Show("Press arrow key to move the player. \n\nPress Enter to talk with the person. " + "\n\nPress y key to answer the question. \n\nPress Esc to exit the talk area.", "How to Play");
         }
-
-        private void StartNewGameToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            StartGame();
-        }
         private void leaderboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormLeaderboard form = new FormLeaderboard();
@@ -127,23 +165,6 @@ namespace FinderQuest
                     this.listKeyBinds = form.UpdateKeys;
                     MessageBox.Show("Keybinds updated successfully");
                 }
-            }
-        }
-        private void playPauseToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if(playPauseToolStripMenuItem.Text == "Pause Game")
-            {
-                paused = true;
-                timerTime.Stop();
-                playPauseToolStripMenuItem.Text = "Play Game";
-                backSoundPlayer.controls.pause();
-            }
-            else
-            {
-                paused = false;
-                timerTime.Start();
-                playPauseToolStripMenuItem.Text = "Pause Game";
-                backSoundPlayer.controls.play();
             }
         }
         private void TimerTime_Tick(object sender, EventArgs e)
@@ -164,44 +185,9 @@ namespace FinderQuest
             }
         }
 
-        private void StartGame()
-        {
-            panelGame.Visible = true;
-            labelTime.Visible = true;
-            playPauseToolStripMenuItem.Enabled = true;
-            startNewGameToolStripMenuItem.Enabled = false;
-
-            playPauseToolStripMenuItem.Text = "Pause Game";
-
-            time = new Time(0, 1, 0);
-            timerTime.Start();
-
-            if (currentWalkArea != null)
-            {
-                currentWalkArea.RemoveAllPerson();
-            }
-            currentWalkArea = null;
-            GenerateWalkArea();
-
-            player = new Player("Goof Juice", Properties.Resources.player_right, new Size(50, 50), new Point(10, 370), time);
-
-            labelPlayer.Text = player.DisplayData();
-            player.DisplayPicture(this);
-
-            PlaySound("walk area");
-
-            paused = false;
-            playPauseToolStripMenuItem.Text = "Pause Game";
-        }
-
         private void GameOver()
         {
-            timerTime.Stop();
-
-            panelGame.Visible = false;
-            labelTime.Visible = false;
-            startNewGameToolStripMenuItem.Enabled = true;
-            AddLeaderboardScore();
+            this.Close();
         }
         private void GenerateWalkArea()
         {
@@ -247,7 +233,6 @@ namespace FinderQuest
 
             panelTalkArea.BackgroundImage = currentTalkArea.Background;
             panelTalkArea.Visible = true;
-            panelTalkArea.BringToFront();
 
             activePerson.Picture.Size = new Size(200, 300);
             activePerson.Picture.Location = new Point(300, 100);
@@ -334,6 +319,45 @@ namespace FinderQuest
             }
         }
 
-       
+        private void buttonContinue_Click(object sender, EventArgs e)
+        {
+            panelEsc.Visible = false;
+
+            timerTime.Start();
+
+            this.Focus();
+        }
+
+        private void buttonBacktoMenu_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void buttonHelp_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Press arrow key to move the player. \n\nPress Enter to talk with the person. " + "\n\nPress y key to answer the question. \n\nPress Esc to exit the talk area.", "How to Play");
+        }
+
+        private void buttonSetting_Click(object sender, EventArgs e)
+        {
+            using (FormSettings form = new FormSettings(listKeyBinds, backSoundPlayer))
+            {
+                if (form.ShowDialog(this) == DialogResult.OK)
+                {
+                    this.listKeyBinds = form.UpdateKeys;
+                    MessageBox.Show("Keybinds updated successfully");
+                }
+            }
+        }
+
+        private void panelGame_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
