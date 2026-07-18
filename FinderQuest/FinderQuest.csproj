@@ -209,12 +209,6 @@
     <None Include="Resources\player_rights.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\player_left.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\player_right.gif" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\npc_back.jpeg" />
   </ItemGroup>
   <ItemGroup>
@@ -258,6 +252,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\npc_front.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\player_left.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\player_right.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

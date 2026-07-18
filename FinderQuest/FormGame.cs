@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,7 +22,6 @@ namespace FinderQuest
         public Time time;
         public Player player;
         Image map;
-        
 
         //Default Keybinds
         private Dictionary<string, Keys> listKeyBinds = new Dictionary<string, Keys>()
@@ -72,24 +72,32 @@ namespace FinderQuest
                 player.StateMachine.TransitionTo(new MoveRightState());
                 player.Tick();
                 HandleAreaEdgeReached();
+
+                UpdateCam();
             }
             else if (e.KeyCode == listKeyBinds["Move Left"])
             {
                 player.StateMachine.TransitionTo(new MoveLeftState());
                 player.Tick();
                 HandleAreaEdgeReached();
+
+                UpdateCam();
             }
             else if (e.KeyCode == listKeyBinds["Move Up"])
             {
                 player.StateMachine.TransitionTo(new MoveUpState());
                 player.Tick();
                 HandleAreaEdgeReached();
+
+                UpdateCam();
             }
             else if (e.KeyCode == listKeyBinds["Move Down"])
             {
                 player.StateMachine.TransitionTo(new MoveDownState());
                 player.Tick();
                 HandleAreaEdgeReached();
+
+                UpdateCam();
             }
             else if (e.KeyCode == Keys.Enter)
             {
@@ -112,7 +120,6 @@ namespace FinderQuest
                 form.Owner = this;
                 form.ShowDialog();
             }
-            player.DisplayPicture(this);
         }
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -201,9 +208,15 @@ namespace FinderQuest
 
             player = new Player("Goof Juice", Properties.Resources.player_front, new Point(500, 50), time);
             map = currentWalkArea.Background;
+            pbMap.Image = map;
+
+            pbPlayer.Parent = pbMap;
+            pbPlayer.BringToFront();
+            pbPlayer.Location = player.Picture.Location;
+            pbPlayer.Image = player.Picture.Image;
 
             labelPlayer.Text = player.DisplayData();
-            player.DisplayPicture(this);
+
 
             PlaySound("walk area");
 
@@ -318,8 +331,6 @@ namespace FinderQuest
             otherSoundPlayer.controls.play();
         }
 
-        
-
         public void HandleAreaEdgeReached()
         {
             if (player.Picture.Location.X + player.Picture.Width >= this.Width - 20)
@@ -352,35 +363,20 @@ namespace FinderQuest
         }
 
         // For the screen to follow player
-        protected override void OnPaint(PaintEventArgs e)
+        private void UpdateCam()
         {
-            base.OnPaint(e);
-
-            Graphics g = e.Graphics;
-
-            float scaleX = ClientSize.Width / 180f;
-            float scaleY = ClientSize.Height / 160f;
-            
-            g.ScaleTransform(scaleX, scaleY);
-
             if (player == null)
             {
                 return;
             }
-            else
-            {
-                g.DrawImage(
-                    map,
-                    new Rectangle(0, 0, 270, 300),
-                    new Rectangle(
-                        player.Picture.Location.X - 135,
-                        player.Picture.Location.Y - 150,
-                        270,
-                        300),
-                    GraphicsUnit.Pixel
-                );
-            }
+
+            int mapX = 135 - player.Picture.Location.X;
+            int mapY = 150 - player.Picture.Location.Y;
+
+            pbMap.Location = new Point(mapX, mapY);
+            pbPlayer.Location = player.Picture.Location;
+            pbPlayer.Image = player.Picture.Image;
         }
-       
+
     }
 }

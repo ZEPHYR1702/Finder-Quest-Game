@@ -46,8 +46,14 @@ namespace FinderQuest
             this.labelArea = new System.Windows.Forms.Label();
             this.panelTalkArea = new System.Windows.Forms.Panel();
             this.timerTime = new System.Windows.Forms.Timer(this.components);
+            this.panelViewPort = new System.Windows.Forms.Panel();
+            this.pbPlayer = new System.Windows.Forms.PictureBox();
+            this.pbMap = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.panelGame.SuspendLayout();
+            this.panelViewPort.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlayer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMap)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -131,13 +137,14 @@ namespace FinderQuest
             this.panelGame.Controls.Add(this.labelArea);
             this.panelGame.Location = new System.Drawing.Point(0, 27);
             this.panelGame.Name = "panelGame";
-            this.panelGame.Size = new System.Drawing.Size(902, 100);
+            this.panelGame.Size = new System.Drawing.Size(253, 39);
             this.panelGame.TabIndex = 1;
             // 
             // labelPlayer
             // 
             this.labelPlayer.AutoSize = true;
-            this.labelPlayer.Location = new System.Drawing.Point(773, 23);
+            this.labelPlayer.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelPlayer.Location = new System.Drawing.Point(176, 23);
             this.labelPlayer.Name = "labelPlayer";
             this.labelPlayer.Size = new System.Drawing.Size(65, 13);
             this.labelPlayer.TabIndex = 2;
@@ -146,7 +153,8 @@ namespace FinderQuest
             // labelTime
             // 
             this.labelTime.AutoSize = true;
-            this.labelTime.Location = new System.Drawing.Point(395, 23);
+            this.labelTime.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.labelTime.Location = new System.Drawing.Point(103, 0);
             this.labelTime.Name = "labelTime";
             this.labelTime.Size = new System.Drawing.Size(49, 13);
             this.labelTime.TabIndex = 1;
@@ -155,6 +163,7 @@ namespace FinderQuest
             // labelArea
             // 
             this.labelArea.AutoSize = true;
+            this.labelArea.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.labelArea.Location = new System.Drawing.Point(3, 23);
             this.labelArea.Name = "labelArea";
             this.labelArea.Size = new System.Drawing.Size(58, 13);
@@ -164,14 +173,41 @@ namespace FinderQuest
             // panelTalkArea
             // 
             this.panelTalkArea.BackColor = System.Drawing.Color.Transparent;
-            this.panelTalkArea.Location = new System.Drawing.Point(0, 133);
+            this.panelTalkArea.Location = new System.Drawing.Point(0, 66);
             this.panelTalkArea.Name = "panelTalkArea";
-            this.panelTalkArea.Size = new System.Drawing.Size(902, 354);
+            this.panelTalkArea.Size = new System.Drawing.Size(253, 208);
             this.panelTalkArea.TabIndex = 2;
             // 
             // timerTime
             // 
             this.timerTime.Tick += new System.EventHandler(this.TimerTime_Tick);
+            // 
+            // panelViewPort
+            // 
+            this.panelViewPort.BackColor = System.Drawing.Color.Transparent;
+            this.panelViewPort.Controls.Add(this.pbMap);
+            this.panelViewPort.Controls.Add(this.pbPlayer);
+            this.panelViewPort.Location = new System.Drawing.Point(2, 25);
+            this.panelViewPort.Name = "panelViewPort";
+            this.panelViewPort.Size = new System.Drawing.Size(250, 235);
+            this.panelViewPort.TabIndex = 3;
+            // 
+            // pbPlayer
+            // 
+            this.pbPlayer.Location = new System.Drawing.Point(96, 77);
+            this.pbPlayer.Name = "pbPlayer";
+            this.pbPlayer.Size = new System.Drawing.Size(60, 80);
+            this.pbPlayer.TabIndex = 0;
+            this.pbPlayer.TabStop = false;
+            // 
+            // pbMap
+            // 
+            this.pbMap.InitialImage = global::FinderQuest.Properties.Resources.floor1;
+            this.pbMap.Location = new System.Drawing.Point(-2, 0);
+            this.pbMap.Name = "pbMap";
+            this.pbMap.Size = new System.Drawing.Size(1000, 1000);
+            this.pbMap.TabIndex = 1;
+            this.pbMap.TabStop = false;
             // 
             // FormGame
             // 
@@ -180,6 +216,7 @@ namespace FinderQuest
             this.BackgroundImage = global::FinderQuest.Properties.Resources.homeMenu;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(254, 261);
+            this.Controls.Add(this.panelViewPort);
             this.Controls.Add(this.panelTalkArea);
             this.Controls.Add(this.panelGame);
             this.Controls.Add(this.menuStrip1);
@@ -193,6 +230,9 @@ namespace FinderQuest
             this.menuStrip1.PerformLayout();
             this.panelGame.ResumeLayout(false);
             this.panelGame.PerformLayout();
+            this.panelViewPort.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlayer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMap)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -215,6 +255,9 @@ namespace FinderQuest
         private System.Windows.Forms.ToolStripMenuItem leaderboardToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.Panel panelViewPort;
+        private System.Windows.Forms.PictureBox pbPlayer;
+        private System.Windows.Forms.PictureBox pbMap;
     }
 }
 
