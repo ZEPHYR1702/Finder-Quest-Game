@@ -133,11 +133,14 @@ namespace FinderQuest
                 }
             }
 
-            else if (e.KeyCode == Keys.Y && activePerson.SolvedStatus == false)
+            else if (e.KeyCode == Keys.Y && activePerson != null)
             {
-                FormQuestion form = new FormQuestion();
-                form.Owner = this;
-                form.ShowDialog();
+                if(activePerson.SolvedStatus == false)
+                {
+                    FormQuestion form = new FormQuestion();
+                    form.Owner = this;
+                    form.ShowDialog();
+                }
             }
             player.DisplayPicture(this);
         }
