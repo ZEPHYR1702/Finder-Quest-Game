@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FinderQuest.Class;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,13 +30,17 @@ namespace FinderQuest
         {
             if (formGame.activePerson.CheckAnswer(textBoxAnswer.Text, out int score) == true)
             {
-                MessageBox.Show("jawaban anda benar");
+                MessageBox.Show("Your answer is Correct!");
                 formGame.player.AddScore(score);
+                formGame.time.AddWithSecond(30);
+                formGame.labelTime.Text = formGame.time.DisplayData();
                 formGame.labelPlayer.Text = formGame.player.DisplayData();
             }
             else
             {
-                MessageBox.Show("salah");
+                MessageBox.Show("Wrong!");
+                formGame.time.AddWithSecond(-20);
+                formGame.labelTime.Text = formGame.time.DisplayData();
             }
             this.Close();
             formGame.ExitTalkArea();

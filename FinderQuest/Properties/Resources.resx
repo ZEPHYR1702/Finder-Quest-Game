@@ -118,32 +118,32 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="floor1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\floor1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="backgroundQuestion" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\backgroundQuestion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="floor2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\floor2.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="person1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\person1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="floor3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Floor 3 (Whole).jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="person2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\person2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="heart_empty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\heart empty.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="person3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\person3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="heart_full" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\heart full.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="person4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\person4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="homeMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\home menu (small canvas).jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="person5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\person5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="in_menu__big_canvas_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\in menu (big canvas).jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="person6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\person6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="npc_back" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\npc_back.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="person7" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\person7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="npc_front" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\npc_front.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="player_back" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\player_back.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,34 +157,16 @@
   <data name="player_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\player_right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="talkArea1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\talkArea1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="startMenu_animation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\home_animation.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="talkArea2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\talkArea2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="startText_animation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\startText_animation.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="talkArea3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\talkArea3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="talkarea_boss" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\talkarea_boss.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="talkArea4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\talkArea4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="talkArea5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\talkArea5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="talkArea6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\talkArea6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="talkArea7" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\talkArea7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkArea1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkArea1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkArea2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkArea2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkArea3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkArea3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="talkarea_npc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\talkarea_npc.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

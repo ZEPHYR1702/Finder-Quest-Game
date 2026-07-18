@@ -19,7 +19,7 @@ namespace FinderQuest.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -63,9 +63,9 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap background {
+        internal static System.Drawing.Bitmap floor1 {
             get {
-                object obj = ResourceManager.GetObject("background", resourceCulture);
+                object obj = ResourceManager.GetObject("floor1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap backgroundQuestion {
+        internal static System.Drawing.Bitmap floor2 {
             get {
-                object obj = ResourceManager.GetObject("backgroundQuestion", resourceCulture);
+                object obj = ResourceManager.GetObject("floor2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap person1 {
+        internal static System.Drawing.Bitmap floor3 {
             get {
-                object obj = ResourceManager.GetObject("person1", resourceCulture);
+                object obj = ResourceManager.GetObject("floor3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap person2 {
+        internal static System.Drawing.Bitmap heart_empty {
             get {
-                object obj = ResourceManager.GetObject("person2", resourceCulture);
+                object obj = ResourceManager.GetObject("heart_empty", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap person3 {
+        internal static System.Drawing.Bitmap heart_full {
             get {
-                object obj = ResourceManager.GetObject("person3", resourceCulture);
+                object obj = ResourceManager.GetObject("heart_full", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,9 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap person4 {
+        internal static System.Drawing.Bitmap homeMenu {
             get {
-                object obj = ResourceManager.GetObject("person4", resourceCulture);
+                object obj = ResourceManager.GetObject("homeMenu", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +123,9 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap person5 {
+        internal static System.Drawing.Bitmap in_menu__big_canvas_ {
             get {
-                object obj = ResourceManager.GetObject("person5", resourceCulture);
+                object obj = ResourceManager.GetObject("in_menu__big_canvas_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +133,9 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap person6 {
+        internal static System.Drawing.Bitmap npc_back {
             get {
-                object obj = ResourceManager.GetObject("person6", resourceCulture);
+                object obj = ResourceManager.GetObject("npc_back", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,9 +143,9 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap person7 {
+        internal static System.Drawing.Bitmap npc_front {
             get {
-                object obj = ResourceManager.GetObject("person7", resourceCulture);
+                object obj = ResourceManager.GetObject("npc_front", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -193,9 +193,9 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap talkArea1 {
+        internal static System.Drawing.Bitmap startMenu_animation {
             get {
-                object obj = ResourceManager.GetObject("talkArea1", resourceCulture);
+                object obj = ResourceManager.GetObject("startMenu_animation", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -203,9 +203,9 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap talkArea2 {
+        internal static System.Drawing.Bitmap startText_animation {
             get {
-                object obj = ResourceManager.GetObject("talkArea2", resourceCulture);
+                object obj = ResourceManager.GetObject("startText_animation", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -213,9 +213,9 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap talkArea3 {
+        internal static System.Drawing.Bitmap talkarea_boss {
             get {
-                object obj = ResourceManager.GetObject("talkArea3", resourceCulture);
+                object obj = ResourceManager.GetObject("talkarea_boss", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -223,69 +223,9 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap talkArea4 {
+        internal static System.Drawing.Bitmap talkarea_npc {
             get {
-                object obj = ResourceManager.GetObject("talkArea4", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap talkArea5 {
-            get {
-                object obj = ResourceManager.GetObject("talkArea5", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap talkArea6 {
-            get {
-                object obj = ResourceManager.GetObject("talkArea6", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap talkArea7 {
-            get {
-                object obj = ResourceManager.GetObject("talkArea7", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap walkArea1 {
-            get {
-                object obj = ResourceManager.GetObject("walkArea1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap walkArea2 {
-            get {
-                object obj = ResourceManager.GetObject("walkArea2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap walkArea3 {
-            get {
-                object obj = ResourceManager.GetObject("walkArea3", resourceCulture);
+                object obj = ResourceManager.GetObject("talkarea_npc", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

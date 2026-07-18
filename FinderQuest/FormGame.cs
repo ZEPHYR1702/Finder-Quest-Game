@@ -18,7 +18,7 @@ namespace FinderQuest
 {
     public partial class FormGame : Form
     {
-        Time time;
+        public Time time;
         public Player player;
         
 
@@ -315,6 +315,11 @@ namespace FinderQuest
                 Leaderboard.listPlayer.Add(player.Name);
                 Leaderboard.listScore.Add(player.Score);
             }
+        }
+
+        private void labelTime_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
