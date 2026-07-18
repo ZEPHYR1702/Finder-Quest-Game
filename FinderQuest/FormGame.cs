@@ -334,6 +334,7 @@ namespace FinderQuest
         private void buttonBacktoMenu_Click(object sender, EventArgs e)
         {
             this.Close();
+            backSoundPlayer.controls.stop();
         }
 
         private void buttonExit_Click(object sender, EventArgs e)
