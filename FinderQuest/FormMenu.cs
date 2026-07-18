@@ -39,7 +39,7 @@ namespace FinderQuest
             }
             listUsername.Add(textBoxName.Text);
 
-            FormGame form = new FormGame();
+            FormGame form = new FormGame(difficulty);
             form.Owner = this;
             form.ShowDialog();
             this.Show();

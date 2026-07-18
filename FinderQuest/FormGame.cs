@@ -20,8 +20,9 @@ namespace FinderQuest
     {
         FormMenu frmMenu;
 
-        Time time;
+        public Time time;
         public Player player;
+        string difficulty;
 
         //Default Keybinds
         private Dictionary<string, Keys> listKeyBinds = new Dictionary<string, Keys>()
@@ -44,9 +45,10 @@ namespace FinderQuest
         WindowsMediaPlayer backSoundPlayer = new WindowsMediaPlayer();
         WindowsMediaPlayer otherSoundPlayer;
 
-        public FormGame()
+        public FormGame(string difficulty)
         {
             InitializeComponent();
+            this.difficulty = difficulty;
         }
         private void FormGame_Load(object sender, EventArgs e)
         {
@@ -60,15 +62,15 @@ namespace FinderQuest
 
                 panelEsc.Visible = false;
 
-                if(frmMenu.difficulty == "easy")
+                if(difficulty == "easy")
                 {
                     time = new Time(0, 10, 0);
                 }
-                else if(frmMenu.difficulty == "medium")
+                else if(difficulty == "medium")
                 {
                     time = new Time(0, 5, 0);
                 }
-                else if (frmMenu.difficulty == "hard")
+                else if (difficulty == "hard")
                 {
                     time = new Time(0, 2, 0);
                 }
@@ -137,7 +139,7 @@ namespace FinderQuest
             {
                 if(activePerson.SolvedStatus == false)
                 {
-                    FormQuestion form = new FormQuestion();
+                    FormQuestion form = new FormQuestion(difficulty);
                     form.Owner = this;
                     form.ShowDialog();
                 }
@@ -236,6 +238,7 @@ namespace FinderQuest
 
             panelTalkArea.BackgroundImage = currentTalkArea.Background;
             panelTalkArea.Visible = true;
+            panelTalkArea.BringToFront();
 
             activePerson.Picture.Size = new Size(200, 300);
             activePerson.Picture.Location = new Point(300, 100);
@@ -324,6 +327,9 @@ namespace FinderQuest
 
         private void buttonContinue_Click(object sender, EventArgs e)
         {
+            panelGame.BringToFront();
+            panelEsc.SendToBack();
+            panelGame.Focus();
             panelEsc.Visible = false;
 
             timerTime.Start();

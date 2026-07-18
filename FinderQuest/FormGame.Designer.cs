@@ -93,9 +93,9 @@ namespace FinderQuest
             // panelTalkArea
             // 
             this.panelTalkArea.BackColor = System.Drawing.Color.Transparent;
-            this.panelTalkArea.Location = new System.Drawing.Point(0, 188);
+            this.panelTalkArea.Location = new System.Drawing.Point(0, 108);
             this.panelTalkArea.Name = "panelTalkArea";
-            this.panelTalkArea.Size = new System.Drawing.Size(745, 384);
+            this.panelTalkArea.Size = new System.Drawing.Size(745, 347);
             this.panelTalkArea.TabIndex = 2;
             // 
             // timerTime
@@ -111,7 +111,7 @@ namespace FinderQuest
             this.panelEsc.Controls.Add(this.buttonBacktoMenu);
             this.panelEsc.Controls.Add(this.buttonContinue);
             this.panelEsc.Location = new System.Drawing.Point(273, 132);
-            this.panelEsc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelEsc.Margin = new System.Windows.Forms.Padding(2);
             this.panelEsc.Name = "panelEsc";
             this.panelEsc.Size = new System.Drawing.Size(239, 295);
             this.panelEsc.TabIndex = 6;
@@ -122,7 +122,7 @@ namespace FinderQuest
             this.buttonSetting.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSetting.ForeColor = System.Drawing.Color.Gold;
             this.buttonSetting.Location = new System.Drawing.Point(16, 73);
-            this.buttonSetting.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSetting.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSetting.Name = "buttonSetting";
             this.buttonSetting.Size = new System.Drawing.Size(213, 39);
             this.buttonSetting.TabIndex = 4;
@@ -136,7 +136,7 @@ namespace FinderQuest
             this.buttonHelp.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonHelp.ForeColor = System.Drawing.Color.Gold;
             this.buttonHelp.Location = new System.Drawing.Point(16, 233);
-            this.buttonHelp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonHelp.Margin = new System.Windows.Forms.Padding(2);
             this.buttonHelp.Name = "buttonHelp";
             this.buttonHelp.Size = new System.Drawing.Size(213, 39);
             this.buttonHelp.TabIndex = 3;
@@ -150,7 +150,7 @@ namespace FinderQuest
             this.buttonExit.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonExit.ForeColor = System.Drawing.Color.Gold;
             this.buttonExit.Location = new System.Drawing.Point(16, 180);
-            this.buttonExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonExit.Margin = new System.Windows.Forms.Padding(2);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(213, 39);
             this.buttonExit.TabIndex = 2;
@@ -164,7 +164,7 @@ namespace FinderQuest
             this.buttonBacktoMenu.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonBacktoMenu.ForeColor = System.Drawing.Color.Gold;
             this.buttonBacktoMenu.Location = new System.Drawing.Point(16, 126);
-            this.buttonBacktoMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonBacktoMenu.Margin = new System.Windows.Forms.Padding(2);
             this.buttonBacktoMenu.Name = "buttonBacktoMenu";
             this.buttonBacktoMenu.Size = new System.Drawing.Size(213, 39);
             this.buttonBacktoMenu.TabIndex = 1;
@@ -178,7 +178,7 @@ namespace FinderQuest
             this.buttonContinue.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonContinue.ForeColor = System.Drawing.Color.Gold;
             this.buttonContinue.Location = new System.Drawing.Point(16, 18);
-            this.buttonContinue.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonContinue.Margin = new System.Windows.Forms.Padding(2);
             this.buttonContinue.Name = "buttonContinue";
             this.buttonContinue.Size = new System.Drawing.Size(213, 39);
             this.buttonContinue.TabIndex = 0;
