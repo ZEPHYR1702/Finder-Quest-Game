@@ -63,6 +63,8 @@
       <DependentUpon>FormSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="Question\Questions.cs" />
+    <Compile Include="States\PlayerState\MoveDownState.cs" />
+    <Compile Include="States\PlayerState\MoveUpState.cs" />
     <Compile Include="TalkArea\TalkAreas.cs" />
     <Compile Include="Class\Time.cs" />
     <Compile Include="TalkArea\TalkAreasData.cs" />
@@ -250,6 +252,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\floor2.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\npc_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\npc_front.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

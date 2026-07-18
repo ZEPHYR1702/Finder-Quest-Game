@@ -20,12 +20,16 @@ namespace FinderQuest
     {
         public Time time;
         public Player player;
+        Image map;
+        
 
         //Default Keybinds
         private Dictionary<string, Keys> listKeyBinds = new Dictionary<string, Keys>()
         {
             {"Move Right", Keys.D },
-            {"Move Left", Keys.A }
+            {"Move Left", Keys.A },
+            {"Move Up", Keys.W },
+            {"Move Down", Keys.S },
         };
         
         //Areas
@@ -72,6 +76,18 @@ namespace FinderQuest
             else if (e.KeyCode == listKeyBinds["Move Left"])
             {
                 player.StateMachine.TransitionTo(new MoveLeftState());
+                player.Tick();
+                HandleAreaEdgeReached();
+            }
+            else if (e.KeyCode == listKeyBinds["Move Up"])
+            {
+                player.StateMachine.TransitionTo(new MoveUpState());
+                player.Tick();
+                HandleAreaEdgeReached();
+            }
+            else if (e.KeyCode == listKeyBinds["Move Down"])
+            {
+                player.StateMachine.TransitionTo(new MoveDownState());
                 player.Tick();
                 HandleAreaEdgeReached();
             }
@@ -183,7 +199,8 @@ namespace FinderQuest
             currentWalkArea = null;
             GenerateWalkArea();
 
-            player = new Player("Goof Juice", Properties.Resources.player_right, new Size(50, 50), new Point(10, 370), time);
+            player = new Player("Goof Juice", Properties.Resources.player_front, new Point(500, 50), time);
+            map = currentWalkArea.Background;
 
             labelPlayer.Text = player.DisplayData();
             player.DisplayPicture(this);
@@ -334,7 +351,36 @@ namespace FinderQuest
             }
         }
 
+        // For the screen to follow player
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
 
+            Graphics g = e.Graphics;
+
+            float scaleX = ClientSize.Width / 180f;
+            float scaleY = ClientSize.Height / 160f;
+            
+            g.ScaleTransform(scaleX, scaleY);
+
+            if (player == null)
+            {
+                return;
+            }
+            else
+            {
+                g.DrawImage(
+                    map,
+                    new Rectangle(0, 0, 270, 300),
+                    new Rectangle(
+                        player.Picture.Location.X - 135,
+                        player.Picture.Location.Y - 150,
+                        270,
+                        300),
+                    GraphicsUnit.Pixel
+                );
+            }
+        }
        
     }
 }

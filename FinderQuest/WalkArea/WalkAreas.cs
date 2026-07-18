@@ -29,7 +29,7 @@ namespace FinderQuest.Class
 
         public void AddPerson(int no, string name, Image image, Size size, Point location, string dialog)
         {
-            Persons person = new Persons(no, name, image, size, location, dialog);
+            Persons person = new Persons(no, name, image, location, dialog);
             this.ListPersons.Add(person);
         }
 

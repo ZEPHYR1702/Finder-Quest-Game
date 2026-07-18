@@ -19,14 +19,14 @@ namespace FinderQuest.Class
 
         private StateMachine<Player> stateMachine;
 
-        public Player(string name, Image image, Size size, Point location, Time playTime)
+        public Player(string name, Image image, Point location, Time playTime)
         {
             this.Name = name;
             this.Score = score;
             this.PlayTime = playTime;
             this.Picture = new PictureBox();
             this.Picture.Image = image;
-            this.Picture.Size = size;
+            this.Picture.Size = new Size(60, 80);
             this.Picture.Location = location;
 
             this.StateMachine = new StateMachine<Player>(this);

@@ -19,13 +19,13 @@ namespace FinderQuest.Class
         private Questions personQuestion;
         private bool solvedStatus;
 
-        public Persons(int noPerson, string name, Image image, Size size, Point location, string dialog)
+        public Persons(int noPerson, string name, Image image, Point location, string dialog)
         {
             this.NoPerson = noPerson;
             this.Name = name;
             this.Picture = new PictureBox();
             this.Picture.Image = image;
-            this.Picture.Size = size;
+            this.Picture.Size = new Size(60, 80);
             this.Picture.Location = location;
             this.Dialog = dialog;
             this.SolvedStatus = false;
