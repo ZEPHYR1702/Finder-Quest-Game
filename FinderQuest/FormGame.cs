@@ -28,7 +28,8 @@ namespace FinderQuest
         private Dictionary<string, Keys> listKeyBinds = new Dictionary<string, Keys>()
         {
             {"Move Right", Keys.D },
-            {"Move Left", Keys.A }
+            {"Move Left", Keys.A },
+            {"Interact", Keys.F }
         };
         
         //Areas
@@ -111,7 +112,7 @@ namespace FinderQuest
                 player.Tick();
                 HandleAreaEdgeReached();
             }
-            else if (e.KeyCode == Keys.Enter)
+            else if (e.KeyCode == listKeyBinds["Interact"])
             {
                 if (currentWalkArea.CheckTouchPerson(player, out Persons touchPerson) == true)
                 {

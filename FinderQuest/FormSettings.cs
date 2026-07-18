@@ -33,6 +33,7 @@ namespace FinderQuest
 
             buttonMoveLeft.Text = UpdateKeys["Move Left"].ToString();
             buttonMoveRight.Text = UpdateKeys["Move Right"].ToString();
+            buttonInteract.Text = UpdateKeys["Interact"].ToString();
         }
         public Dictionary<string, Keys> UpdateKeys { get => updateKeys; private set => updateKeys = value; }
         public WindowsMediaPlayer UpdateVolume { get => updateVolume; set => updateVolume = value; }
@@ -46,6 +47,16 @@ namespace FinderQuest
         {
             buttonMoveLeft.Text = "Press a Key...";
             currentMap = "Move Left";
+        }
+        private void buttonMoveRight_Click(object sender, EventArgs e)
+        {
+            buttonMoveLeft.Text = "Press a Key...";
+            currentMap = "Move Right";
+        }
+        private void buttonInteract_Click(object sender, EventArgs e)
+        {
+            buttonMoveLeft.Text = "Press a Key...";
+            currentMap = "Interact";
         }
 
         private void FormSettings_KeyDown(object sender, KeyEventArgs e)

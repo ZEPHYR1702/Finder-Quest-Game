@@ -36,6 +36,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.trackBarMasterVolume = new System.Windows.Forms.TrackBar();
             this.labelMasterVolume = new System.Windows.Forms.Label();
+            this.buttonInteract = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarMasterVolume)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,7 +46,7 @@
             this.buttonMoveLeft.Name = "buttonMoveLeft";
             this.buttonMoveLeft.Size = new System.Drawing.Size(75, 23);
             this.buttonMoveLeft.TabIndex = 0;
-            this.buttonMoveLeft.Text = "button1";
+            this.buttonMoveLeft.Text = "Move Left";
             this.buttonMoveLeft.UseVisualStyleBackColor = true;
             this.buttonMoveLeft.Click += new System.EventHandler(this.buttonMoveLeft_Click);
             // 
@@ -55,8 +56,9 @@
             this.buttonMoveRight.Name = "buttonMoveRight";
             this.buttonMoveRight.Size = new System.Drawing.Size(75, 23);
             this.buttonMoveRight.TabIndex = 1;
-            this.buttonMoveRight.Text = "button2";
+            this.buttonMoveRight.Text = "Move Right";
             this.buttonMoveRight.UseVisualStyleBackColor = true;
+            this.buttonMoveRight.Click += new System.EventHandler(this.buttonMoveRight_Click);
             // 
             // buttonSave
             // 
@@ -114,11 +116,22 @@
             this.labelMasterVolume.TabIndex = 7;
             this.labelMasterVolume.Text = "Master Volume";
             // 
+            // buttonInteract
+            // 
+            this.buttonInteract.Location = new System.Drawing.Point(60, 125);
+            this.buttonInteract.Name = "buttonInteract";
+            this.buttonInteract.Size = new System.Drawing.Size(75, 23);
+            this.buttonInteract.TabIndex = 8;
+            this.buttonInteract.Text = "Interact";
+            this.buttonInteract.UseVisualStyleBackColor = true;
+            this.buttonInteract.Click += new System.EventHandler(this.buttonInteract_Click);
+            // 
             // FormSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonInteract);
             this.Controls.Add(this.labelMasterVolume);
             this.Controls.Add(this.trackBarMasterVolume);
             this.Controls.Add(this.label3);
@@ -147,5 +160,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TrackBar trackBarMasterVolume;
         private System.Windows.Forms.Label labelMasterVolume;
+        private System.Windows.Forms.Button buttonInteract;
     }
 }
