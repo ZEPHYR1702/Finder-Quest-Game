@@ -1,17 +1,19 @@
-﻿using System;
+﻿using FinderQuest.Class;
+using FinderQuest.States.PlayerState;
+using FinderQuest.TalkArea;
+using FinderQuest.WalkArea;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using FinderQuest.Class;
-using FinderQuest.States.PlayerState;
-using FinderQuest.TalkArea;
-using FinderQuest.WalkArea;
 using WMPLib;
 
 namespace FinderQuest
@@ -34,7 +36,7 @@ namespace FinderQuest
         
         //Areas
         public static bool enterTalkArea = false;
-        int numOfWalkArea = 3;
+        int numOfWalkArea = 2;
         WalkAreas currentWalkArea = null;
         TalkAreas currentTalkArea = null;
 
@@ -198,7 +200,7 @@ namespace FinderQuest
         private void GenerateWalkArea()
         {
             int areaNumber;
-            if(currentTalkArea == null)
+            if(currentWalkArea == null)
             {
                 areaNumber = 1;
             }
@@ -247,7 +249,7 @@ namespace FinderQuest
 
             if (activePerson.SolvedStatus == true)
             {
-                activePerson.Dialog = "selamat, anda menang";
+                activePerson.Dialog = "You have answered this question correctly!";
             }
 
             activePerson.DisplayDialog(panelTalkArea);
@@ -311,6 +313,8 @@ namespace FinderQuest
                         backSoundPlayer.controls.stop();
                         PlaySound("win game");
                         MessageBox.Show("you win, i got OCD");
+                        AddLeaderboardScore();
+                        frmMenu.SaveToFile(frmMenu.dataName);
                         GameOver();
                     }
                 }
@@ -364,11 +368,6 @@ namespace FinderQuest
                     MessageBox.Show("Keybinds updated successfully");
                 }
             }
-        }
-
-        private void panelGame_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

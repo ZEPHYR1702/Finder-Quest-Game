@@ -13,7 +13,9 @@ namespace FinderQuest.TalkArea
         {
             {1, new TalkAreasData("Kamar", Properties.Resources.talkArea1) },
             {2, new TalkAreasData("Dapur", Properties.Resources.talkArea2) },
-            {3, new TalkAreasData("Kamar Mandi", Properties.Resources.talkArea3) }
+            {3, new TalkAreasData("Kamar Mandi", Properties.Resources.talkArea3) },
+            {4, new TalkAreasData("Kamar Mandi", Properties.Resources.talkArea3) },
+            {5, new TalkAreasData("Kamar Mandi", Properties.Resources.talkArea3) }
         };
     }
 }
