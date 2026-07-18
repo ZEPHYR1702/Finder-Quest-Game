@@ -87,7 +87,7 @@ namespace FinderQuest
                 GenerateWalkArea();
 
                 string name = frmMenu.listUsername[frmMenu.listUsername.Count - 1];
-                player = new Player(name, Properties.Resources.player_right, new Size(50, 50), new Point(10, 370), time);
+                player = new Player(name, Properties.Resources.player_right, new Size(60, 75), new Point(10, 360), time);
 
                 labelPlayer.Text = player.DisplayData();
                 player.DisplayPicture(this);
