@@ -27,7 +27,7 @@ namespace FinderQuest.Class
             return "No. Area : " + this.NoArea + " - " + base.DisplayData();
         }
 
-        public void AddPerson(int no, string name, Image image, Size size, Point location, string dialog)
+        public void AddPerson(int no, string name, Image image, Point location, string dialog)
         {
             Persons person = new Persons(no, name, image, location, dialog);
             this.ListPersons.Add(person);
