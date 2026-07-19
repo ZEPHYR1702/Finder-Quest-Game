@@ -320,6 +320,8 @@ namespace FinderQuest
             panelTalkArea.Visible = true;
             panelTalkArea.BringToFront();
 
+            this.Controls.Remove(activePerson.Picture);
+
             activePerson.Picture.Size = new Size(200, 300);
             activePerson.Picture.Location = new Point(300, 100);
             activePerson.DisplayPicture(panelTalkArea);
@@ -338,11 +340,16 @@ namespace FinderQuest
         {
             player.Picture.Visible = true;
             enterTalkArea = false;
-
             panelTalkArea.Visible = false;
+
             activePerson.Picture.Size = new Size(60, 90);
             activePerson.Picture.Location = activePersonLastLocation;
-            activePerson.DisplayPicture(this);
+
+            activePerson.Picture.Visible = false;
+            pbMap.Invalidate();
+
+            //activePerson.DisplayPicture(pbMap);
+            //pbPlayer.BringToFront();
 
             PlaySound("walk area");
         }
@@ -554,16 +561,26 @@ namespace FinderQuest
             Graphics g = e.Graphics;
             foreach (Persons npc in currentWalkArea.ListPersons)
             {
-                if(npc.SolvedStatus == false && npc.Picture.Visible)
+                if(npc.Picture.Image != null)
+                {
+                    g.DrawImage(npc.Picture.Image, npc.Picture.Location.X, npc.Picture.Location.Y, 60, 80);
+                }
+
+                if (npc.SolvedStatus == false)
                 {
                     int overlayX = npc.Picture.Location.X + (npc.Picture.Width / 2) - 15;
                     int overlayY = npc.Picture.Location.Y - 35;
-
-                    if (npc.Picture.Image != null)
-                    {
-                        g.DrawImage(npc.Picture.Image, overlayX, overlayY, 60, 80);
-                    }
                 }
+                //if(npc.SolvedStatus == false && npc.Picture.Visible)
+                //{
+                //    int overlayX = npc.Picture.Location.X + (npc.Picture.Width / 2) - 15;
+                //    int overlayY = npc.Picture.Location.Y - 35;
+
+                //    if (npc.Picture.Image != null)
+                //    {
+                //        g.DrawImage(npc.Picture.Image, overlayX, overlayY, 60, 80);
+                //    }
+                //}
             }
         }
     }
