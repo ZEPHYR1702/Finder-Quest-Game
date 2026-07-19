@@ -130,7 +130,7 @@ namespace FinderQuest
             }
             else if (e.KeyCode == listKeyBinds["Interact"])
             {
-                if (currentWalkArea.CheckTouchPerson(player, out Persons touchPerson) == true)
+                if (currentWalkArea != null && currentWalkArea.CheckTouchPerson(player, out Persons touchPerson) == true)
                 {
                     if (panelGame.Visible == true)
                     {
