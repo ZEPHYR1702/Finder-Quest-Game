@@ -18,7 +18,7 @@ namespace FinderQuest.Class
         private Time playTime;
 
         private StateMachine<Player> stateMachine;
-        public Rectangle hitbox;
+        private Rectangle hitbox;
 
         public Player(string name, Image image, Point location, Time playTime)
         {

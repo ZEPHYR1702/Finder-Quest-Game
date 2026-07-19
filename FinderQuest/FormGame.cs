@@ -225,6 +225,7 @@ namespace FinderQuest
 
         private void StartGame()
         {
+            DisableButtons();
             panelGame.Visible = true;
             labelTime.Visible = true;
             playPauseToolStripMenuItem.Enabled = true;
@@ -403,8 +404,6 @@ namespace FinderQuest
                 Leaderboard.listScore.Add(player.Score);
             }
         }
-
-        // For the screen to follow player
         private void UpdateCam()
         {
             if (player == null)
@@ -423,8 +422,6 @@ namespace FinderQuest
             pbMap.Location = new Point(mapX, mapY);
             pbPlayer.Image = player.Picture.Image;
         }
-
-        //Ensuring player doesnt phase through walls
         private void CheckCollision(int moveX, int moveY)
         {
             Rectangle futureHitbox = player.Hitbox;
@@ -540,6 +537,31 @@ namespace FinderQuest
         private void buttonEx_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void DisableButtons()
+        {
+            buttonLeaderboard.Visible = false;
+            buttonS.Visible = false;
+            buttonH.Visible = false;
+            buttonEx.Visible = false;
+        }
+
+        private void pbMap_Paint(object sender, PaintEventArgs e)
+        {
+            if(paused || enterTalkArea || player == null || currentWalkArea == null) return;
+
+            Graphics g = e.Graphics;
+            foreach (Persons npc in currentWalkArea.ListPersons)
+            {
+                if(npc.SolvedStatus == false && npc.Picture.Visible)
+                {
+                    int overlayX = npc.Picture.Location.X + (npc.Picture.Width / 2) - 15;
+                    int overlayY = npc.Picture.Location.Y - 35;
+
+                    g.DrawImage(Properties.Resources.npc_back, overlayX, overlayY, 30, 30);
+                }
+            }
         }
     }
 }
