@@ -113,16 +113,6 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap in_menu__big_canvas_ {
-            get {
-                object obj = ResourceManager.GetObject("in_menu__big_canvas_", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap npc_back {
             get {
                 object obj = ResourceManager.GetObject("npc_back", resourceCulture);
