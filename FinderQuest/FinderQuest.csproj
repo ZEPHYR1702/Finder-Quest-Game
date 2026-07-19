@@ -261,12 +261,6 @@
     <None Include="Resources\specialWall_Yes.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\floor2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\floor3.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\npc_left.png" />
   </ItemGroup>
   <ItemGroup>
@@ -295,6 +289,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\stairUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\floor1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\floor2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\floor3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

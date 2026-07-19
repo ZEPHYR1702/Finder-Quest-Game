@@ -154,7 +154,18 @@ namespace FinderQuest
                     activePersonLastLocation = activePerson.Picture.Location;
                     EnterTalkArea();
                 }
-                
+            }
+            else if (e.KeyCode == Keys.F)
+            {
+                if (panelGame.Visible)
+                {
+                    if (currentWalkArea.CheckTouchPerson(player, out Persons touchPerson) == true)
+                    {
+                        activePerson = touchPerson;
+                        activePersonLastLocation = activePerson.Picture.Location;
+                        NextWalkArea();
+                    }
+                }
             }
             else if (e.KeyCode == Keys.Escape)
             {
@@ -169,12 +180,14 @@ namespace FinderQuest
                     timerTime.Stop();
                 }
             }
-
-            else if (e.KeyCode == Keys.Y && activePerson.SolvedStatus == false)
+            else if (e.KeyCode == Keys.Y && pictureBoxStart.Visible == false)
             {
-                FormQuestion form = new FormQuestion(difficulty);
-                form.Owner = this;
-                form.ShowDialog();
+                if (activePerson.SolvedStatus == false)
+                {
+                    FormQuestion form = new FormQuestion(difficulty);
+                    form.Owner = this;
+                    form.ShowDialog();
+                }
             }
         }
 
@@ -346,16 +359,63 @@ namespace FinderQuest
                 areaNumber = currentWalkArea.NoArea;
             }
 
-            currentWalkArea?.RemoveAllPerson();
             currentWalkArea = WalkAreasLibrary.CreateArea(areaNumber);
             
             if (currentWalkArea != null) 
             {
                 labelArea.Text = currentWalkArea.DisplayData();
             }
-            if (player != null)
+        }
+
+        private void NextWalkArea()
+        {
+            if (activePerson.NoPerson == 15 || activePerson.NoPerson == 16)
             {
-                player.Picture.Location = new Point(0, player.Picture.Location.Y);
+                currentWalkArea?.RemoveAllPerson();
+                currentWalkArea = WalkAreasLibrary.CreateArea(currentWalkArea.NoArea += 1);
+                floorWall.HitBoxLibrary(currentWalkArea.NoArea);
+
+                map = currentWalkArea.Background;
+                pbMap.Image = map;
+                this.BackgroundImage = null;
+                this.BackColor = Color.Black;
+
+                pbPlayer.Parent = pbMap;
+                pbPlayer.BringToFront();
+                pbPlayer.Location = player.Picture.Location;
+                pbPlayer.Image = player.Picture.Image;
+
+                UpdateCam();
+                labelPlayer.Text = player.DisplayData();
+
+                PlaySound("walk area");
+
+                paused = false;
+                playPauseToolStripMenuItem.Text = "Pause Game";
+            }
+            else if (activePerson.NoPerson == 17 || activePerson.NoPerson == 18)
+            {
+                currentWalkArea?.RemoveAllPerson();
+                currentWalkArea = WalkAreasLibrary.CreateArea(currentWalkArea.NoArea -= 1);
+                floorWall.HitBoxLibrary(currentWalkArea.NoArea);
+
+                map = currentWalkArea.Background;
+                pbMap.Image = map;
+                this.BackgroundImage = null;
+                this.BackColor = Color.Black;
+
+                pbPlayer.Parent = pbMap;
+                pbPlayer.BringToFront();
+                pbPlayer.Location = player.Picture.Location;
+                pbPlayer.Image = player.Picture.Image;
+
+                UpdateCam();
+                labelPlayer.Text = player.DisplayData();
+
+                PlaySound("walk area");
+
+                paused = false;
+                playPauseToolStripMenuItem.Text = "Pause Game";
             }
         }
 
@@ -370,28 +430,35 @@ namespace FinderQuest
 
         public void EnterTalkArea()
         {
-            GenerateTalkArea();
-
-            player.Picture.Visible = false;
-
-            panelTalkArea.BackgroundImage = Properties.Resources.emptyFloor;
-            panelTalkArea.Visible = true;
-            panelTalkArea.BringToFront();
-
-            this.Controls.Remove(activePerson.Picture);
-
-            activePerson.Picture.Size = new Size(200, 300);
-            activePerson.Picture.Location = new Point(300, 100);
-            activePerson.DisplayPicture(panelTalkArea);
-
-            if (activePerson.SolvedStatus == true)
+            if (activePerson.NoPerson <= 14)
             {
-                activePerson.Dialog = "Success";
+                GenerateTalkArea();
+
+                player.Picture.Visible = false;
+
+                panelTalkArea.BackgroundImage = Properties.Resources.emptyFloor;
+                panelTalkArea.Visible = true;
+                panelTalkArea.BringToFront();
+
+                this.Controls.Remove(activePerson.Picture);
+
+                activePerson.Picture.Size = new Size(200, 300);
+                activePerson.Picture.Location = new Point(300, 100);
+                activePerson.DisplayPicture(panelTalkArea);
+
+                if (activePerson.SolvedStatus == true)
+                {
+                    activePerson.Dialog = "Success";
+                }
+
+                activePerson.DisplayDialog(panelTalkArea);
+
+                PlaySound("talk area");
             }
-
-            activePerson.DisplayDialog(panelTalkArea);
-
-            PlaySound("talk area");
+            else
+            {
+                NextWalkArea();
+            }
         }
 
         public void ExitTalkArea()
@@ -510,7 +577,6 @@ namespace FinderQuest
                 player.Picture.Location = new Point(player.Picture.Location.X + moveX, player.Picture.Location.Y + moveY);
                 UpdateCam();
             }
-
         }
 
         private void pictureBoxStart_Click(object sender, EventArgs e)
