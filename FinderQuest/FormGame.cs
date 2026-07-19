@@ -91,9 +91,9 @@ namespace FinderQuest
                     player.StateMachine.TransitionTo(new MoveRightState());
                     player.Tick();
                     HandleAreaEdgeReached();
+                    UpdateCam();
+                    CheckCollision(5, 0);
                 }
-                UpdateCam();
-                CheckCollision(5, 0);
             }
             else if (e.KeyCode == listKeyBinds["Move Left"])
             {
@@ -102,9 +102,9 @@ namespace FinderQuest
                     player.StateMachine.TransitionTo(new MoveLeftState());
                     player.Tick();
                     HandleAreaEdgeReached();
+                    UpdateCam();
+                    CheckCollision(-5, 0);
                 }
-                UpdateCam();
-                CheckCollision(-5, 0);
             }
             else if (e.KeyCode == listKeyBinds["Move Up"])
             {
@@ -113,9 +113,9 @@ namespace FinderQuest
                     player.StateMachine.TransitionTo(new MoveUpState());
                     player.Tick();
                     HandleAreaEdgeReached();
+                    UpdateCam();
+                    CheckCollision(0, -5);
                 }
-                UpdateCam();
-                CheckCollision(0, -5);
             }
             else if (e.KeyCode == listKeyBinds["Move Down"])
             {
@@ -124,9 +124,9 @@ namespace FinderQuest
                     player.StateMachine.TransitionTo(new MoveDownState());
                     player.Tick();
                     HandleAreaEdgeReached();
+                    UpdateCam();
+                    CheckCollision(0, 5);
                 }
-                UpdateCam();
-                CheckCollision(0, 5);
             }
             else if (e.KeyCode == listKeyBinds["Interact"])
             {
