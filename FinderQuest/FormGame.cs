@@ -61,6 +61,8 @@ namespace FinderQuest
         public FormGame()
         {
             InitializeComponent();
+
+            this.DoubleBuffered = true;
         }
         private void FormGame_Load(object sender, EventArgs e)
         {
@@ -89,7 +91,7 @@ namespace FinderQuest
                     player.StateMachine.TransitionTo(new MoveRightState());
                     player.Tick();
                     HandleAreaEdgeReached();
-
+                }
                 UpdateCam();
                 CheckCollision(5, 0);
             }
@@ -100,7 +102,7 @@ namespace FinderQuest
                     player.StateMachine.TransitionTo(new MoveLeftState());
                     player.Tick();
                     HandleAreaEdgeReached();
-
+                }
                 UpdateCam();
                 CheckCollision(-5, 0);
             }
@@ -111,7 +113,7 @@ namespace FinderQuest
                     player.StateMachine.TransitionTo(new MoveUpState());
                     player.Tick();
                     HandleAreaEdgeReached();
-
+                }
                 UpdateCam();
                 CheckCollision(0, -5);
             }
@@ -122,7 +124,7 @@ namespace FinderQuest
                     player.StateMachine.TransitionTo(new MoveDownState());
                     player.Tick();
                     HandleAreaEdgeReached();
-
+                }
                 UpdateCam();
                 CheckCollision(0, 5);
             }
