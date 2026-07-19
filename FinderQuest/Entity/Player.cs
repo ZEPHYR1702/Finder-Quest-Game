@@ -18,6 +18,7 @@ namespace FinderQuest.Class
         private Time playTime;
 
         private StateMachine<Player> stateMachine;
+        public Rectangle hitbox;
 
         public Player(string name, Image image, Point location, Time playTime)
         {
@@ -66,6 +67,24 @@ namespace FinderQuest.Class
         }
         public Time PlayTime { get => playTime; set => playTime = value; }
         public StateMachine<Player> StateMachine { get => stateMachine; private set => stateMachine = value; }
+        public Rectangle Hitbox
+        {
+            get
+            {
+                int padX = 20;
+                int padY = 50;
+                int height = 10;
+                int width = 20;
+
+                return new Rectangle(
+                    this.Picture.Location.X + padX,
+                    this.Picture.Location.Y + padY,
+                    width,
+                    height
+                );
+
+            }
+        }
 
         public string DisplayData()
         {

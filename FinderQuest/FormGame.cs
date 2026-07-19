@@ -37,6 +37,7 @@ namespace FinderQuest
         int numOfWalkArea = 3;
         WalkAreas currentWalkArea = null;
         TalkAreas currentTalkArea = null;
+        WalkAreaHitbox floorWall = new WalkAreaHitbox();
 
         //Persons
         public Persons activePerson;
@@ -74,6 +75,7 @@ namespace FinderQuest
                 HandleAreaEdgeReached();
 
                 UpdateCam();
+                CheckCollision(10, 0);
             }
             else if (e.KeyCode == listKeyBinds["Move Left"])
             {
@@ -82,6 +84,7 @@ namespace FinderQuest
                 HandleAreaEdgeReached();
 
                 UpdateCam();
+                CheckCollision(-10, 0);
             }
             else if (e.KeyCode == listKeyBinds["Move Up"])
             {
@@ -90,6 +93,7 @@ namespace FinderQuest
                 HandleAreaEdgeReached();
 
                 UpdateCam();
+                CheckCollision(0, -10);
             }
             else if (e.KeyCode == listKeyBinds["Move Down"])
             {
@@ -98,6 +102,7 @@ namespace FinderQuest
                 HandleAreaEdgeReached();
 
                 UpdateCam();
+                CheckCollision(0, 10);
             }
             else if (e.KeyCode == Keys.Enter)
             {
@@ -205,6 +210,7 @@ namespace FinderQuest
             }
             currentWalkArea = null;
             GenerateWalkArea();
+            floorWall.HitBoxLibrary(currentWalkArea.NoArea);
 
             player = new Player("Goof Juice", Properties.Resources.player_front, new Point(395, 50), time);
             map = currentWalkArea.Background;
@@ -249,6 +255,7 @@ namespace FinderQuest
 
             currentWalkArea?.RemoveAllPerson();
             currentWalkArea = WalkAreasLibrary.CreateArea(areaNumber);
+            
 
             if (currentWalkArea != null) 
             {
@@ -380,6 +387,32 @@ namespace FinderQuest
 
             pbMap.Location = new Point(mapX, mapY);
             pbPlayer.Image = player.Picture.Image;
+        }
+
+        //Ensuring player doesnt phase through walls
+        private void CheckCollision(int moveX, int moveY)
+        {
+            Rectangle futureHitbox = player.Hitbox;
+            futureHitbox.Offset(moveX, moveY);
+            bool hitWall = false;
+
+            foreach (Rectangle wall in floorWall.lstWallHitbox)
+            {
+                if (futureHitbox.IntersectsWith(wall))
+                {
+                    hitWall = true;
+                    player.Picture.Location = new Point(player.Picture.Location.X - moveX, player.Picture.Location.Y - moveY);
+                    UpdateCam();
+                    break;
+                }
+            }
+
+            if (hitWall == false)
+            {
+                player.Picture.Location = new Point(player.Picture.Location.X + moveX, player.Picture.Location.Y + moveY);
+                UpdateCam();
+            }
+
         }
 
     }

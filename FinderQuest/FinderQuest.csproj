@@ -69,6 +69,7 @@
     <Compile Include="Class\Time.cs" />
     <Compile Include="TalkArea\TalkAreasData.cs" />
     <Compile Include="TalkArea\TalkAreasLibrary.cs" />
+    <Compile Include="WalkArea\WalkAreaHitbox.cs" />
     <Compile Include="WalkArea\WalkAreas.cs" />
     <Compile Include="FormGame.cs">
       <SubType>Form</SubType>
@@ -258,6 +259,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\player_right.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boss_enemy.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
