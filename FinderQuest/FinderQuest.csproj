@@ -243,19 +243,10 @@
     <None Include="Resources\Floor 3 %28Whole%29.jpeg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\floor1.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\floor2.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\player_left.gif" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\player_right.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\boss_enemy.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\floor1..png" />
@@ -286,6 +277,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\npc_front.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\floor2.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\floor1.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boss_enemy.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
