@@ -63,26 +63,6 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap floor1 {
-            get {
-                object obj = ResourceManager.GetObject("floor1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap floor2 {
-            get {
-                object obj = ResourceManager.GetObject("floor2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap floor3 {
             get {
                 object obj = ResourceManager.GetObject("floor3", resourceCulture);
@@ -106,6 +86,46 @@ namespace FinderQuest.Properties {
         internal static System.Drawing.Bitmap item_lone {
             get {
                 object obj = ResourceManager.GetObject("item_lone", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap npc_back {
+            get {
+                object obj = ResourceManager.GetObject("npc_back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap npc_front {
+            get {
+                object obj = ResourceManager.GetObject("npc_front", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap npc_left {
+            get {
+                object obj = ResourceManager.GetObject("npc_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap npc_right {
+            get {
+                object obj = ResourceManager.GetObject("npc_right", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
