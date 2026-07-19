@@ -82,7 +82,7 @@ namespace FinderQuest
                 HandleAreaEdgeReached();
 
                 UpdateCam();
-                CheckCollision(10, 0);
+                CheckCollision(5, 0);
             }
             else if (e.KeyCode == listKeyBinds["Move Left"])
             {
@@ -91,7 +91,7 @@ namespace FinderQuest
                 HandleAreaEdgeReached();
 
                 UpdateCam();
-                CheckCollision(-10, 0);
+                CheckCollision(-5, 0);
             }
             else if (e.KeyCode == listKeyBinds["Move Up"])
             {
@@ -100,7 +100,7 @@ namespace FinderQuest
                 HandleAreaEdgeReached();
 
                 UpdateCam();
-                CheckCollision(0, -10);
+                CheckCollision(0, -5);
             }
             else if (e.KeyCode == listKeyBinds["Move Down"])
             {
@@ -109,7 +109,7 @@ namespace FinderQuest
                 HandleAreaEdgeReached();
 
                 UpdateCam();
-                CheckCollision(0, 10);
+                CheckCollision(0, 5);
             }
             else if (e.KeyCode == listKeyBinds["Interact"])
             {
@@ -316,7 +316,7 @@ namespace FinderQuest
 
             player.Picture.Visible = false;
 
-            panelTalkArea.BackgroundImage = currentTalkArea.Background;
+            panelTalkArea.BackgroundImage = Properties.Resources.emptyFloor;
             panelTalkArea.Visible = true;
             panelTalkArea.BringToFront();
 
@@ -326,7 +326,7 @@ namespace FinderQuest
 
             if (activePerson.SolvedStatus == true)
             {
-                activePerson.Dialog = "selamat, anda menang";
+                activePerson.Dialog = "Success";
             }
 
             activePerson.DisplayDialog(panelTalkArea);
@@ -340,7 +340,7 @@ namespace FinderQuest
             enterTalkArea = false;
 
             panelTalkArea.Visible = false;
-            activePerson.Picture.Size = new Size(60, 90);
+            activePerson.Picture.Size = new Size(60, 80);
             activePerson.Picture.Location = activePersonLastLocation;
             activePerson.DisplayPicture(this);
 
@@ -416,7 +416,7 @@ namespace FinderQuest
             int halfWidth = pbPlayer.Width / 2;
             int halfHeight = pbPlayer.Height / 2;
 
-            int mapX = 350 - (player.Picture.Location.X + halfWidth);
+            int mapX = 332 - (player.Picture.Location.X + halfWidth);
             int mapY = 120 - (player.Picture.Location.Y + halfHeight);
 
             pbMap.Location = new Point(mapX, mapY);

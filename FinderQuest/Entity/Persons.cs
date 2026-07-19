@@ -88,7 +88,7 @@ namespace FinderQuest.Class
 
         public string DisplayData()
         {
-            string data = "Hi... I'm " + this.Name + ".\n " + this.Dialog;
+            string data = this.Name + " Reporting:\n" + this.Dialog;
             return data;
         }
 
@@ -97,12 +97,12 @@ namespace FinderQuest.Class
             Label labelDialog = new Label();
             labelDialog.Parent = container;
             labelDialog.Text = this.DisplayData();
-            labelDialog.Font = new Font("Arial", 18);
+            labelDialog.Font = new Font("OCR A Extended", 20);
             labelDialog.TextAlign = ContentAlignment.TopCenter;
             labelDialog.Size = new Size(500, 90);
 
             labelDialog.Location = new Point(this.Picture.Location.X - 150, 10);
-            labelDialog.BackColor = Color.LightYellow;
+            labelDialog.BackColor = Color.White;
             labelDialog.BorderStyle = BorderStyle.FixedSingle;
             labelDialog.BringToFront();
         }
@@ -113,6 +113,7 @@ namespace FinderQuest.Class
             this.Picture.SizeMode = PictureBoxSizeMode.StretchImage;
             this.Picture.BackColor = Color.Transparent;
             this.Picture.BringToFront();
+            this.Picture.Image = Properties.Resources.npc_front;
         }
 
         public void Person()

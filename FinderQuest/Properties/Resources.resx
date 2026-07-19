@@ -121,6 +121,9 @@
   <data name="boss_enemy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\boss_enemy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="emptyFloor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\emptyFloor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="floor1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\floor1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -165,6 +168,12 @@
   </data>
   <data name="specialWall_Yes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\specialWall_Yes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="stairDown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\stairDown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="stairUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\stairUp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="startMenu_animation" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\home_animation.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

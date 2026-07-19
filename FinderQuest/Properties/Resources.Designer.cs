@@ -73,6 +73,16 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap emptyFloor {
+            get {
+                object obj = ResourceManager.GetObject("emptyFloor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap floor1 {
             get {
                 object obj = ResourceManager.GetObject("floor1", resourceCulture);
@@ -216,6 +226,26 @@ namespace FinderQuest.Properties {
         internal static System.Drawing.Bitmap specialWall_Yes {
             get {
                 object obj = ResourceManager.GetObject("specialWall_Yes", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap stairDown {
+            get {
+                object obj = ResourceManager.GetObject("stairDown", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap stairUp {
+            get {
+                object obj = ResourceManager.GetObject("stairUp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

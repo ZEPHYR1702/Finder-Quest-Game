@@ -18,7 +18,7 @@ namespace FinderQuest.States.PlayerState
 
         public void Update(Player player)
         {
-            player.Picture.Location = new Point(player.Picture.Location.X, player.Picture.Location.Y - 10);
+            player.Picture.Location = new Point(player.Picture.Location.X, player.Picture.Location.Y - 5);
             player.Picture.Image = Properties.Resources.player_back;
         }
 
