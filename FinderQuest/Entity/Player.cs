@@ -89,8 +89,7 @@ namespace FinderQuest.Class
         {
             string data =
                 "Name : " + this.Name +
-                "\nScore : " + this.Score +
-                "\nPlaytime : " + this.PlayTime.DisplayData();
+                "\nScore : " + this.Score;
             return data;
         }
 

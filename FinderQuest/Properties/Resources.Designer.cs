@@ -63,16 +63,6 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap boss_enemy {
-            get {
-                object obj = ResourceManager.GetObject("boss_enemy", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap floor1 {
             get {
                 object obj = ResourceManager.GetObject("floor1", resourceCulture);
@@ -113,19 +103,9 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap npc_back {
+        internal static System.Drawing.Bitmap item_lone {
             get {
-                object obj = ResourceManager.GetObject("npc_back", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap npc_front {
-            get {
-                object obj = ResourceManager.GetObject("npc_front", resourceCulture);
+                object obj = ResourceManager.GetObject("item_lone", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -166,6 +146,26 @@ namespace FinderQuest.Properties {
         internal static System.Drawing.Bitmap player_right {
             get {
                 object obj = ResourceManager.GetObject("player_right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap specialWall_No {
+            get {
+                object obj = ResourceManager.GetObject("specialWall_No", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap specialWall_Yes {
+            get {
+                object obj = ResourceManager.GetObject("specialWall_Yes", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
