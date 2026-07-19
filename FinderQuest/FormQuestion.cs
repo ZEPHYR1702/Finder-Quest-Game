@@ -15,35 +15,94 @@ namespace FinderQuest
     {
         //Global Variable
         FormGame formGame;
-        public FormQuestion()
+        string difficulty;
+        public FormQuestion(string difficulty)
         {
             InitializeComponent();
+            this.difficulty = difficulty;
         }
 
         private void FormQuestion_Load(object sender, EventArgs e)
         {
             formGame = (FormGame)this.Owner;
             labelQuestion.Text = formGame.activePerson.Question.Question;
+
+            this.KeyPreview = true;
         }
 
         private void buttonSubmit_Click(object sender, EventArgs e)
         {
             if (formGame.activePerson.CheckAnswer(textBoxAnswer.Text, out int score) == true)
             {
-                MessageBox.Show("Your answer is Correct!");
+                MessageBox.Show("Your answer is correct!");
                 formGame.player.AddScore(score);
-                formGame.time.AddWithSecond(30);
-                formGame.labelTime.Text = formGame.time.DisplayData();
                 formGame.labelPlayer.Text = formGame.player.DisplayData();
+                formGame.time.AddWithSecond(ExtendTime(difficulty));
+
             }
             else
             {
-                MessageBox.Show("Wrong!");
-                formGame.time.AddWithSecond(-20);
-                formGame.labelTime.Text = formGame.time.DisplayData();
+                MessageBox.Show("Incorrect!");
+                formGame.time.AddWithSecond(ReduceTime(difficulty));
             }
             this.Close();
             formGame.ExitTalkArea();
+        }
+        private int ExtendTime(string difficulty)
+        {
+            int extendTime = 0;
+            if (difficulty == "easy")
+            {
+                extendTime = 60;
+            }
+            else if (difficulty == "medium")
+            {
+                extendTime = 30;
+            }
+            else if (difficulty == "hard")
+            {
+                extendTime = 10;
+            }
+            return extendTime;
+        }
+
+        private int ReduceTime(string difficulty)
+        {
+            int reduceTime = 0;
+            if (difficulty == "easy")
+            {
+                reduceTime = -10;
+            }
+            else if (difficulty == "medium")
+            {
+                reduceTime = -20;
+            }
+            else if (difficulty == "hard")
+            {
+                reduceTime = -40;
+            }
+            return reduceTime;
+        }
+
+        private void FormQuestion_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (formGame.activePerson.CheckAnswer(textBoxAnswer.Text, out int score) == true)
+                {
+                    MessageBox.Show("Your answer is correct!");
+                    formGame.player.AddScore(score);
+                    formGame.labelPlayer.Text = formGame.player.DisplayData();
+                    formGame.time.AddWithSecond(ExtendTime(difficulty));
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect!");
+                    formGame.time.AddWithSecond(ReduceTime(difficulty));
+                }
+                this.Close();
+                formGame.ExitTalkArea();
+            }
         }
     }
 }

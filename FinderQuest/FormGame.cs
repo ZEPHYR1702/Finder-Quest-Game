@@ -91,9 +91,9 @@ namespace FinderQuest
                     player.StateMachine.TransitionTo(new MoveRightState());
                     player.Tick();
                     HandleAreaEdgeReached();
+                    UpdateCam();
+                    CheckCollision(5, 0);
                 }
-                UpdateCam();
-                CheckCollision(5, 0);
             }
             else if (e.KeyCode == listKeyBinds["Move Left"])
             {
@@ -102,9 +102,9 @@ namespace FinderQuest
                     player.StateMachine.TransitionTo(new MoveLeftState());
                     player.Tick();
                     HandleAreaEdgeReached();
+                    UpdateCam();
+                    CheckCollision(-5, 0);
                 }
-                UpdateCam();
-                CheckCollision(-5, 0);
             }
             else if (e.KeyCode == listKeyBinds["Move Up"])
             {
@@ -113,9 +113,9 @@ namespace FinderQuest
                     player.StateMachine.TransitionTo(new MoveUpState());
                     player.Tick();
                     HandleAreaEdgeReached();
+                    UpdateCam();
+                    CheckCollision(0, -5);
                 }
-                UpdateCam();
-                CheckCollision(0, -5);
             }
             else if (e.KeyCode == listKeyBinds["Move Down"])
             {
@@ -124,13 +124,13 @@ namespace FinderQuest
                     player.StateMachine.TransitionTo(new MoveDownState());
                     player.Tick();
                     HandleAreaEdgeReached();
+                    UpdateCam();
+                    CheckCollision(0, 5);
                 }
-                UpdateCam();
-                CheckCollision(0, 5);
             }
             else if (e.KeyCode == listKeyBinds["Interact"])
             {
-                if (currentWalkArea.CheckTouchPerson(player, out Persons touchPerson) == true)
+                if (currentWalkArea != null && currentWalkArea.CheckTouchPerson(player, out Persons touchPerson) == true)
                 {
                     if (panelGame.Visible == true)
                     {
@@ -172,7 +172,7 @@ namespace FinderQuest
 
             else if (e.KeyCode == Keys.Y && activePerson.SolvedStatus == false)
             {
-                FormQuestion form = new FormQuestion();
+                FormQuestion form = new FormQuestion(difficulty);
                 form.Owner = this;
                 form.ShowDialog();
             }

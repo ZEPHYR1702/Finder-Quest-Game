@@ -14,6 +14,16 @@ namespace FinderQuest.TalkArea
             {1, new TalkAreasData("NPC Box", Properties.Resources.talkarea_npc) },
             {2, new TalkAreasData("NPC Box", Properties.Resources.talkarea_npc) },
             {3, new TalkAreasData("Boss Showdown", Properties.Resources.talkarea_boss) },
+            {4, new TalkAreasData("Boss Showdown", Properties.Resources.talkarea_boss) },
+            {5, new TalkAreasData("Boss Showdown", Properties.Resources.talkarea_boss) },
+            {6, new TalkAreasData("Boss Showdown", Properties.Resources.talkarea_boss) },
+            {7, new TalkAreasData("Boss Showdown", Properties.Resources.talkarea_boss) },
+            {8, new TalkAreasData("Boss Showdown", Properties.Resources.talkarea_boss) },
+            {9, new TalkAreasData("Boss Showdown", Properties.Resources.talkarea_boss) },
+            {10, new TalkAreasData("Boss Showdown", Properties.Resources.talkarea_boss) },
+            {11, new TalkAreasData("Boss Showdown", Properties.Resources.talkarea_boss) },
+            {12, new TalkAreasData("Boss Showdown", Properties.Resources.talkarea_boss) },
+            {13, new TalkAreasData("Boss Showdown", Properties.Resources.talkarea_boss) },
         };
     }
 }
