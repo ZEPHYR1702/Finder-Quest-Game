@@ -349,7 +349,6 @@ namespace FinderQuest
             currentWalkArea?.RemoveAllPerson();
             currentWalkArea = WalkAreasLibrary.CreateArea(areaNumber);
             
-
             if (currentWalkArea != null) 
             {
                 labelArea.Text = currentWalkArea.DisplayData();
