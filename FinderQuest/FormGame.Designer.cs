@@ -47,9 +47,9 @@ namespace FinderQuest
             this.panelTalkArea = new System.Windows.Forms.Panel();
             this.timerTime = new System.Windows.Forms.Timer(this.components);
             this.panelViewPort = new System.Windows.Forms.Panel();
-            this.pictureBoxStart = new System.Windows.Forms.PictureBox();
             this.pbPlayer = new System.Windows.Forms.PictureBox();
             this.pbMap = new System.Windows.Forms.PictureBox();
+            this.pictureBoxStart = new System.Windows.Forms.PictureBox();
             this.panelEsc = new System.Windows.Forms.Panel();
             this.buttonSetting = new System.Windows.Forms.Button();
             this.buttonHelp = new System.Windows.Forms.Button();
@@ -60,21 +60,21 @@ namespace FinderQuest
             this.buttonS = new System.Windows.Forms.Button();
             this.buttonH = new System.Windows.Forms.Button();
             this.buttonEx = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.radioButtonEasy = new System.Windows.Forms.RadioButton();
-            this.radioButtonMedium = new System.Windows.Forms.RadioButton();
+            this.panelIdentitas = new System.Windows.Forms.Panel();
             this.radioButtonHard = new System.Windows.Forms.RadioButton();
+            this.radioButtonMedium = new System.Windows.Forms.RadioButton();
+            this.radioButtonEasy = new System.Windows.Forms.RadioButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxName = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.panelGame.SuspendLayout();
             this.panelViewPort.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMap)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStart)).BeginInit();
             this.panelEsc.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.panelIdentitas.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -151,7 +151,7 @@ namespace FinderQuest
             this.panelGame.Controls.Add(this.labelTime);
             this.panelGame.Controls.Add(this.labelArea);
             this.panelGame.Location = new System.Drawing.Point(0, 33);
-            this.panelGame.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelGame.Margin = new System.Windows.Forms.Padding(4);
             this.panelGame.Name = "panelGame";
             this.panelGame.Size = new System.Drawing.Size(864, 89);
             this.panelGame.TabIndex = 1;
@@ -161,7 +161,7 @@ namespace FinderQuest
             this.labelPlayer.AutoSize = true;
             this.labelPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPlayer.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelPlayer.Location = new System.Drawing.Point(153, 34);
+            this.labelPlayer.Location = new System.Drawing.Point(153, 20);
             this.labelPlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPlayer.Name = "labelPlayer";
             this.labelPlayer.Size = new System.Drawing.Size(102, 20);
@@ -196,7 +196,7 @@ namespace FinderQuest
             // 
             this.panelTalkArea.BackColor = System.Drawing.Color.Transparent;
             this.panelTalkArea.Location = new System.Drawing.Point(0, 135);
-            this.panelTalkArea.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelTalkArea.Margin = new System.Windows.Forms.Padding(4);
             this.panelTalkArea.Name = "panelTalkArea";
             this.panelTalkArea.Size = new System.Drawing.Size(860, 388);
             this.panelTalkArea.TabIndex = 2;
@@ -210,11 +210,30 @@ namespace FinderQuest
             this.panelViewPort.BackColor = System.Drawing.Color.Transparent;
             this.panelViewPort.Controls.Add(this.pbPlayer);
             this.panelViewPort.Controls.Add(this.pbMap);
-            this.panelViewPort.Location = new System.Drawing.Point(3, 135);
-            this.panelViewPort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelViewPort.Location = new System.Drawing.Point(3, 127);
+            this.panelViewPort.Margin = new System.Windows.Forms.Padding(4);
             this.panelViewPort.Name = "panelViewPort";
-            this.panelViewPort.Size = new System.Drawing.Size(861, 388);
+            this.panelViewPort.Size = new System.Drawing.Size(861, 466);
             this.panelViewPort.TabIndex = 3;
+            // 
+            // pbPlayer
+            // 
+            this.pbPlayer.Location = new System.Drawing.Point(128, 95);
+            this.pbPlayer.Margin = new System.Windows.Forms.Padding(4);
+            this.pbPlayer.Name = "pbPlayer";
+            this.pbPlayer.Size = new System.Drawing.Size(80, 98);
+            this.pbPlayer.TabIndex = 0;
+            this.pbPlayer.TabStop = false;
+            // 
+            // pbMap
+            // 
+            this.pbMap.Location = new System.Drawing.Point(0, 0);
+            this.pbMap.Margin = new System.Windows.Forms.Padding(4);
+            this.pbMap.Name = "pbMap";
+            this.pbMap.Size = new System.Drawing.Size(1333, 1231);
+            this.pbMap.TabIndex = 1;
+            this.pbMap.TabStop = false;
+            this.pbMap.Paint += new System.Windows.Forms.PaintEventHandler(this.pbMap_Paint);
             // 
             // pictureBoxStart
             // 
@@ -231,26 +250,6 @@ namespace FinderQuest
             this.pictureBoxStart.TabStop = false;
             this.pictureBoxStart.Click += new System.EventHandler(this.pictureBoxStart_Click);
             // 
-            // pbPlayer
-            // 
-            this.pbPlayer.Location = new System.Drawing.Point(128, 95);
-            this.pbPlayer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pbPlayer.Name = "pbPlayer";
-            this.pbPlayer.Size = new System.Drawing.Size(80, 98);
-            this.pbPlayer.TabIndex = 0;
-            this.pbPlayer.TabStop = false;
-            // 
-            // pbMap
-            // 
-            this.pbMap.InitialImage = global::FinderQuest.Properties.Resources.floor1;
-            this.pbMap.Location = new System.Drawing.Point(0, 0);
-            this.pbMap.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pbMap.Name = "pbMap";
-            this.pbMap.Size = new System.Drawing.Size(1333, 1231);
-            this.pbMap.TabIndex = 1;
-            this.pbMap.TabStop = false;
-            this.pbMap.Paint += new System.Windows.Forms.PaintEventHandler(this.pbMap_Paint);
-            // 
             // panelEsc
             // 
             this.panelEsc.BackColor = System.Drawing.Color.Transparent;
@@ -259,10 +258,10 @@ namespace FinderQuest
             this.panelEsc.Controls.Add(this.buttonExit);
             this.panelEsc.Controls.Add(this.buttonBacktoMenu);
             this.panelEsc.Controls.Add(this.buttonContinue);
-            this.panelEsc.Location = new System.Drawing.Point(273, 130);
+            this.panelEsc.Location = new System.Drawing.Point(273, 207);
             this.panelEsc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelEsc.Name = "panelEsc";
-            this.panelEsc.Size = new System.Drawing.Size(319, 363);
+            this.panelEsc.Size = new System.Drawing.Size(319, 357);
             this.panelEsc.TabIndex = 7;
             // 
             // buttonSetting
@@ -384,74 +383,18 @@ namespace FinderQuest
             this.buttonEx.UseVisualStyleBackColor = false;
             this.buttonEx.Click += new System.EventHandler(this.buttonEx_Click);
             // 
-            // panel1
+            // panelIdentitas
             // 
-            this.panel1.Controls.Add(this.radioButtonHard);
-            this.panel1.Controls.Add(this.radioButtonMedium);
-            this.panel1.Controls.Add(this.radioButtonEasy);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Location = new System.Drawing.Point(140, 515);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(564, 115);
-            this.panel1.TabIndex = 3;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(187, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(306, 30);
-            this.textBox1.TabIndex = 8;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(62, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 25);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Name";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(42, 75);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 25);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Difficulty";
-            // 
-            // radioButtonEasy
-            // 
-            this.radioButtonEasy.AutoSize = true;
-            this.radioButtonEasy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonEasy.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.radioButtonEasy.Location = new System.Drawing.Point(187, 75);
-            this.radioButtonEasy.Name = "radioButtonEasy";
-            this.radioButtonEasy.Size = new System.Drawing.Size(67, 24);
-            this.radioButtonEasy.TabIndex = 11;
-            this.radioButtonEasy.TabStop = true;
-            this.radioButtonEasy.Text = "Easy";
-            this.radioButtonEasy.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonMedium
-            // 
-            this.radioButtonMedium.AutoSize = true;
-            this.radioButtonMedium.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonMedium.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.radioButtonMedium.Location = new System.Drawing.Point(281, 75);
-            this.radioButtonMedium.Name = "radioButtonMedium";
-            this.radioButtonMedium.Size = new System.Drawing.Size(89, 24);
-            this.radioButtonMedium.TabIndex = 12;
-            this.radioButtonMedium.TabStop = true;
-            this.radioButtonMedium.Text = "Medium";
-            this.radioButtonMedium.UseVisualStyleBackColor = true;
+            this.panelIdentitas.Controls.Add(this.radioButtonHard);
+            this.panelIdentitas.Controls.Add(this.radioButtonMedium);
+            this.panelIdentitas.Controls.Add(this.radioButtonEasy);
+            this.panelIdentitas.Controls.Add(this.label2);
+            this.panelIdentitas.Controls.Add(this.label1);
+            this.panelIdentitas.Controls.Add(this.textBoxName);
+            this.panelIdentitas.Location = new System.Drawing.Point(140, 515);
+            this.panelIdentitas.Name = "panelIdentitas";
+            this.panelIdentitas.Size = new System.Drawing.Size(564, 115);
+            this.panelIdentitas.TabIndex = 3;
             // 
             // radioButtonHard
             // 
@@ -466,6 +409,62 @@ namespace FinderQuest
             this.radioButtonHard.Text = "Hard";
             this.radioButtonHard.UseVisualStyleBackColor = true;
             // 
+            // radioButtonMedium
+            // 
+            this.radioButtonMedium.AutoSize = true;
+            this.radioButtonMedium.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonMedium.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.radioButtonMedium.Location = new System.Drawing.Point(281, 75);
+            this.radioButtonMedium.Name = "radioButtonMedium";
+            this.radioButtonMedium.Size = new System.Drawing.Size(89, 24);
+            this.radioButtonMedium.TabIndex = 12;
+            this.radioButtonMedium.TabStop = true;
+            this.radioButtonMedium.Text = "Medium";
+            this.radioButtonMedium.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonEasy
+            // 
+            this.radioButtonEasy.AutoSize = true;
+            this.radioButtonEasy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonEasy.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.radioButtonEasy.Location = new System.Drawing.Point(187, 75);
+            this.radioButtonEasy.Name = "radioButtonEasy";
+            this.radioButtonEasy.Size = new System.Drawing.Size(67, 24);
+            this.radioButtonEasy.TabIndex = 11;
+            this.radioButtonEasy.TabStop = true;
+            this.radioButtonEasy.Text = "Easy";
+            this.radioButtonEasy.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(42, 75);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(84, 25);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Difficulty";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(62, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 25);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Name";
+            // 
+            // textBoxName
+            // 
+            this.textBoxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxName.Location = new System.Drawing.Point(187, 19);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(306, 30);
+            this.textBoxName.TabIndex = 8;
+            // 
             // FormGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -475,7 +474,7 @@ namespace FinderQuest
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(864, 728);
             this.Controls.Add(this.pictureBoxStart);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelIdentitas);
             this.Controls.Add(this.buttonEx);
             this.Controls.Add(this.panelEsc);
             this.Controls.Add(this.buttonH);
@@ -487,7 +486,7 @@ namespace FinderQuest
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormGame";
             this.Text = "Finder Quest Game";
             this.Load += new System.EventHandler(this.FormGame_Load);
@@ -497,12 +496,12 @@ namespace FinderQuest
             this.panelGame.ResumeLayout(false);
             this.panelGame.PerformLayout();
             this.panelViewPort.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMap)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStart)).EndInit();
             this.panelEsc.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelIdentitas.ResumeLayout(false);
+            this.panelIdentitas.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -538,12 +537,12 @@ namespace FinderQuest
         private System.Windows.Forms.Button buttonH;
         private System.Windows.Forms.Button buttonS;
         private System.Windows.Forms.Button buttonEx;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelIdentitas;
         private System.Windows.Forms.RadioButton radioButtonMedium;
         private System.Windows.Forms.RadioButton radioButtonEasy;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.RadioButton radioButtonHard;
     }
 }
