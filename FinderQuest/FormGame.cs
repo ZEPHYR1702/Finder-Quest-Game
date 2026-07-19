@@ -677,7 +677,7 @@ namespace FinderQuest
                 {
                     g.DrawImage(npc.Picture.Image, npc.Picture.Location.X, npc.Picture.Location.Y, npc.Picture.Size.Width, npc.Picture.Size.Height);
                 }
-                S
+                
                 if (npc.SolvedStatus == false)
                 {
                     int overlayX = npc.Picture.Location.X + (npc.Picture.Width / 2) - 15;
