@@ -115,11 +115,11 @@ namespace FinderQuest.Class
             this.Picture.BringToFront();
             if (this.NoPerson == 14)
             {
-                this.Picture.Image = Properties.Resources.npc_front;
+                this.Picture.Image = Properties.Resources.boss_smo;
             }
             else
             {
-                this.Picture.Image = Properties.Resources.boss_smo;
+                this.Picture.Image = Properties.Resources.npc_front;
             }
         }
 
