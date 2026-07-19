@@ -73,7 +73,7 @@ namespace FinderQuest.Class
             {
                 int padX = 20;
                 int padY = 50;
-                int height = 10;
+                int height = 20;
                 int width = 20;
 
                 return new Rectangle(

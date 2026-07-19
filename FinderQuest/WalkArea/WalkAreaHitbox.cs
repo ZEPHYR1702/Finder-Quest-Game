@@ -31,7 +31,23 @@ namespace FinderQuest.WalkArea
                 AddWall(173, 0, 25, 400);
                 AddWall(150, 300, 50, 100);
                 AddWall(0, 300, 100, 100);
-                AddWall(400, 400, 150, 100);
+                AddWall(200, 200, 150, 100);
+                AddWall(850, 0, 30, 270);
+                AddWall(625, 150, 250, 100);
+                AddWall(625, 150, 25, 300);
+                AddWall(350, 350, 300, 100);
+                AddWall(85, 0, 150, 50);
+                AddWall(150, 450, 25, 350);
+                AddWall(0, 700, 175, 100);
+                AddWall(850, 50, 375, 100);
+                AddWall(400, 600, 25, 350);
+                AddWall(400, 600, 200, 100);
+                AddWall(575, 495, 300, 100);
+                AddWall(575, 495, 25, 375);
+                AddWall(850, 335, 25, 300);
+                AddWall(850, 525, 150, 100);
+                AddWall(575, 775, 125, 100);
+                AddWall(750, 775, 250, 100);
 
             }
             else if (noArea == 2)
