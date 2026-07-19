@@ -172,7 +172,7 @@ namespace FinderQuest
 
             else if (e.KeyCode == Keys.Y && activePerson.SolvedStatus == false)
             {
-                FormQuestion form = new FormQuestion();
+                FormQuestion form = new FormQuestion(difficulty);
                 form.Owner = this;
                 form.ShowDialog();
             }
