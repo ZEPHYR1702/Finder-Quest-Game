@@ -34,13 +34,13 @@ namespace FinderQuest.WalkArea
                     createWalkArea.AddPerson(11, "Clone 11", Properties.Resources.npc_left, new Point(530, 440), "body broken beyond repair. press 'y' to conduct emergency repair");
                     createWalkArea.AddPerson(12, "Clone 12", Properties.Resources.npc_right, new Point(410, 160), "clone 0012 report status: badly damaged. press 'y' to accept");
                     createWalkArea.AddPerson(13, "Clone 13", Properties.Resources.npc_back, new Point(135, 640), "repair deemed impossible. preserving core model. press 'y too initiate");
-                    createWalkArea.AddPerson(16, "StairDown", Properties.Resources.stairDown, new Point(13, 15), "");
+                    createWalkArea.AddPerson(16, "StairDown", Properties.Resources.stairDown, new Point(13, 2), "");
                     createWalkArea.AddPerson(17, "StairUp", Properties.Resources.stairUp, new Point(918, 625), "");
                     break;
                 case 3:
                     createWalkArea = new WalkAreas("Floor 3", Properties.Resources.floor3, 3);
                     createWalkArea.AddPerson(14, "Test Subject", Properties.Resources.boss_enemy, new Point(715, 0), "Perish, human!");
-                    createWalkArea.AddPerson(18, "StairUp", Properties.Resources.stairUp, new Point(13, 15), "");
+                    createWalkArea.AddPerson(18, "StairUp", Properties.Resources.stairUp, new Point(13, 2), "");
                     break;
             }
             return createWalkArea;

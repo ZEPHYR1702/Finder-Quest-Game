@@ -70,7 +70,7 @@ namespace FinderQuest.WalkArea
                 AddWall(450, 0, 25, 300);
                 AddWall(450, 200, 400, 100);
                 AddWall(725, 50, 25, 250);
-                AddWall(200, 900, 100, 100);
+                AddWall(900, 200, 100, 100);
 
             }
             else if (noArea == 3)
