@@ -12,7 +12,7 @@ namespace FinderQuest.TalkArea
         public static readonly Dictionary<int, TalkAreasData> listTalkArea = new Dictionary<int, TalkAreasData>
         {
             {1, new TalkAreasData("NPC Box", Properties.Resources.talkarea_npc) },
-            {2, new TalkAreasData("Boss Showdown", Properties.Resources.talkarea_boss) },
+            {2, new TalkAreasData("NPC Box", Properties.Resources.talkarea_npc) },
             {3, new TalkAreasData("Boss Showdown", Properties.Resources.talkarea_boss) },
         };
     }
