@@ -39,7 +39,7 @@ namespace FinderQuest.WalkArea
                 AddWall(85, 0, 150, 50);
                 AddWall(150, 450, 25, 350);
                 AddWall(0, 700, 175, 100);
-                AddWall(850, 50, 375, 100);
+                AddWall(50, 850, 375, 100);
                 AddWall(400, 600, 25, 350);
                 AddWall(400, 600, 200, 100);
                 AddWall(568, 495, 300, 100);
@@ -56,8 +56,9 @@ namespace FinderQuest.WalkArea
                 {
                     lstWallHitbox.Clear();
                 }
-                AddWall(0, 0, 0, 0);
-                AddWall(0, 0, 0, 0);
+                AddWall(0, 75, 200, 100);
+                AddWall(250, 0, 225, 50);
+                AddWall()
 
             }
             else if (noArea == 3)
@@ -66,7 +67,6 @@ namespace FinderQuest.WalkArea
                 {
                     lstWallHitbox.Clear();
                 }
-                AddWall(0, 0, 0, 0);
                 AddWall(0, 0, 0, 0);
             }
 
