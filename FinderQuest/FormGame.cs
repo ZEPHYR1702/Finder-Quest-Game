@@ -206,17 +206,19 @@ namespace FinderQuest
             currentWalkArea = null;
             GenerateWalkArea();
 
-            player = new Player("Goof Juice", Properties.Resources.player_front, new Point(500, 50), time);
+            player = new Player("Goof Juice", Properties.Resources.player_front, new Point(395, 50), time);
             map = currentWalkArea.Background;
             pbMap.Image = map;
+            this.BackgroundImage = null;
+            this.BackColor = Color.Black;
 
             pbPlayer.Parent = pbMap;
             pbPlayer.BringToFront();
             pbPlayer.Location = player.Picture.Location;
             pbPlayer.Image = player.Picture.Image;
 
+            UpdateCam();
             labelPlayer.Text = player.DisplayData();
-
 
             PlaySound("walk area");
 
@@ -250,8 +252,6 @@ namespace FinderQuest
 
             if (currentWalkArea != null) 
             {
-                currentWalkArea.DisplayPicture(this);
-                currentWalkArea.DisplayPersons(this);
                 labelArea.Text = currentWalkArea.DisplayData();
             }
             if (player != null)
@@ -370,11 +370,15 @@ namespace FinderQuest
                 return;
             }
 
-            int mapX = 135 - player.Picture.Location.X;
-            int mapY = 150 - player.Picture.Location.Y;
+            pbPlayer.Location = player.Picture.Location;
+
+            int halfWidth = pbPlayer.Width / 2;
+            int halfHeight = pbPlayer.Height / 2;
+
+            int mapX = 125 - (player.Picture.Location.X + halfWidth);
+            int mapY = 120 - (player.Picture.Location.Y + halfHeight);
 
             pbMap.Location = new Point(mapX, mapY);
-            pbPlayer.Location = player.Picture.Location;
             pbPlayer.Image = player.Picture.Image;
         }
 
