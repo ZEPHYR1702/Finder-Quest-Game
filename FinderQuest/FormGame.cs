@@ -1,18 +1,20 @@
-﻿using System;
+﻿using FinderQuest.Class;
+using FinderQuest.States.PlayerState;
+using FinderQuest.TalkArea;
+using FinderQuest.WalkArea;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using FinderQuest.Class;
-using FinderQuest.States.PlayerState;
-using FinderQuest.TalkArea;
-using FinderQuest.WalkArea;
 using WMPLib;
 
 namespace FinderQuest
@@ -22,6 +24,7 @@ namespace FinderQuest
         public Time time;
         public Player player;
         Image map;
+        string dataName = "leaderboard.dat";
 
         //Default Keybinds
         private Dictionary<string, Keys> listKeyBinds = new Dictionary<string, Keys>()
@@ -30,6 +33,7 @@ namespace FinderQuest
             {"Move Left", Keys.A },
             {"Move Up", Keys.W },
             {"Move Down", Keys.S },
+            {"Interact", Keys.F }
         };
         
         //Areas
@@ -54,8 +58,11 @@ namespace FinderQuest
         }
         private void FormGame_Load(object sender, EventArgs e)
         {
+            LoadFromFile(dataName);
             panelGame.Visible = false;
             labelTime.Visible = false;
+
+            panelEsc.Visible = false;
 
             playPauseToolStripMenuItem.Enabled = false;
             timerTime.Interval = 1000;
@@ -104,7 +111,7 @@ namespace FinderQuest
                 UpdateCam();
                 CheckCollision(0, 10);
             }
-            else if (e.KeyCode == Keys.Enter)
+            else if (e.KeyCode == listKeyBinds["Interact"])
             {
                 if (currentWalkArea.CheckTouchPerson(player, out Persons touchPerson) == true)
                 {
@@ -114,9 +121,33 @@ namespace FinderQuest
                     EnterTalkArea();
                 }
             }
+            else if (e.KeyCode == Keys.Enter)
+            {
+                if (pictureBoxStart.Visible = true)
+                {
+                    StartGame();
+                }
+                else if (currentWalkArea.CheckTouchPerson(player, out Persons touchPerson) == true)
+                {
+                    enterTalkArea = true;
+                    activePerson = touchPerson;
+                    activePersonLastLocation = activePerson.Picture.Location;
+                    EnterTalkArea();
+                }
+                
+            }
             else if (e.KeyCode == Keys.Escape)
             {
-                ExitTalkArea();
+                if (enterTalkArea)
+                {
+                    ExitTalkArea();
+                }
+                else if(panelGame.Visible == true)
+                {
+                    panelEsc.Visible = true;
+                    panelEsc.BringToFront();
+                    timerTime.Stop();
+                }
             }
 
             else if (e.KeyCode == Keys.Y && activePerson.SolvedStatus == false)
@@ -230,6 +261,8 @@ namespace FinderQuest
 
             paused = false;
             playPauseToolStripMenuItem.Text = "Pause Game";
+
+            pictureBoxStart.Visible = false;
         }
 
         private void GameOver()
@@ -354,6 +387,8 @@ namespace FinderQuest
                         backSoundPlayer.controls.stop();
                         PlaySound("win game");
                         MessageBox.Show("you win, i got OCD");
+                        AddLeaderboardScore();
+                        SaveToFile(dataName);
                         GameOver();
                     }
                 }
@@ -382,7 +417,7 @@ namespace FinderQuest
             int halfWidth = pbPlayer.Width / 2;
             int halfHeight = pbPlayer.Height / 2;
 
-            int mapX = 125 - (player.Picture.Location.X + halfWidth);
+            int mapX = 350 - (player.Picture.Location.X + halfWidth);
             int mapY = 120 - (player.Picture.Location.Y + halfHeight);
 
             pbMap.Location = new Point(mapX, mapY);
@@ -415,5 +450,96 @@ namespace FinderQuest
 
         }
 
+        private void pictureBoxStart_Click(object sender, EventArgs e)
+        {
+            StartGame();
+        }
+
+        private void buttonContinue_Click(object sender, EventArgs e)
+        {
+            panelGame.BringToFront();
+            panelEsc.SendToBack();
+            panelGame.Focus();
+            panelEsc.Visible = false;
+
+            timerTime.Start();
+
+            this.Focus();
+        }
+
+        private void buttonSetting_Click(object sender, EventArgs e)
+        {
+            using (FormSettings form = new FormSettings(listKeyBinds, backSoundPlayer))
+            {
+                if (form.ShowDialog(this) == DialogResult.OK)
+                {
+                    this.listKeyBinds = form.UpdateKeys;
+                    MessageBox.Show("Keybinds updated successfully");
+                }
+            }
+        }
+
+        private void buttonBacktoMenu_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            backSoundPlayer.controls.stop();
+        }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void buttonHelp_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Press arrow key to move the player. \n\nPress Enter to talk with the person. " + "\n\nPress y key to answer the question. \n\nPress Esc to exit the talk area.", "How to Play");
+        }
+
+        private void buttonLeaderboard_Click(object sender, EventArgs e)
+        {
+            FormLeaderboard form = new FormLeaderboard();
+            form.ShowDialog(this);
+        }
+        public void SaveToFile(string dataName)
+        {
+            FileStream fs = new FileStream(dataName, FileMode.Create, FileAccess.Write);
+            BinaryFormatter bf = new BinaryFormatter();
+            bf.Serialize(fs, new object[] { Leaderboard.listPlayer, Leaderboard.listScore });
+            fs.Close();
+        }
+        public void LoadFromFile(string dataName)
+        {
+            if (File.Exists(dataName))
+            {
+                FileStream fs = new FileStream(dataName, FileMode.Open, FileAccess.Read);
+                BinaryFormatter bf = new BinaryFormatter();
+                object[] data = (object[])bf.Deserialize(fs);
+                Leaderboard.listPlayer = (List<string>)data[0];
+                Leaderboard.listScore = (List<int>)data[1];
+                fs.Close();
+            }
+        }
+
+        private void buttonH_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Press arrow key to move the player. \n\nPress Enter to talk with the person. " + "\n\nPress y key to answer the question. \n\nPress Esc to exit the talk area.", "How to Play");
+        }
+
+        private void buttonS_Click(object sender, EventArgs e)
+        {
+            using (FormSettings form = new FormSettings(listKeyBinds, backSoundPlayer))
+            {
+                if (form.ShowDialog(this) == DialogResult.OK)
+                {
+                    this.listKeyBinds = form.UpdateKeys;
+                    MessageBox.Show("Keybinds updated successfully");
+                }
+            }
+        }
+
+        private void buttonEx_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
