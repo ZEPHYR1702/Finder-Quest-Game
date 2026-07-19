@@ -1,4 +1,5 @@
 ﻿using FinderQuest.Class;
+using FinderQuest.Properties;
 using FinderQuest.States.PlayerState;
 using FinderQuest.TalkArea;
 using FinderQuest.WalkArea;
@@ -16,6 +17,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WMPLib;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace FinderQuest
 {
@@ -24,7 +26,10 @@ namespace FinderQuest
         public Time time;
         public Player player;
         Image map;
+        string name;
         string dataName = "leaderboard.dat";
+        string difficulty = "";
+        List<string> listUsername = new List<string>();
 
         //Default Keybinds
         private Dictionary<string, Keys> listKeyBinds = new Dictionary<string, Keys>()
@@ -52,12 +57,14 @@ namespace FinderQuest
         WindowsMediaPlayer otherSoundPlayer;
 
         bool paused = false;
+
         public FormGame()
         {
             InitializeComponent();
         }
         private void FormGame_Load(object sender, EventArgs e)
         {
+            radioButtonEasy.Checked = true;
             LoadFromFile(dataName);
             panelGame.Visible = false;
             labelTime.Visible = false;
@@ -77,36 +84,44 @@ namespace FinderQuest
         {
             if(e.KeyCode == listKeyBinds["Move Right"])
             {
-                player.StateMachine.TransitionTo(new MoveRightState());
-                player.Tick();
-                HandleAreaEdgeReached();
+                if (panelGame.Visible)
+                {
+                    player.StateMachine.TransitionTo(new MoveRightState());
+                    player.Tick();
+                    HandleAreaEdgeReached();
 
                 UpdateCam();
                 CheckCollision(5, 0);
             }
             else if (e.KeyCode == listKeyBinds["Move Left"])
             {
-                player.StateMachine.TransitionTo(new MoveLeftState());
-                player.Tick();
-                HandleAreaEdgeReached();
+                if(panelGame.Visible)
+                {
+                    player.StateMachine.TransitionTo(new MoveLeftState());
+                    player.Tick();
+                    HandleAreaEdgeReached();
 
                 UpdateCam();
                 CheckCollision(-5, 0);
             }
             else if (e.KeyCode == listKeyBinds["Move Up"])
             {
-                player.StateMachine.TransitionTo(new MoveUpState());
-                player.Tick();
-                HandleAreaEdgeReached();
+                if(panelGame.Visible == true)
+                {
+                    player.StateMachine.TransitionTo(new MoveUpState());
+                    player.Tick();
+                    HandleAreaEdgeReached();
 
                 UpdateCam();
                 CheckCollision(0, -5);
             }
             else if (e.KeyCode == listKeyBinds["Move Down"])
             {
-                player.StateMachine.TransitionTo(new MoveDownState());
-                player.Tick();
-                HandleAreaEdgeReached();
+                if (panelGame.Visible == true)
+                {
+                    player.StateMachine.TransitionTo(new MoveDownState());
+                    player.Tick();
+                    HandleAreaEdgeReached();
 
                 UpdateCam();
                 CheckCollision(0, 5);
@@ -115,10 +130,13 @@ namespace FinderQuest
             {
                 if (currentWalkArea.CheckTouchPerson(player, out Persons touchPerson) == true)
                 {
-                    enterTalkArea = true;
-                    activePerson = touchPerson;
-                    activePersonLastLocation = activePerson.Picture.Location;
-                    EnterTalkArea();
+                    if (panelGame.Visible == true)
+                    {
+                        enterTalkArea = true;
+                        activePerson = touchPerson;
+                        activePersonLastLocation = activePerson.Picture.Location;
+                        EnterTalkArea();
+                    }
                 }
             }
             else if (e.KeyCode == Keys.Enter)
@@ -165,7 +183,7 @@ namespace FinderQuest
 
         private void HelpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Press arrow key to move the player. \n\nPress Enter to talk with the person. " + "\n\nPress y key to answer the question. \n\nPress Esc to exit the talk area.", "How to Play");
+            MessageBox.Show("Press W, A, S, D key to move foward, left, back, right. \n\nPress F to talk with the person. " + "\n\nPress Y key to answer the question. \n\nPress Esc to exit the talk area.", "How to Play");
         }
 
         private void StartNewGameToolStripMenuItem_Click(object sender, EventArgs e)
@@ -225,15 +243,38 @@ namespace FinderQuest
 
         private void StartGame()
         {
+            name = textBoxName.Text;
+            if (name == "")
+            {
+                MessageBox.Show("Name can not be empty!");
+                return;
+            }
+            if (radioButtonEasy.Checked)
+            {
+                difficulty = "easy";
+                time = new Time(0, 10, 0);
+            }
+            else if (radioButtonMedium.Checked)
+            {
+                difficulty = "medium";
+                time = new Time(0, 5, 0);
+            }
+            else if (radioButtonHard.Checked)
+            {
+                difficulty = "hard";
+                time = new Time(0, 2, 0);
+            }
+            listUsername.Add(name);
             DisableButtons();
+            panelIdentitas.Visible = false;
             panelGame.Visible = true;
+            panelViewPort.Visible = true;
             labelTime.Visible = true;
             playPauseToolStripMenuItem.Enabled = true;
             startNewGameToolStripMenuItem.Enabled = false;
 
             playPauseToolStripMenuItem.Text = "Pause Game";
 
-            time = new Time(0, 1, 0);
             timerTime.Start();
 
             if (currentWalkArea != null)
@@ -244,7 +285,7 @@ namespace FinderQuest
             GenerateWalkArea();
             floorWall.HitBoxLibrary(currentWalkArea.NoArea);
 
-            player = new Player("Goof Juice", Properties.Resources.player_front, new Point(395, 50), time);
+            player = new Player(name, Properties.Resources.player_front, new Point(395, 50), time);
             map = currentWalkArea.Background;
             pbMap.Image = map;
             this.BackgroundImage = null;
@@ -265,7 +306,23 @@ namespace FinderQuest
 
             pictureBoxStart.Visible = false;
         }
+        private void BackToMenu()
+        {
+            this.BackgroundImage = Resources.homeMenu;
+            timerTime.Stop();
+            panelGame.Visible = false;
+            panelViewPort.Visible = false;
+            panelIdentitas.Visible = true;
+            panelEsc.Visible = false;
+            pictureBoxStart.Visible = true;
 
+            textBoxName.Text = "";
+            buttonLeaderboard.Visible = true;
+            buttonS.Visible = true;
+            buttonH.Visible = true;
+            buttonEx.Visible = true;
+            
+        }
         private void GameOver()
         {
             timerTime.Stop();
@@ -320,6 +377,8 @@ namespace FinderQuest
             panelTalkArea.Visible = true;
             panelTalkArea.BringToFront();
 
+            this.Controls.Remove(activePerson.Picture);
+
             activePerson.Picture.Size = new Size(200, 300);
             activePerson.Picture.Location = new Point(300, 100);
             activePerson.DisplayPicture(panelTalkArea);
@@ -338,11 +397,17 @@ namespace FinderQuest
         {
             player.Picture.Visible = true;
             enterTalkArea = false;
+            panelTalkArea.Visible = false;
 
             panelTalkArea.Visible = false;
             activePerson.Picture.Size = new Size(60, 80);
             activePerson.Picture.Location = activePersonLastLocation;
-            activePerson.DisplayPicture(this);
+
+            activePerson.Picture.Visible = false;
+            pbMap.Invalidate();
+
+            //activePerson.DisplayPicture(pbMap);
+            //pbPlayer.BringToFront();
 
             PlaySound("walk area");
         }
@@ -478,7 +543,7 @@ namespace FinderQuest
 
         private void buttonBacktoMenu_Click(object sender, EventArgs e)
         {
-            this.Close();
+            BackToMenu();
             backSoundPlayer.controls.stop();
         }
 
@@ -489,7 +554,7 @@ namespace FinderQuest
 
         private void buttonHelp_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Press arrow key to move the player. \n\nPress Enter to talk with the person. " + "\n\nPress y key to answer the question. \n\nPress Esc to exit the talk area.", "How to Play");
+            MessageBox.Show("Press W, A, S, D key to move foward, left, back, right. \n\nPress F to talk with the person. " + "\n\nPress Y key to answer the question. \n\nPress Esc to exit the talk area.", "How to Play");
         }
 
         private void buttonLeaderboard_Click(object sender, EventArgs e)
@@ -519,7 +584,7 @@ namespace FinderQuest
 
         private void buttonH_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Press arrow key to move the player. \n\nPress Enter to talk with the person. " + "\n\nPress y key to answer the question. \n\nPress Esc to exit the talk area.", "How to Play");
+            MessageBox.Show("Press W, A, S, D key to move foward, left, back, right. \n\nPress F to talk with the person. " + "\n\nPress Y key to answer the question. \n\nPress Esc to exit the talk area.", "How to Play");
         }
 
         private void buttonS_Click(object sender, EventArgs e)
@@ -554,16 +619,26 @@ namespace FinderQuest
             Graphics g = e.Graphics;
             foreach (Persons npc in currentWalkArea.ListPersons)
             {
-                if(npc.SolvedStatus == false && npc.Picture.Visible)
+                if(npc.Picture.Image != null)
+                {
+                    g.DrawImage(npc.Picture.Image, npc.Picture.Location.X, npc.Picture.Location.Y, 60, 80);
+                }
+
+                if (npc.SolvedStatus == false)
                 {
                     int overlayX = npc.Picture.Location.X + (npc.Picture.Width / 2) - 15;
                     int overlayY = npc.Picture.Location.Y - 35;
-
-                    if (npc.Picture.Image != null)
-                    {
-                        g.DrawImage(npc.Picture.Image, overlayX, overlayY, 60, 80);
-                    }
                 }
+                //if(npc.SolvedStatus == false && npc.Picture.Visible)
+                //{
+                //    int overlayX = npc.Picture.Location.X + (npc.Picture.Width / 2) - 15;
+                //    int overlayY = npc.Picture.Location.Y - 35;
+
+                //    if (npc.Picture.Image != null)
+                //    {
+                //        g.DrawImage(npc.Picture.Image, overlayX, overlayY, 60, 80);
+                //    }
+                //}
             }
         }
     }

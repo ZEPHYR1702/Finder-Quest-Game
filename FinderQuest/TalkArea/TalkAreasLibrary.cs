@@ -13,6 +13,7 @@ namespace FinderQuest.TalkArea
         {
             {1, new TalkAreasData("NPC Box", Properties.Resources.talkarea_npc) },
             {2, new TalkAreasData("Boss Showdown", Properties.Resources.talkarea_boss) },
+            {3, new TalkAreasData("Boss Showdown", Properties.Resources.talkarea_boss) },
         };
     }
 }
