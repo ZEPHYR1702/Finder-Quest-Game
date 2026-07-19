@@ -369,54 +369,41 @@ namespace FinderQuest
 
         private void NextWalkArea()
         {
+            enterTalkArea = false;
             if (activePerson.NoPerson == 15 || activePerson.NoPerson == 16)
             {
-                currentWalkArea?.RemoveAllPerson();
                 currentWalkArea = WalkAreasLibrary.CreateArea(currentWalkArea.NoArea += 1);
-                floorWall.HitBoxLibrary(currentWalkArea.NoArea);
-
-                map = currentWalkArea.Background;
-                pbMap.Image = map;
-                this.BackgroundImage = null;
-                this.BackColor = Color.Black;
-
-                pbPlayer.Parent = pbMap;
-                pbPlayer.BringToFront();
-                pbPlayer.Location = player.Picture.Location;
-                pbPlayer.Image = player.Picture.Image;
-
-                UpdateCam();
-                labelPlayer.Text = player.DisplayData();
-
-                PlaySound("walk area");
-
-                paused = false;
-                playPauseToolStripMenuItem.Text = "Pause Game";
+                
             }
             else if (activePerson.NoPerson == 17 || activePerson.NoPerson == 18)
             {
-                currentWalkArea?.RemoveAllPerson();
                 currentWalkArea = WalkAreasLibrary.CreateArea(currentWalkArea.NoArea -= 1);
-                floorWall.HitBoxLibrary(currentWalkArea.NoArea);
-
-                map = currentWalkArea.Background;
-                pbMap.Image = map;
-                this.BackgroundImage = null;
-                this.BackColor = Color.Black;
-
-                pbPlayer.Parent = pbMap;
-                pbPlayer.BringToFront();
-                pbPlayer.Location = player.Picture.Location;
-                pbPlayer.Image = player.Picture.Image;
-
-                UpdateCam();
-                labelPlayer.Text = player.DisplayData();
-
-                PlaySound("walk area");
-
-                paused = false;
-                playPauseToolStripMenuItem.Text = "Pause Game";
             }
+            else
+            {
+                return;
+            }
+            floorWall.HitBoxLibrary(currentWalkArea.NoArea);
+
+            map = currentWalkArea.Background;
+            pbMap.Image = map;
+            this.BackgroundImage = null;
+            this.BackColor = Color.Black;
+
+            pbPlayer.Parent = pbMap;
+            pbPlayer.BringToFront();
+            pbPlayer.Location = player.Picture.Location;
+            pbPlayer.Image = player.Picture.Image;
+
+            UpdateCam();
+            labelPlayer.Text = player.DisplayData();
+
+            PlaySound("walk area");
+
+            paused = false;
+            playPauseToolStripMenuItem.Text = "Pause Game";
+
+            pbMap.Refresh();
         }
 
         private void GenerateTalkArea()
@@ -688,9 +675,9 @@ namespace FinderQuest
             {
                 if(npc.Picture.Image != null)
                 {
-                    g.DrawImage(npc.Picture.Image, npc.Picture.Location.X, npc.Picture.Location.Y, 60, 80);
+                    g.DrawImage(npc.Picture.Image, npc.Picture.Location.X, npc.Picture.Location.Y, npc.Picture.Size.Width, npc.Picture.Size.Height);
                 }
-
+                S
                 if (npc.SolvedStatus == false)
                 {
                     int overlayX = npc.Picture.Location.X + (npc.Picture.Width / 2) - 15;

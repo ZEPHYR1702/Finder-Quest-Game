@@ -19,13 +19,13 @@ namespace FinderQuest.Class
         private Questions personQuestion;
         private bool solvedStatus;
 
-        public Persons(int noPerson, string name, Image image, Point location, string dialog)
+        public Persons(int noPerson, string name, Image image, Point location, Size size, string dialog)
         {
             this.NoPerson = noPerson;
             this.Name = name;
             this.Picture = new PictureBox();
             this.Picture.Image = image;
-            this.Picture.Size = new Size(60, 80);
+            this.Picture.Size = size;
             this.Picture.Location = location;
             this.Dialog = dialog;
             this.SolvedStatus = false;
@@ -113,7 +113,14 @@ namespace FinderQuest.Class
             this.Picture.SizeMode = PictureBoxSizeMode.StretchImage;
             this.Picture.BackColor = Color.Transparent;
             this.Picture.BringToFront();
-            this.Picture.Image = Properties.Resources.npc_front;
+            if (this.NoPerson == 14)
+            {
+                this.Picture.Image = Properties.Resources.npc_front;
+            }
+            else
+            {
+                this.Picture.Image = Properties.Resources.boss_smo;
+            }
         }
 
         public void Person()

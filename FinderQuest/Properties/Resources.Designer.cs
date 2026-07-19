@@ -73,6 +73,16 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap boss_smo {
+            get {
+                object obj = ResourceManager.GetObject("boss_smo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap emptyFloor {
             get {
                 object obj = ResourceManager.GetObject("emptyFloor", resourceCulture);

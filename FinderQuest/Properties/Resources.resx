@@ -121,6 +121,9 @@
   <data name="boss_enemy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\boss_enemy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="boss_smo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\boss_smo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="emptyFloor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\emptyFloor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
