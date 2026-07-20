@@ -155,7 +155,7 @@ namespace FinderQuest
                     EnterTalkArea();
                 }
             }
-            else if (e.KeyCode == Keys.F)
+            else if (e.KeyCode == listKeyBinds["Interact"])
             {
                 if (panelGame.Visible)
                 {
@@ -419,6 +419,8 @@ namespace FinderQuest
         {
             if (activePerson.NoPerson <= 14)
             {
+                activePersonLastLocation = activePerson.Picture.Location;
+
                 GenerateTalkArea();
 
                 player.Picture.Visible = false;
