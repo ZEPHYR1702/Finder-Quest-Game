@@ -67,14 +67,20 @@ namespace FinderQuest.Class
         public bool CheckFinishAllQuestions()
         {
             int numSolved = 0;
+            int totalQuestions = 0;
             foreach (Persons person in this.ListPersons)
             {
-                if (person.SolvedStatus == true)
+                if (person.NoPerson <= 14)
                 {
-                    numSolved++;
+                    totalQuestions++; 
+
+                    if (person.SolvedStatus == true)
+                    {
+                        numSolved++; 
+                    }
                 }
             }
-            if(numSolved == this.ListPersons.Count)
+            if(totalQuestions > 0 && numSolved == totalQuestions)
             {
                 return true;
             }

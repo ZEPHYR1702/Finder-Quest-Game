@@ -41,8 +41,21 @@ namespace FinderQuest.WalkArea
                     createWalkArea = new WalkAreas("Floor 3", Properties.Resources.floor3, 3);
                     createWalkArea.AddPerson(14, "Test Subject", Properties.Resources.boss_enemy, new Point(715, 0), new Size(250, 150), "Perish, human!");
                     createWalkArea.AddPerson(18, "StairUp", Properties.Resources.stairUp, new Point(13, 2), new Size(60, 80), "");
+                    createWalkArea.AddPerson(19, "StairDown", Properties.Resources.stairDown, new Point(918, 200), new Size(60, 80), "");
                     break;
             }
+
+            if (createWalkArea != null && createWalkArea.ListPersons != null)
+            {
+                foreach (Persons npc in createWalkArea.ListPersons)
+                {
+                    if (npc.NoPerson >= 15)
+                    {
+                        npc.SolvedStatus = true;
+                    }
+                }
+            }
+
             return createWalkArea;
         }
     }

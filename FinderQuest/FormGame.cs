@@ -73,7 +73,6 @@ namespace FinderQuest
 
             panelEsc.Visible = false;
 
-            playPauseToolStripMenuItem.Enabled = false;
             timerTime.Interval = 1000;
 
             this.KeyPreview = true;
@@ -190,54 +189,6 @@ namespace FinderQuest
                 }
             }
         }
-
-        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void HelpToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Press W, A, S, D key to move foward, left, back, right. \n\nPress F to talk with the person. " + "\n\nPress Y key to answer the question. \n\nPress Esc to exit the talk area.", "How to Play");
-        }
-
-        private void StartNewGameToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            StartGame();
-        }
-        private void leaderboardToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormLeaderboard form = new FormLeaderboard();
-            form.ShowDialog(this);
-        }
-        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            using (FormSettings form = new FormSettings(listKeyBinds, backSoundPlayer))
-            {
-                if (form.ShowDialog(this) == DialogResult.OK)
-                {
-                    this.listKeyBinds = form.UpdateKeys;
-                    MessageBox.Show("Keybinds updated successfully");
-                }
-            }
-        }
-        private void playPauseToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if(playPauseToolStripMenuItem.Text == "Pause Game")
-            {
-                paused = true;
-                timerTime.Stop();
-                playPauseToolStripMenuItem.Text = "Play Game";
-                backSoundPlayer.controls.pause();
-            }
-            else
-            {
-                paused = false;
-                timerTime.Start();
-                playPauseToolStripMenuItem.Text = "Pause Game";
-                backSoundPlayer.controls.play();
-            }
-        }
         private void TimerTime_Tick(object sender, EventArgs e)
         {
             time.AddWithSecond(-1);
@@ -285,10 +236,6 @@ namespace FinderQuest
             panelGame.Visible = true;
             panelViewPort.Visible = true;
             labelTime.Visible = true;
-            playPauseToolStripMenuItem.Enabled = true;
-            startNewGameToolStripMenuItem.Enabled = false;
-
-            playPauseToolStripMenuItem.Text = "Pause Game";
 
             timerTime.Start();
 
@@ -317,7 +264,6 @@ namespace FinderQuest
             PlaySound("walk area");
 
             paused = false;
-            playPauseToolStripMenuItem.Text = "Pause Game";
 
             pictureBoxStart.Visible = false;
         }
@@ -344,8 +290,9 @@ namespace FinderQuest
 
             panelGame.Visible = false;
             labelTime.Visible = false;
-            startNewGameToolStripMenuItem.Enabled = true;
             AddLeaderboardScore();
+            BackToMenu();
+            MessageBox.Show("Check leaderboard if you confidence");
         }
         private void GenerateWalkArea()
         {
@@ -372,16 +319,44 @@ namespace FinderQuest
             enterTalkArea = false;
             if (activePerson.NoPerson == 15 || activePerson.NoPerson == 16)
             {
-                currentWalkArea = WalkAreasLibrary.CreateArea(currentWalkArea.NoArea += 1);
-                
+                if (currentWalkArea.CheckFinishAllQuestions() == true)
+                {
+                    currentWalkArea = WalkAreasLibrary.CreateArea(currentWalkArea.NoArea += 1);
+                }
+                else
+                {
+                    MessageBox.Show("Answer all the question before you go!");
+                    return;
+                }
             }
             else if (activePerson.NoPerson == 17 || activePerson.NoPerson == 18)
             {
-                currentWalkArea = WalkAreasLibrary.CreateArea(currentWalkArea.NoArea -= 1);
+                MessageBox.Show("You have completed floor 1");
+            }
+            else if (activePerson.NoPerson == 19)
+            {
+                if (currentWalkArea.CheckFinishAllQuestions() == true)
+                {
+                    backSoundPlayer.controls.stop();
+                    PlaySound("win game");
+                    MessageBox.Show("you win, i got OCD");
+                    SaveToFile(dataName);
+                    GameOver();
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Defeat the last one first!");
+                    return;
+                }
             }
             else
             {
                 return;
+            }
+            if (currentWalkArea != null)
+            {
+                labelArea.Text = currentWalkArea.DisplayData();
             }
             floorWall.HitBoxLibrary(currentWalkArea.NoArea);
 
@@ -401,7 +376,6 @@ namespace FinderQuest
             PlaySound("walk area");
 
             paused = false;
-            playPauseToolStripMenuItem.Text = "Pause Game";
 
             pbMap.Refresh();
         }
@@ -500,20 +474,19 @@ namespace FinderQuest
             {
                 if (currentWalkArea.CheckFinishAllQuestions() == true)
                 {
-                    if (currentWalkArea.NoArea < numOfWalkArea)
-                    {
-                        currentWalkArea.NoArea += 1;
-                        GenerateWalkArea();
-                    }
-                    else
-                    {
-                        backSoundPlayer.controls.stop();
-                        PlaySound("win game");
-                        MessageBox.Show("you win, i got OCD");
-                        AddLeaderboardScore();
-                        SaveToFile(dataName);
-                        GameOver();
-                    }
+                    //if (currentWalkArea.NoArea < numOfWalkArea)
+                    //{
+                    //    currentWalkArea.NoArea += 1;
+                    //    GenerateWalkArea();
+                    //}
+                    //else
+                    //{
+                    //    backSoundPlayer.controls.stop();
+                    //    PlaySound("win game");
+                    //    MessageBox.Show("you win, i got OCD");
+                    //    SaveToFile(dataName);
+                    //    GameOver();
+                    //}
                 }
             }
         }
