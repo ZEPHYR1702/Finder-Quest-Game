@@ -40,29 +40,26 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("OCR A Extended", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(48, 389);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(36, 316);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 15);
+            this.label1.Size = new System.Drawing.Size(61, 12);
             this.label1.TabIndex = 1;
             this.label1.Text = "Answer:";
             // 
             // textBoxAnswer
             // 
             this.textBoxAnswer.Font = new System.Drawing.Font("OCR A Extended", 8.25F);
-            this.textBoxAnswer.Location = new System.Drawing.Point(137, 384);
-            this.textBoxAnswer.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxAnswer.Location = new System.Drawing.Point(103, 312);
             this.textBoxAnswer.Name = "textBoxAnswer";
-            this.textBoxAnswer.Size = new System.Drawing.Size(132, 22);
+            this.textBoxAnswer.Size = new System.Drawing.Size(100, 19);
             this.textBoxAnswer.TabIndex = 2;
             // 
             // buttonSubmit
             // 
             this.buttonSubmit.Font = new System.Drawing.Font("OCR A Extended", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSubmit.Location = new System.Drawing.Point(279, 380);
-            this.buttonSubmit.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonSubmit.Location = new System.Drawing.Point(209, 309);
             this.buttonSubmit.Name = "buttonSubmit";
-            this.buttonSubmit.Size = new System.Drawing.Size(100, 28);
+            this.buttonSubmit.Size = new System.Drawing.Size(75, 23);
             this.buttonSubmit.TabIndex = 3;
             this.buttonSubmit.Text = "SUBMIT";
             this.buttonSubmit.UseVisualStyleBackColor = true;
@@ -73,11 +70,10 @@
             this.labelQuestion.AccessibleName = "labelQuestion";
             this.labelQuestion.AutoSize = true;
             this.labelQuestion.BackColor = System.Drawing.Color.Transparent;
-            this.labelQuestion.Font = new System.Drawing.Font("OCR A Extended", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelQuestion.Location = new System.Drawing.Point(45, 345);
-            this.labelQuestion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelQuestion.Font = new System.Drawing.Font("OCR A Extended", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelQuestion.Location = new System.Drawing.Point(34, 280);
             this.labelQuestion.Name = "labelQuestion";
-            this.labelQuestion.Size = new System.Drawing.Size(147, 25);
+            this.labelQuestion.Size = new System.Drawing.Size(107, 17);
             this.labelQuestion.TabIndex = 4;
             this.labelQuestion.Text = "Question:";
             // 
@@ -87,28 +83,26 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("OCR A Extended", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(513, 308);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(385, 250);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 25);
+            this.label2.Size = new System.Drawing.Size(69, 20);
             this.label2.TabIndex = 5;
             this.label2.Text = "Clone";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // FormQuestion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::FinderQuest.Properties.Resources.talkarea_npc;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(677, 503);
+            this.ClientSize = new System.Drawing.Size(508, 409);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.labelQuestion);
             this.Controls.Add(this.buttonSubmit);
             this.Controls.Add(this.textBoxAnswer);
             this.Controls.Add(this.label1);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormQuestion";
             this.Text = "FormQuestion";
             this.Load += new System.EventHandler(this.FormQuestion_Load);

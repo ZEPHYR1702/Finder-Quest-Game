@@ -400,22 +400,27 @@ namespace FinderQuest
                 GenerateTalkArea();
 
                 player.Picture.Visible = false;
-
+                
                 panelTalkArea.BackgroundImage = Properties.Resources.emptyFloor;
                 panelTalkArea.Visible = true;
                 panelTalkArea.BringToFront();
 
-                this.Controls.Remove(activePerson.Picture);
+                //this.Controls.Remove(activePerson.Picture);
 
-                activePerson.Picture.Size = new Size(200, 300);
+                activePerson.Picture.Size = new Size(210, 280);
+                if (activePerson.NoPerson == 14)
+                {
+                    activePerson.Picture.Size = new Size(250, 150);
+                }
                 activePerson.Picture.Location = new Point(300, 100);
                 activePerson.DisplayPicture(panelTalkArea);
+                activePerson.Picture.Visible = true;
 
                 if (activePerson.SolvedStatus == true)
                 {
                     activePerson.Dialog = "Success";
                 }
-
+                
                 activePerson.DisplayDialog(panelTalkArea);
 
                 PlaySound("talk area");
@@ -433,7 +438,12 @@ namespace FinderQuest
             panelTalkArea.Visible = false;
 
             panelTalkArea.Visible = false;
+            
             activePerson.Picture.Size = new Size(60, 80);
+            if (activePerson.NoPerson == 14)
+            {
+                activePerson.Picture.Size = new Size(250, 150);
+            }
             activePerson.Picture.Location = activePersonLastLocation;
 
             activePerson.Picture.Visible = false;
@@ -443,6 +453,7 @@ namespace FinderQuest
             //pbPlayer.BringToFront();
 
             PlaySound("walk area");
+            pbMap.Refresh();
         }
 
         private void PlaySound(string type)

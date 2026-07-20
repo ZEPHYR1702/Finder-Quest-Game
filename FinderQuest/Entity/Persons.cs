@@ -113,14 +113,6 @@ namespace FinderQuest.Class
             this.Picture.SizeMode = PictureBoxSizeMode.StretchImage;
             this.Picture.BackColor = Color.Transparent;
             this.Picture.BringToFront();
-            if (this.NoPerson == 14)
-            {
-                this.Picture.Image = Properties.Resources.boss_smo;
-            }
-            else
-            {
-                this.Picture.Image = Properties.Resources.npc_front;
-            }
         }
 
         public void Person()

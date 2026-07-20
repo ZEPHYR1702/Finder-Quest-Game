@@ -297,10 +297,31 @@
     <None Include="Resources\floor2.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\boss_smo.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\floor3.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\boss_smo.png" />
+    <None Include="Resources\BacksoundTalkArea.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BacksoundWalkArea.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LoseGame.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Main.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MainMenu.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Question.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WinGame.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
