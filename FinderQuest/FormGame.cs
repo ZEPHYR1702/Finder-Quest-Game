@@ -79,6 +79,8 @@ namespace FinderQuest
             this.DoubleBuffered = true;
 
             panelTalkArea.Visible = false;
+
+            PlaySound("main menu");
         }
 
         private void FormGame_KeyDown(object sender, KeyEventArgs e)
@@ -447,14 +449,19 @@ namespace FinderQuest
         {
             otherSoundPlayer = new WindowsMediaPlayer();
 
-            if (type == "walk area")
+            if(type == "main menu")
             {
-                backSoundPlayer.URL = Application.StartupPath + "\\sound\\BacksoundWalkArea.mp3";
+                backSoundPlayer.URL = Application.StartupPath + "\\sound\\MainMenu.mp3";
+                backSoundPlayer.settings.setMode("loop", true);
+            }
+            else if (type == "walk area")
+            {
+                backSoundPlayer.URL = Application.StartupPath + "\\sound\\Main.mp3";
                 backSoundPlayer.settings.setMode("loop", true);
             }
             else if (type == "talk area")
             {
-                backSoundPlayer.URL = Application.StartupPath + "\\sound\\BacksoundTalkArea.mp3";
+                backSoundPlayer.URL = Application.StartupPath + "\\sound\\Question.mp3";
                 backSoundPlayer.settings.setMode("loop", true);
             }
             else if (type == "lose game")
