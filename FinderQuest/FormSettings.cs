@@ -33,6 +33,8 @@ namespace FinderQuest
 
             buttonMoveLeft.Text = UpdateKeys["Move Left"].ToString();
             buttonMoveRight.Text = UpdateKeys["Move Right"].ToString();
+            buttonMoveUp.Text = UpdateKeys["Move Up"].ToString();
+            buttonMoveDown.Text = UpdateKeys["Move Down"].ToString();
             buttonInteract.Text = UpdateKeys["Interact"].ToString();
         }
         public Dictionary<string, Keys> UpdateKeys { get => updateKeys; private set => updateKeys = value; }
@@ -66,6 +68,18 @@ namespace FinderQuest
         {
             buttonMoveLeft.Text = "Press a Key...";
             currentMap = "Move Right";
+        }
+
+        private void buttonMoveUp_Click(object sender, EventArgs e)
+        {
+            buttonMoveUp.Text = "Press a Key...";
+            currentMap = "Move Up";
+        }
+
+        private void buttonMoveDown_Click(object sender, EventArgs e)
+        {
+            buttonMoveUp.Text = "Press a Key...";
+            currentMap = "Move Down";
         }
 
         private void buttonInteract_Click(object sender, EventArgs e)
