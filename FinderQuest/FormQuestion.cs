@@ -28,6 +28,11 @@ namespace FinderQuest
             labelQuestion.Text = formGame.activePerson.Question.Question;
 
             this.KeyPreview = true;
+
+            if (formGame.activePerson.NoPerson == 14)
+            {
+                this.BackgroundImage = Properties.Resources.talkarea_boss;
+            }
         }
 
         private void buttonSubmit_Click(object sender, EventArgs e)

@@ -13,17 +13,17 @@ namespace FinderQuest.TalkArea
         {
             {1, new TalkAreasData("NPC Box", Properties.Resources.talkarea_npc) },
             {2, new TalkAreasData("NPC Box", Properties.Resources.talkarea_npc) },
-            {3, new TalkAreasData("Boss Showdown", Properties.Resources.talkarea_boss) },
-            {4, new TalkAreasData("Boss Showdown", Properties.Resources.talkarea_boss) },
-            {5, new TalkAreasData("Boss Showdown", Properties.Resources.talkarea_boss) },
-            {6, new TalkAreasData("Boss Showdown", Properties.Resources.talkarea_boss) },
-            {7, new TalkAreasData("Boss Showdown", Properties.Resources.talkarea_boss) },
-            {8, new TalkAreasData("Boss Showdown", Properties.Resources.talkarea_boss) },
-            {9, new TalkAreasData("Boss Showdown", Properties.Resources.talkarea_boss) },
-            {10, new TalkAreasData("Boss Showdown", Properties.Resources.talkarea_boss) },
-            {11, new TalkAreasData("Boss Showdown", Properties.Resources.talkarea_boss) },
-            {12, new TalkAreasData("Boss Showdown", Properties.Resources.talkarea_boss) },
-            {13, new TalkAreasData("Boss Showdown", Properties.Resources.talkarea_boss) },
+            {3, new TalkAreasData("NPC Box", Properties.Resources.talkarea_npc) },
+            {4, new TalkAreasData("NPC Box", Properties.Resources.talkarea_npc) },
+            {5, new TalkAreasData("NPC Box", Properties.Resources.talkarea_npc) },
+            {6, new TalkAreasData("NPC Box", Properties.Resources.talkarea_npc) },
+            {7, new TalkAreasData("NPC Box", Properties.Resources.talkarea_npc) },
+            {8, new TalkAreasData("NPC Box", Properties.Resources.talkarea_npc) },
+            {9, new TalkAreasData("NPC Box", Properties.Resources.talkarea_npc) },
+            {10, new TalkAreasData("NPC Box", Properties.Resources.talkarea_npc) },
+            {11, new TalkAreasData("NPC Box", Properties.Resources.talkarea_npc) },
+            {12, new TalkAreasData("NPC Box", Properties.Resources.talkarea_npc) },
+            {13, new TalkAreasData("NPC Box", Properties.Resources.talkarea_npc) },
             {14, new TalkAreasData("Boss Showdown", Properties.Resources.talkarea_boss) }
         };
     }
