@@ -24,6 +24,7 @@ namespace FinderQuest.TalkArea
             {11, new TalkAreasData("Boss Showdown", Properties.Resources.talkarea_boss) },
             {12, new TalkAreasData("Boss Showdown", Properties.Resources.talkarea_boss) },
             {13, new TalkAreasData("Boss Showdown", Properties.Resources.talkarea_boss) },
+            {14, new TalkAreasData("Boss Showdown", Properties.Resources.talkarea_boss) }
         };
     }
 }

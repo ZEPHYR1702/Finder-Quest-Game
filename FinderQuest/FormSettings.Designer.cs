@@ -66,7 +66,7 @@
             // 
             // trackBarMasterVolume
             // 
-            this.trackBarMasterVolume.Location = new System.Drawing.Point(108, 183);
+            this.trackBarMasterVolume.Location = new System.Drawing.Point(126, 183);
             this.trackBarMasterVolume.Maximum = 100;
             this.trackBarMasterVolume.Name = "trackBarMasterVolume";
             this.trackBarMasterVolume.Size = new System.Drawing.Size(104, 45);
