@@ -54,6 +54,7 @@ namespace FinderQuest
 
         //Audio
         WindowsMediaPlayer backSoundPlayer = new WindowsMediaPlayer();
+        WindowsMediaPlayer questionPlayer = new WindowsMediaPlayer();
         WindowsMediaPlayer otherSoundPlayer;
 
         bool paused = false;
@@ -91,7 +92,6 @@ namespace FinderQuest
                 {
                     player.StateMachine.TransitionTo(new MoveRightState());
                     player.Tick();
-                    HandleAreaEdgeReached();
                     UpdateCam();
                     CheckCollision(5, 0);
                 }
@@ -102,7 +102,6 @@ namespace FinderQuest
                 {
                     player.StateMachine.TransitionTo(new MoveLeftState());
                     player.Tick();
-                    HandleAreaEdgeReached();
                     UpdateCam();
                     CheckCollision(-5, 0);
                 }
@@ -113,7 +112,6 @@ namespace FinderQuest
                 {
                     player.StateMachine.TransitionTo(new MoveUpState());
                     player.Tick();
-                    HandleAreaEdgeReached();
                     UpdateCam();
                     CheckCollision(0, -5);
                 }
@@ -124,7 +122,6 @@ namespace FinderQuest
                 {
                     player.StateMachine.TransitionTo(new MoveDownState());
                     player.Tick();
-                    HandleAreaEdgeReached();
                     UpdateCam();
                     CheckCollision(0, 5);
                 }
@@ -405,8 +402,6 @@ namespace FinderQuest
                 panelTalkArea.Visible = true;
                 panelTalkArea.BringToFront();
 
-                //this.Controls.Remove(activePerson.Picture);
-
                 activePerson.Picture.Size = new Size(210, 280);
                 if (activePerson.NoPerson == 14)
                 {
@@ -423,6 +418,7 @@ namespace FinderQuest
                 
                 activePerson.DisplayDialog(panelTalkArea);
 
+                backSoundPlayer.controls.pause();
                 PlaySound("talk area");
             }
             else
@@ -449,10 +445,8 @@ namespace FinderQuest
             activePerson.Picture.Visible = false;
             pbMap.Invalidate();
 
-            //activePerson.DisplayPicture(pbMap);
-            //pbPlayer.BringToFront();
-
-            PlaySound("walk area");
+            backSoundPlayer.controls.play();
+            questionPlayer.controls.stop();
             pbMap.Refresh();
         }
 
@@ -472,8 +466,8 @@ namespace FinderQuest
             }
             else if (type == "talk area")
             {
-                backSoundPlayer.URL = Application.StartupPath + "\\sound\\Question.mp3";
-                backSoundPlayer.settings.setMode("loop", true);
+                questionPlayer.URL = Application.StartupPath + "\\sound\\Question.mp3";
+                questionPlayer.settings.setMode("loop", true);
             }
             else if (type == "lose game")
             {
@@ -484,29 +478,6 @@ namespace FinderQuest
                 backSoundPlayer.URL = Application.StartupPath + "\\sound\\WinGame.mp3";
             }
             otherSoundPlayer.controls.play();
-        }
-
-        public void HandleAreaEdgeReached()
-        {
-            if (player.Picture.Location.X + player.Picture.Width >= this.Width - 20)
-            {
-                if (currentWalkArea.CheckFinishAllQuestions() == true)
-                {
-                    //if (currentWalkArea.NoArea < numOfWalkArea)
-                    //{
-                    //    currentWalkArea.NoArea += 1;
-                    //    GenerateWalkArea();
-                    //}
-                    //else
-                    //{
-                    //    backSoundPlayer.controls.stop();
-                    //    PlaySound("win game");
-                    //    MessageBox.Show("you win, i got OCD");
-                    //    SaveToFile(dataName);
-                    //    GameOver();
-                    //}
-                }
-            }
         }
 
         public void AddLeaderboardScore()
@@ -641,7 +612,7 @@ namespace FinderQuest
                 if (form.ShowDialog(this) == DialogResult.OK)
                 {
                     this.listKeyBinds = form.UpdateKeys;
-                    MessageBox.Show("Keybinds updated successfully");
+                    MessageBox.Show("Settings updated successfully");
                 }
             }
         }
@@ -676,16 +647,6 @@ namespace FinderQuest
                     int overlayX = npc.Picture.Location.X + (npc.Picture.Width / 2) - 15;
                     int overlayY = npc.Picture.Location.Y - 35;
                 }
-                //if(npc.SolvedStatus == false && npc.Picture.Visible)
-                //{
-                //    int overlayX = npc.Picture.Location.X + (npc.Picture.Width / 2) - 15;
-                //    int overlayY = npc.Picture.Location.Y - 35;
-
-                //    if (npc.Picture.Image != null)
-                //    {
-                //        g.DrawImage(npc.Picture.Image, overlayX, overlayY, 60, 80);
-                //    }
-                //}
             }
         }
     }
